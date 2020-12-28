@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
 import styles from './styles';
 import * as base from 'native-base'
 import Constants from 'expo-constants';
@@ -16,13 +17,13 @@ export default class Login extends Component{
 		}
 		this.executeLogin = this.executeLogin.bind(this)
 	}
-	componentWillMount(){ this.setState({device_id: Constants.deviceId}) }
-	componentDidMount(){}
+	componentWillMount(){}
+	componentDidMount(){ this.setState({device_id: Constants.deviceId}) }
 	executeLogin(){
 		requestLogin(this.state.serviceNum, this.state.password, this.state.device_id).then((response) => {
 		if(response.status == 200){
 			AsyncStorage.setItem('token', response.data['data']['token']);
-			this.props.navigation.navigate('homeStackNav')
+			this.props.navigation.navigate('Home')
 		}
 		else{ console.log('Invalid User')} })
 	}

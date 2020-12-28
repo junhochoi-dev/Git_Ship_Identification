@@ -53,6 +53,9 @@ export default class Signup1 extends Component{
 							<base.Label>비밀번호확인</base.Label>
 							<base.Input onChangeText={(passwordCheck) => this.setState({passwordCheck})} secureTextEntry={ true }/>
 						</base.Item>
+						<base.Button bordered onPress={()=>this.props.navigation.popToTop()}>
+							<base.Text>취소</base.Text>
+						</base.Button>
 						<base.Button bordered onPress={this.executeSignup1}>
 							<base.Text>다음</base.Text>
 						</base.Button>
