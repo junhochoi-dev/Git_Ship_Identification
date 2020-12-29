@@ -4,6 +4,8 @@ import { Image } from 'react-native';
 import * as base from 'native-base';
 import * as ImagePicker from 'expo-image-picker';
 
+import { inputDetail } from './inputDetail';
+
 var BUTTONS = [
   { text: "카메라로 등록하기", icon: "ios-camera", iconColor: "#2c8ef4" },
   { text: "갤러리에서 등록하기", icon: "ios-images", iconColor: "#f42ced" },
@@ -17,9 +19,11 @@ export default class Register extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			img: '',
-			flag: 'key1',
 			clicked: null,
+			
+			img: '',
+			base64: '',
+			flag: 'Normal',
 		};
 		this.pickImage = this.pickImage.bind(this);
 		this.pickPhoto = this.pickPhoto.bind(this);
@@ -36,38 +40,52 @@ export default class Register extends Component{
 	async pickImage() {
 		await ImagePicker.launchImageLibraryAsync({
 			mediaTypes: ImagePicker.MediaTypeOptions.All,
+			base64: true,
 			allowsEditing: true,
-			aspect: [4, 3],
+			aspect: [1, 1],
 			quality: 1,
-		}).then((result) => this.setState({img: result.uri}))
+		}).then((result) => this.setState({img: result.uri, base64: result.base64}))
 	};
 	
 	render(){
 		let detailInput
-		if(this.state.selected == 'key1') { detailInput = <base.Text>일반선박</base.Text> }
-		else if(this.state.selected == 'key2') { detailInput = <base.Text>유기,폐선박</base.Text> }
+		if(this.state.flag == 'Normal') { detailInput = inputDetail(this.state.flag) }
+		else if(this.state.flag == 'Wasted') { detailInput = inputDetail(this.state.flag) }
 		
-	
-		if(this.state.clicked == 0) {
-			this.pickPhoto();
-			this.setState({clicked: null});
+		switch(this.state.clicked){
+			case 0:{
+				this.pickPhoto();
+				this.setState({clicked: null});
+				break;
+			}
+			case 1:{
+				this.pickImage();
+				this.setState({clicked: null});
+				break;
+			}
+			case 3:{
+				this.setState({clicked: null, img: ''});
+				break;
+			}
 		}
-		else if(this.state.clicked == 1) {
-			this.pickImage();
-			this.setState({clicked: null});
-		}
+		
 		return(
 			<base.Root>
 				<base.Container>
 					<base.Header>
-						<base.Body>
+						<base.Left>
+							<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
+								<base.Icon name='arrow-back'/>
+							</base.Button>
+						</base.Left>
+						<base.Right>
 							<base.Title>선박등록</base.Title>
-						</base.Body>
+						</base.Right>
 					</base.Header>
 					<base.Content>
 						<base.Card>
-							<Image source={{uri:this.state.img}} style={{height: 200, width: null, flex: 1}}/>
-							<base.Icon style={{position: 'absolute', right: 10, bottom: 10,}} name='ios-add-circle' 
+							<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
+							<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
 								onPress={() =>
 									base.ActionSheet.show(
 									{
@@ -79,19 +97,21 @@ export default class Register extends Component{
 									buttonIndex => {
 									this.setState({ clicked: buttonIndex });
 									}
-								)}/>
+								)}>
+								<base.Icon name='ios-add-circle' />
+							</base.Button>
+							
 						</base.Card>
 						<base.Card>
 							<base.Text>  선박유형선택</base.Text>
 							<base.Picker
 								mode='dropdown'
 								style={{ width: '100%' }}
-								selectedValue={this.state.selected}
+								selectedValue={this.state.flag}
 								onValueChange={this.onValueChange.bind(this)}
 								>
-								<base.Picker.Item label='일반선박' value='key1' />
-								<base.Picker.Item label='유기,폐선박' value='key2' />
-								<base.Picker.Item label='고무보트 + 등등' value='key3' />
+								<base.Picker.Item label='일반선박' value='Normal' />
+								<base.Picker.Item label='유기,폐선박' value='Wasted' />
 							</base.Picker>
 						</base.Card>
 						{detailInput}

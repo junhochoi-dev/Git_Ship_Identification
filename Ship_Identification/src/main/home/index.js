@@ -8,9 +8,14 @@ export default class Home extends Component{
 		return(
 			<base.Container>
 				<base.Header>
-					<base.Body>
+					<base.Left>
+						<base.Button transparent>
+							<base.Icon name='ios-menu'/>
+						</base.Button>
+					</base.Left>
+					<base.Right>
 						<base.Title>선박정보확인체계</base.Title>
-					</base.Body>
+					</base.Right>
 				</base.Header>
 				<base.Content>
 					<base.Form>
@@ -43,7 +48,11 @@ export default class Home extends Component{
 							</base.CardItem>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
 								<base.Icon name='ios-map'/>
-								<base.Text>지도검색</base.Text>
+								<base.Text>일반선박{'\n'}지도검색</base.Text>
+							</base.CardItem>
+							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
+								<base.Icon name='ios-map'/>
+								<base.Text>유기,폐선박{'\n'}지도검색</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}} onPress={()=>this.props.navigation.navigate('Register')}>
 								<base.Icon name='ios-add-circle'/>
