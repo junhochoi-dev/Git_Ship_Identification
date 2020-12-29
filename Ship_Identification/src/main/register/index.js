@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import { Image } from 'react-native';
 import * as base from 'native-base';
 import * as ImagePicker from 'expo-image-picker';
-
-import { inputDetail } from './inputDetail';
+import { ValueInput } from './valueInput';
 
 var BUTTONS = [
   { text: "카메라로 등록하기", icon: "ios-camera", iconColor: "#2c8ef4" },
@@ -24,9 +23,17 @@ export default class Register extends Component{
 			img: '',
 			base64: '',
 			flag: 'Normal',
+			
+			name: '', IMO: '', Calsign: '', MMSI: '', vessel_type: '',
+			build_year: '', current_flag: '', home_port: '',
+			
+			title: '', latitude: '', longitude: '', detail: '',
 		};
 		this.pickImage = this.pickImage.bind(this);
 		this.pickPhoto = this.pickPhoto.bind(this);
+		
+		this.normal = this.normalInput.bind(this);
+		this.wastedInput = this.wastedInput.bind(this);
 	}
 	onValueChange(value: string) { this.setState({ flag: value }); }
 	
@@ -45,12 +52,52 @@ export default class Register extends Component{
 			aspect: [1, 1],
 			quality: 1,
 		}).then((result) => this.setState({img: result.uri, base64: result.base64}))
-	};
+	}
+	
+	normalInput = () => {
+		return(
+			<base.Form>
+				<ValueInput label='선박명' onChange={(name) => this.setState({name})}/>
+				<ValueInput label='국제선박일련번호 [IMO]' onChange={(IMO) => this.setState({IMO})}/>
+				<ValueInput label='호출부호 [CALLSIGN]' onChange={(Calsign) => this.setState({Calsign})}/>
+				<ValueInput label='해상이동통신식별번호 [MMSI]' onChange={(MMSI) => this.setState({MMSI})}/>
+				<ValueInput label='선박용도' onChange={(vessel_type) => this.setState({vessel_type})}/>
+				<ValueInput label='제작년도' onChange={(build_year) => this.setState({build_year})}/>
+				<ValueInput label='입항국가' onChange={(current_flag) => this.setState({current_flag})}/>
+				<ValueInput label='정박항구' onChange={(home_port) => this.setState({home_port})}/>
+				<base.Button block light>
+					<base.Text>선박등록하기</base.Text>
+				</base.Button>
+			</base.Form>
+		)
+	}
+	
+	wastedInput = () => {
+		return(
+			<base.Form>
+				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
+				<ValueInput label='위도' onChange={(latitude) => this.setState({latitude})}/>
+				<ValueInput label='경도' onChange={(longitude) => this.setState({longitude})}/>
+				<base.Button light>
+							<base.Text>현재위치등록하기</base.Text>
+				</base.Button>
+				<base.Textarea rowSpan={5} bordered placeholder="세부사항등록" onChangeText={(v)}/>
+				<base.Button block light>
+					<base.Text>선박등록하기</base.Text>
+				</base.Button>
+			</base.Form>
+		)
+	}
 	
 	render(){
 		let detailInput
-		if(this.state.flag == 'Normal') { detailInput = inputDetail(this.state.flag) }
-		else if(this.state.flag == 'Wasted') { detailInput = inputDetail(this.state.flag) }
+		
+		if(this.state.flag == 'Normal') {
+			detailInput = this.normalInput()
+		}
+		else if(this.state.flag == 'Wasted') {
+			detailInput = this.wastedInput()
+		}
 		
 		switch(this.state.clicked){
 			case 0:{
@@ -63,7 +110,7 @@ export default class Register extends Component{
 				this.setState({clicked: null});
 				break;
 			}
-			case 3:{
+			case 2:{
 				this.setState({clicked: null, img: ''});
 				break;
 			}
@@ -114,7 +161,10 @@ export default class Register extends Component{
 								<base.Picker.Item label='유기,폐선박' value='Wasted' />
 							</base.Picker>
 						</base.Card>
-						{detailInput}
+						<base.Card>
+							{detailInput}
+						</base.Card>
+						
 					</base.Content>
 				</base.Container>
 			</base.Root>
