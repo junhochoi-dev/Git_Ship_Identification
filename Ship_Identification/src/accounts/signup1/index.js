@@ -36,6 +36,11 @@ export default class Signup1 extends Component{
 	render(){
 		return(
 			<base.Container>
+				<base.Header>
+					<base.Body>
+						<base.Title>아이디생성</base.Title>
+					</base.Body>
+				</base.Header>
 				<base.Content>
 					<base.Form>
 						<base.Item floatingLabel>
