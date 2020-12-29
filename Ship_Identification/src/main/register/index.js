@@ -4,7 +4,8 @@ import { Image } from 'react-native';
 import * as base from 'native-base';
 import * as ImagePicker from 'expo-image-picker';
 import { ValueInput } from './valueInput';
-
+import { getToken } from '../../../utils/getToken';
+import { registerCommonShip, registerWastedShip } from '../../../utils/shipInfoRequest';
 var BUTTONS = [
   { text: "카메라로 등록하기", icon: "ios-camera", iconColor: "#2c8ef4" },
   { text: "갤러리에서 등록하기", icon: "ios-images", iconColor: "#f42ced" },
@@ -32,8 +33,10 @@ export default class Register extends Component{
 		this.pickImage = this.pickImage.bind(this);
 		this.pickPhoto = this.pickPhoto.bind(this);
 		
-		this.normal = this.normalInput.bind(this);
+		this.normalInput = this.normalInput.bind(this);
 		this.wastedInput = this.wastedInput.bind(this);
+		
+		this.registerBoat = this.registerBoat.bind(this);
 	}
 	onValueChange(value: string) { this.setState({ flag: value }); }
 	
@@ -65,7 +68,7 @@ export default class Register extends Component{
 				<ValueInput label='제작년도' onChange={(build_year) => this.setState({build_year})}/>
 				<ValueInput label='입항국가' onChange={(current_flag) => this.setState({current_flag})}/>
 				<ValueInput label='정박항구' onChange={(home_port) => this.setState({home_port})}/>
-				<base.Button block light>
+				<base.Button block light onPress={this.registerBoat}>
 					<base.Text>선박등록하기</base.Text>
 				</base.Button>
 			</base.Form>
@@ -81,21 +84,35 @@ export default class Register extends Component{
 				<base.Button light>
 							<base.Text>현재위치등록하기</base.Text>
 				</base.Button>
-				<base.Textarea rowSpan={5} bordered placeholder="세부사항등록" onChangeText={(v)}/>
-				<base.Button block light>
+				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록" onChangeText={(detail) => this.setState({detail})}/>
+				<base.Button block light onPress={this.registerBoat}>
 					<base.Text>선박등록하기</base.Text>
 				</base.Button>
 			</base.Form>
 		)
 	}
 	
+	registerBoat(){
+		getToken().then((token) =>{
+			if(this.state.flag == 'Normal') registerCommonShip(token, this.state.flag, this.state.base64, this.state.name, this.state.IMO, this.state.Calsign, this.state.MMSI, 
+								   this.state.vessel_type, this.state.build_year, this.state.current_flag, this.state.home_port)
+			else if (this.state.flag == 'Wasted') registerWastedShip(token, this.state.flag, this.state.base64, this.state.title, this.state.latitude, this.state.longitude, this.state.detail)
+		})
+	}
+	
 	render(){
 		let detailInput
-		
 		if(this.state.flag == 'Normal') {
+			this.setState({
+				name: '', IMO: '', Calsign: '', MMSI: '', vessel_type: '',
+				build_year: '', current_flag: '', home_port: '',
+			})
 			detailInput = this.normalInput()
 		}
 		else if(this.state.flag == 'Wasted') {
+			this.setState({
+				title: '', latitude: '', longitude: '', detail: '',
+			})
 			detailInput = this.wastedInput()
 		}
 		

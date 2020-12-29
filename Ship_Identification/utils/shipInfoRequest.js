@@ -1,8 +1,10 @@
-import { request } from '../../../utils/request.js'
+import { request } from './request'
 
-export const registerCommonShip = (token, title, imo, calsign, mmsi, vessel_type, build_year, current_flag, home_port) => 
-    request.post('/Boats/boat/searching/', {
-			title: title,
+export const registerCommonShip = (token, flag, base64, name, imo, calsign, mmsi, vessel_type, build_year, current_flag, home_port) => 
+    request.post('/Boats/boat/regist/', {
+			flag: flag,
+			image_data: base64,
+			name: name,
 			imo: imo,
 			calsign: calsign,
 			mmsi: mmsi,
@@ -17,11 +19,14 @@ export const registerCommonShip = (token, title, imo, calsign, mmsi, vessel_type
             'Content-Type': 'application/json',
 }})
 
-export const registerWastedShip = (token, title, latitude, longitude) => 
-    request.post('/Boats/boat/searching/', {
+export const registerWastedShip = (token, flag, base64, title, latitude, longitude, detail) => 
+    request.post('/Boats/boat/regist/', {
+			flag: flag,
+			image_data: base64,
 			title: title,
 			latitude: latitude,
 			longitude: longitude,
+			detail: detail,
 		}, {
         headers: {
             'AUTHORIZATION': 'jwt ' + token,
