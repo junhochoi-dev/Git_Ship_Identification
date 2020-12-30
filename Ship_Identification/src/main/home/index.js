@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 
-import * as base from 'native-base'
+import * as base from 'native-base';
+import { Linking } from 'react-native';
 
 export default class Home extends Component{
 	render(){
@@ -19,14 +20,10 @@ export default class Home extends Component{
 				</base.Header>
 				<base.Content>
 					<base.Form>
-						<base.Text>DB관리/등록</base.Text>
+						<base.Text>TEST</base.Text>
 						<base.Card style={{flexDirection: 'row', 
 							alignItems: 'center',
 							justifyContent: 'center',}}>
-							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }}>
-								<base.Icon name='ios-camera'/>
-								<base.Text>AI검색</base.Text>
-							</base.CardItem>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
 								<base.Icon name='ios-construct'/>
 								<base.Text>개발중</base.Text>
@@ -38,11 +35,15 @@ export default class Home extends Component{
 						</base.Card>
 					</base.Form>
 					<base.Form>
-						<base.Text>DB관리/등록</base.Text>
+						<base.Text>검색</base.Text>
 						<base.Card style={{flexDirection: 'row', 
 							alignItems: 'center',
 							justifyContent: 'center',}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }}>
+								<base.Icon name='ios-camera'/>
+								<base.Text>AI선박검색</base.Text>
+							</base.CardItem>
+							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }} onPress={()=>this.props.navigation.navigate('Search')}>
 								<base.Icon name='ios-search'/>
 								<base.Text>선박검색</base.Text>
 							</base.CardItem>
@@ -54,18 +55,29 @@ export default class Home extends Component{
 								<base.Icon name='ios-map'/>
 								<base.Text>유기,폐선박{'\n'}지도검색</base.Text>
 							</base.CardItem>
+						</base.Card>
+					</base.Form>
+					<base.Form>
+						<base.Text>등록</base.Text>
+						<base.Card style={{flexDirection: 'row', 
+							alignItems: 'center',
+							justifyContent: 'center',}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}} onPress={()=>this.props.navigation.navigate('Register')}>
 								<base.Icon name='ios-add-circle'/>
-								<base.Text>DB 등록</base.Text>
+								<base.Text>선박초기등록</base.Text>
+							</base.CardItem>
+							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}} onPress={()=>this.props.navigation.navigate('Register')}>
+								<base.Icon name='logo-buffer'/>
+								<base.Text>선박추가등록</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>
 					<base.Form>
-						<base.Text>DB관리/등록</base.Text>
+						<base.Text>추가기능</base.Text>
 						<base.Card style={{flexDirection: 'row', 
 							alignItems: 'center',
 							justifyContent: 'center',}}>
-							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }}>
+							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }} onPress={()=>Linking.openURL('http://m.kma.go.kr')}>
 								<base.Icon name='ios-sunny'/>
 								<base.Text>기상정보</base.Text>
 							</base.CardItem>
@@ -73,9 +85,9 @@ export default class Home extends Component{
 								<base.Icon name='ios-boat'/>
 								<base.Text>수협조업정보알리미</base.Text>
 							</base.CardItem>
-							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
-								<base.Icon name='ios-construct'/>
-								<base.Text>개발중</base.Text>
+							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}} onPress={()=>Linking.openURL('http://m.khoa.go.kr/')}>
+								<base.Icon name='ios-podium'/>
+								<base.Text>수치조류도</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>

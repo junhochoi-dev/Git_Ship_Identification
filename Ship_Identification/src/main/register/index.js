@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { Image } from 'react-native';
 import * as base from 'native-base';
 import * as ImagePicker from 'expo-image-picker';
+import * as ImageManipulator from 'expo-image-manipulator';
+import * as Location from 'expo-location';
 import { ValueInput } from './valueInput';
 import { getToken } from '../../../utils/getToken';
 import { registerCommonShip, registerWastedShip } from '../../../utils/shipInfoRequest';
@@ -37,14 +39,27 @@ export default class Register extends Component{
 		this.wastedInput = this.wastedInput.bind(this);
 		
 		this.registerBoat = this.registerBoat.bind(this);
+		
+		this.getLocation = this.getLocation.bind(this);
 	}
 	onValueChange(value: string) { this.setState({ flag: value }); }
 	
 	async pickPhoto() {
+		if(ImagePicker.getCameraPermissionsAsync()) ImagePicker.requestCameraPermissionsAsync()
 		await ImagePicker.launchCameraAsync({
+			mediaTypes: ImagePicker.MediaTypeOptions.All,
+			base64: true,
 			allowsEditing: true,
-      base64: true
-		}).then((result) => this.setState({img: result.uri}))
+			aspect: [1, 1],
+			quality: 1,
+		}).then((result) => {
+			this.setState({img: result.uri})
+			ImageManipulator.manipulateAsync(
+				result.uri,
+				[{resize: {width: 50, height: 50}}],
+				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
+			).then((result) => {this.setState({base64: result.base64})})
+		})
 	}
 	
 	async pickImage() {
@@ -75,15 +90,27 @@ export default class Register extends Component{
 		)
 	}
 	
+	getLocation = async () => {
+		try {
+			const response = await Location.requestPermissionsAsync();
+			const location = await Location.getCurrentPositionAsync();
+			await this.setState({latitude: location.coords['latitude'], longitude: location.coords['longitude']})
+		} catch (error) {
+		  Alert.alert("Can't find you.", "Please Try Again!")
+		}
+	}
+	
 	wastedInput = () => {
 		return(
 			<base.Form>
 				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
-				<ValueInput label='위도' onChange={(latitude) => this.setState({latitude})}/>
-				<ValueInput label='경도' onChange={(longitude) => this.setState({longitude})}/>
-				<base.Button light>
-							<base.Text>현재위치등록하기</base.Text>
-				</base.Button>
+				<base.Form style={{flexDirection: 'row',}}>
+					<base.Text style={{width: 150,}}>위도 {this.state.latitude}</base.Text>
+					<base.Text style={{width: 150,}}>경도 {this.state.longitude}</base.Text>
+					<base.Button light onPress={this.getLocation}>
+								<base.Text>현재위치등록하기</base.Text>
+					</base.Button>
+				</base.Form>
 				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록" onChangeText={(detail) => this.setState({detail})}/>
 				<base.Button block light onPress={this.registerBoat}>
 					<base.Text>선박등록하기</base.Text>
@@ -103,16 +130,9 @@ export default class Register extends Component{
 	render(){
 		let detailInput
 		if(this.state.flag == 'Normal') {
-			this.setState({
-				name: '', IMO: '', Calsign: '', MMSI: '', vessel_type: '',
-				build_year: '', current_flag: '', home_port: '',
-			})
 			detailInput = this.normalInput()
 		}
 		else if(this.state.flag == 'Wasted') {
-			this.setState({
-				title: '', latitude: '', longitude: '', detail: '',
-			})
 			detailInput = this.wastedInput()
 		}
 		
@@ -164,8 +184,23 @@ export default class Register extends Component{
 								)}>
 								<base.Icon name='ios-add-circle' />
 							</base.Button>
-							
 						</base.Card>
+						
+						<base.Button light onPress={() =>
+									base.ActionSheet.show(
+									{
+									options: BUTTONS,
+									cancelButtonIndex: CANCEL_INDEX,
+									destructiveButtonIndex: DESTRUCTIVE_INDEX,
+									title: "Testing ActionSheet"
+									},
+									buttonIndex => {
+									this.setState({ clicked: buttonIndex });
+									}
+								)}>
+							<base.Text>이거</base.Text>
+						</base.Button>
+						
 						<base.Card>
 							<base.Text>  선박유형선택</base.Text>
 							<base.Picker
