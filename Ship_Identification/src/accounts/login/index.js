@@ -30,7 +30,7 @@ export default class Login extends Component{
 	render(){
 		return(
 			<base.Container style={styles.container}>
-				<base.Content>
+				<base.Content padder>
 					<base.Text style={{fontSize: 60, alignItems: 'center',}}>선박정보확인체계</base.Text>
 					<base.Form style={styles.input_layout}>
 						<base.Item floatingLabel>

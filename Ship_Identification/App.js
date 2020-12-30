@@ -11,6 +11,7 @@ import Signup2 from './src/accounts/signup2';
 import Home from './src/main/home';
 import Register from './src/main/register';
 import Search from './src/main/search';
+import SearchResult from './src/main/searchResult';
 
 const loginStackNav = createStackNavigator({
 	Login: {screen: Login, navigationOptions: { headerShown: false }},
@@ -23,6 +24,7 @@ const homeStackNav = createStackNavigator(
 		Home: {screen: Home, navigationOptions: { headerShown: false }},
 		Register: {screen: Register, navigationOptions: { headerShown: false }},
 		Search: {screen: Search, navigationOptions: { headerShown: false }},
+		SearchResult: {screen: SearchResult, navigationOptions: { headerShown: false }},
 	},
 	{
 		initialRouteName: 'Home'

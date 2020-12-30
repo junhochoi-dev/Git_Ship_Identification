@@ -18,12 +18,16 @@ export default class Home extends Component{
 						<base.Title>선박정보확인체계</base.Title>
 					</base.Right>
 				</base.Header>
-				<base.Content>
+				<base.Content padder>
 					<base.Form>
 						<base.Text>TEST</base.Text>
 						<base.Card style={{flexDirection: 'row', 
 							alignItems: 'center',
 							justifyContent: 'center',}}>
+							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
+								<base.Icon name='ios-construct'/>
+								<base.Text>개발중</base.Text>
+							</base.CardItem>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
 								<base.Icon name='ios-construct'/>
 								<base.Text>개발중</base.Text>
@@ -41,19 +45,15 @@ export default class Home extends Component{
 							justifyContent: 'center',}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }}>
 								<base.Icon name='ios-camera'/>
-								<base.Text>AI선박검색</base.Text>
+								<base.Text>AI선박통합검색</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }} onPress={()=>this.props.navigation.navigate('Search')}>
 								<base.Icon name='ios-search'/>
-								<base.Text>선박검색</base.Text>
+								<base.Text>선박통합검색</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
 								<base.Icon name='ios-map'/>
-								<base.Text>일반선박{'\n'}지도검색</base.Text>
-							</base.CardItem>
-							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
-								<base.Icon name='ios-map'/>
-								<base.Text>유기,폐선박{'\n'}지도검색</base.Text>
+								<base.Text>지도검색{'\n'}[유기,폐선박]</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>

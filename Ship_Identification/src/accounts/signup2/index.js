@@ -45,7 +45,7 @@ export default class Signup2 extends Component{
 						<base.Title>개인정보등록</base.Title>
 					</base.Body>
 				</base.Header>
-				<base.Content>
+				<base.Content padder>
 					<base.Button bordered onPress={() => alert('개발중')}>
 						<base.Text>선박정보확인체계 이용약관 동의</base.Text>
 					</base.Button>

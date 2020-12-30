@@ -41,7 +41,7 @@ export default class Signup1 extends Component{
 						<base.Title>아이디생성</base.Title>
 					</base.Body>
 				</base.Header>
-				<base.Content>
+				<base.Content padder>
 					<base.Form>
 						<base.Item floatingLabel>
 							<base.Label>아이디</base.Label>

@@ -89,17 +89,6 @@ export default class Register extends Component{
 			</base.Form>
 		)
 	}
-	
-	getLocation = async () => {
-		try {
-			const response = await Location.requestPermissionsAsync();
-			const location = await Location.getCurrentPositionAsync();
-			await this.setState({latitude: location.coords['latitude'], longitude: location.coords['longitude']})
-		} catch (error) {
-		  Alert.alert("Can't find you.", "Please Try Again!")
-		}
-	}
-	
 	wastedInput = () => {
 		return(
 			<base.Form>
@@ -118,6 +107,17 @@ export default class Register extends Component{
 			</base.Form>
 		)
 	}
+	
+	getLocation = async () => {
+		try {
+			const response = await Location.requestPermissionsAsync();
+			const location = await Location.getCurrentPositionAsync();
+			await this.setState({latitude: location.coords['latitude'], longitude: location.coords['longitude']})
+		} catch (error) {
+		  Alert.alert("Can't find you.", "Please Try Again!")
+		}
+	}
+	
 	
 	registerBoat(){
 		getToken().then((token) =>{
@@ -166,7 +166,7 @@ export default class Register extends Component{
 							<base.Title>선박등록</base.Title>
 						</base.Right>
 					</base.Header>
-					<base.Content>
+					<base.Content padder>
 						<base.Card>
 							<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
 							<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
@@ -185,22 +185,6 @@ export default class Register extends Component{
 								<base.Icon name='ios-add-circle' />
 							</base.Button>
 						</base.Card>
-						
-						<base.Button light onPress={() =>
-									base.ActionSheet.show(
-									{
-									options: BUTTONS,
-									cancelButtonIndex: CANCEL_INDEX,
-									destructiveButtonIndex: DESTRUCTIVE_INDEX,
-									title: "Testing ActionSheet"
-									},
-									buttonIndex => {
-									this.setState({ clicked: buttonIndex });
-									}
-								)}>
-							<base.Text>이거</base.Text>
-						</base.Button>
-						
 						<base.Card>
 							<base.Text>  선박유형선택</base.Text>
 							<base.Picker
