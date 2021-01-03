@@ -51,6 +51,14 @@ export const searchCommonShip = (token, name, imo, calsign, mmsi, vessel_type, b
             'Content-Type': 'application/json',
 }})
 
+export const searchWastedShip = (token) => 
+    request.post('/Boats/boat/wastedboats/', {
+		}, {
+        headers: {
+            'AUTHORIZATION': 'jwt ' + token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+}})
 // export const searchWastedShip = (token, flag, title) => 
 //     request.post('/Boats/boat/searching/', {
 // 			flag: flag,

@@ -4,7 +4,7 @@ import * as base from 'native-base';
 import { FlatList } from 'react-native';
 import { getToken } from '../../../utils/getToken';
 import { searchCommonShip } from '../../../utils/shipInfoRequest';
-import ShowBoat from './showBoat';
+import ShowShip from './showShip';
 export default class SearchResult extends Component{
 	constructor(props) {
 		super(props);
@@ -73,7 +73,7 @@ export default class SearchResult extends Component{
 							<FlatList
 								sytle={{flex:1}}
 								data = {this.state.data}
-								renderItem={({item}) => <ShowBoat boat={item}/>}
+								renderItem={({item}) => <ShowShip boat={item}/>}
 							/>
 						</base.Content>
 					</base.Container>

@@ -51,7 +51,7 @@ export default class Home extends Component{
 								<base.Icon name='ios-search'/>
 								<base.Text>선박통합검색</base.Text>
 							</base.CardItem>
-							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
+							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}} onPress={()=>this.props.navigation.navigate('SearchMap')}>
 								<base.Icon name='ios-map'/>
 								<base.Text>지도검색{'\n'}[유기,폐선박]</base.Text>
 							</base.CardItem>
