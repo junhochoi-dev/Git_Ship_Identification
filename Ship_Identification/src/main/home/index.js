@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 
 import * as base from 'native-base';
-import { Linking } from 'react-native';
+import { Linking, Image } from 'react-native';
 
 export default class Home extends Component{
 	render(){
@@ -21,9 +21,12 @@ export default class Home extends Component{
 				<base.Content padder>
 					<base.Form>
 						<base.Text>TEST</base.Text>
-						<base.Card style={{flexDirection: 'row', 
-							alignItems: 'center',
-							justifyContent: 'center',}}>
+						<base.Card style={{
+								flexDirection: 'row', 
+								alignItems: 'center',
+								justifyContent: 'center',
+								height: 100,
+							}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
 								<base.Icon name='ios-construct'/>
 								<base.Text>개발중</base.Text>
@@ -40,9 +43,12 @@ export default class Home extends Component{
 					</base.Form>
 					<base.Form>
 						<base.Text>검색</base.Text>
-						<base.Card style={{flexDirection: 'row', 
-							alignItems: 'center',
-							justifyContent: 'center',}}>
+						<base.Card style={{
+								flexDirection: 'row', 
+								alignItems: 'center',
+								justifyContent: 'center',
+								height: 100,
+							}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }}>
 								<base.Icon name='ios-camera'/>
 								<base.Text>AI선박통합검색</base.Text>
@@ -59,9 +65,12 @@ export default class Home extends Component{
 					</base.Form>
 					<base.Form>
 						<base.Text>등록</base.Text>
-						<base.Card style={{flexDirection: 'row', 
-							alignItems: 'center',
-							justifyContent: 'center',}}>
+						<base.Card style={{
+								flexDirection: 'row', 
+								alignItems: 'center',
+								justifyContent: 'center',
+								height: 100,
+							}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}} onPress={()=>this.props.navigation.navigate('Register')}>
 								<base.Icon name='ios-add-circle'/>
 								<base.Text>선박초기등록</base.Text>
@@ -74,9 +83,12 @@ export default class Home extends Component{
 					</base.Form>
 					<base.Form>
 						<base.Text>추가기능</base.Text>
-						<base.Card style={{flexDirection: 'row', 
-							alignItems: 'center',
-							justifyContent: 'center',}}>
+						<base.Card style={{
+								flexDirection: 'row', 
+								alignItems: 'center',
+								justifyContent: 'center',
+								height: 100,
+							}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }} onPress={()=>Linking.openURL('http://m.kma.go.kr')}>
 								<base.Icon name='ios-sunny'/>
 								<base.Text>기상정보</base.Text>
