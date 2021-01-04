@@ -13,6 +13,8 @@ import Register from './src/main/register';
 import Search from './src/main/search';
 import SearchResult from './src/main/searchResult';
 import SearchMap from './src/main/searchMap';
+import DetailWastedShip from './src/main/detailWastedShip';
+import DetailCommonShip from './src/main/detailCommonShip';
 
 const loginStackNav = createStackNavigator({
 	Login: {screen: Login, navigationOptions: { headerShown: false }},
@@ -27,6 +29,8 @@ const homeStackNav = createStackNavigator(
 		Search: {screen: Search, navigationOptions: { headerShown: false }},
 		SearchResult: {screen: SearchResult, navigationOptions: { headerShown: false }},
 		SearchMap: {screen: SearchMap, navigationOptions: { headerShown: false }},
+		DetailCommonShip: {screen: DetailCommonShip, navigationOptions: { headerShown: false }},
+		DetailWastedShip: {screen: DetailWastedShip, navigationOptions: { headerShown: false }},
 	},
 	{
 		initialRouteName: 'Home'

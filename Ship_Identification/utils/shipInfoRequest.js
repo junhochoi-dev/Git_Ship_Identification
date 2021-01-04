@@ -59,6 +59,16 @@ export const searchWastedShip = (token) =>
             'Accept': 'application/json',
             'Content-Type': 'application/json',
 }})
+
+export const requestWastedShipDetail = (token, id) => 
+    request.post('/Boats/boat/detailwastedboat/', {
+			id: id,
+		}, {
+        headers: {
+            'AUTHORIZATION': 'jwt ' + token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+}})
 // export const searchWastedShip = (token, flag, title) => 
 //     request.post('/Boats/boat/searching/', {
 // 			flag: flag,

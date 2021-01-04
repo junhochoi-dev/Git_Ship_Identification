@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text } from 'react-native';
 import * as base from 'native-base';
 import * as Location from 'expo-location';
 import MapView, { Marker, Callout} from 'react-native-maps';
+import { Svg, Image } from 'react-native-svg';
 import { getToken } from '../../../utils/getToken';
 import { searchWastedShip } from '../../../utils/shipInfoRequest';
 export default class SearchMap extends Component{ // only use for Wasted Boat
@@ -47,7 +48,7 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
                 </View>
             )
         }
-		const requsetMarker = (data) => {
+		const requestMarker = (data) => {
 			return data.map((ship) => {
 				return (
 					<Marker
@@ -55,11 +56,15 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 						latitude: parseFloat(ship.latitude),
 						longitude: parseFloat(ship.longitude),
 					}}>
-						<Callout>
+						<Callout onPress={()=>this.props.navigation.navigate('DetailWastedShip', {id: ship.id})}>
 							<View>
-								<Text>
-									<Image source={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + ship.wasted_img}} style={{flex: 1, width: 300, height: 200, position:'absolute', resizeMode:'contain'}}/>
-								</Text>
+								<Svg width={300} height={200}>
+									<Image
+										width={'100%'}
+										height={'100%'}
+										href={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + ship.wasted_img}}
+										/>
+								</Svg>
 								<Text>IMO : {ship.title}</Text>
 								<Text>위도 : {ship.latitude}</Text>
 								<Text>경도 : {ship.longitude}</Text>
@@ -81,27 +86,30 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 						<base.Title>유기,폐선박 지도 검색</base.Title>
 					</base.Right>
 				</base.Header>
-				<MapView
-					style={{flex: 1}}
-					initialRegion={{
-						latitude: 35.098470,
-						longitude: 129.074269,
-						latitudeDelta: 0.05,
-						longitudeDelta: 0.05,
-					}}
-					onRegionChange={(region) => {
-                    	this.setState({latitude: region.latitude, longitude: region.longitude});
-                	}}
-					>
-					{ requsetMarker(this.state.data) }
-				</MapView>
-				
-				<base.Text style={{position: 'absolute', alignSelf: 'center', bottom: '5%', backgroundColor: 'white', fontSize: 20, width: '50%'}}>
-					위도 : {this.state.latitude}{'\n'}경도 : {this.state.longitude}</base.Text>
-				
-				<base.Button rounded style={{ position: 'absolute', right: '5%', bottom: '5%', }}>
-					<base.Icon name='ios-locate'/>
-				</base.Button>
+				<base.Content contentContainerStyle={{ flex: 1 }} padder>
+					<MapView
+						style={{flex: 1}}
+						initialRegion={{
+							latitude: 35.098470,
+							longitude: 129.074269,
+							latitudeDelta: 0.05,
+							longitudeDelta: 0.05,
+						}}
+						onRegionChange={(region) => {
+							this.setState({latitude: region.latitude, longitude: region.longitude});
+						}}
+						>
+						{ requestMarker(this.state.data) }
+					</MapView>
+					
+					<base.Text style={{position: 'absolute', alignSelf: 'center', bottom: '5%', backgroundColor: 'white', fontSize: 20, width: '50%',
+									  borderRadius: 5, borderColor: 'black'}}>
+						위도 : {this.state.latitude}{'\n'}경도 : {this.state.longitude}</base.Text>
+
+					<base.Button rounded style={{ position: 'absolute', right: '5%', bottom: '5%', }}>
+						<base.Icon name='ios-locate'/>
+					</base.Button>
+				</base.Content>
 			</base.Container>
 		);
 	}

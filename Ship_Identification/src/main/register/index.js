@@ -21,8 +21,6 @@ export default class Register extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			clicked: null,
-			
 			img: '',
 			base64: '',
 			flag: 'Normal',
@@ -135,24 +133,6 @@ export default class Register extends Component{
 		else if(this.state.flag == 'Wasted') {
 			detailInput = this.wastedInput()
 		}
-		
-		switch(this.state.clicked){
-			case 0:{
-				this.pickPhoto();
-				this.setState({clicked: null});
-				break;
-			}
-			case 1:{
-				this.pickImage();
-				this.setState({clicked: null});
-				break;
-			}
-			case 2:{
-				this.setState({clicked: null, img: ''});
-				break;
-			}
-		}
-		
 		return(
 			<base.Root>
 				<base.Container>
@@ -179,7 +159,7 @@ export default class Register extends Component{
 									title: "Testing ActionSheet"
 									},
 									buttonIndex => {
-									this.setState({ clicked: buttonIndex });
+										{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
 									}
 								)}>
 								<base.Icon name='ios-add-circle' />
