@@ -57,7 +57,9 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 					}}>
 						<Callout>
 							<View>
-								<Image source={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + ship.wasted_img}} resizeMode='contain' style={{flex: 1, width: 200, height: 200}}/>
+								<Text>
+									<Image source={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + ship.wasted_img}} style={{flex: 1, width: 300, height: 200, position:'absolute', resizeMode:'contain'}}/>
+								</Text>
 								<Text>IMO : {ship.title}</Text>
 								<Text>위도 : {ship.latitude}</Text>
 								<Text>경도 : {ship.longitude}</Text>
