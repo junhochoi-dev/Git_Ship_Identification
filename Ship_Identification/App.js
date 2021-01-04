@@ -18,7 +18,7 @@ import DetailWastedShip from './src/main/detailWastedShip';
 import DetailCommonShip from './src/main/detailCommonShip';
 
 import OptionHome from './src/option/optionHome';
-
+import ErrorReport from './src/option/errorReport';
 
 
 const homeStackNav = createStackNavigator(
@@ -30,7 +30,6 @@ const homeStackNav = createStackNavigator(
 		SearchMap: {screen: SearchMap, navigationOptions: { headerShown: false }},
 		DetailCommonShip: {screen: DetailCommonShip, navigationOptions: { headerShown: false }},
 		DetailWastedShip: {screen: DetailWastedShip, navigationOptions: { headerShown: false }},
-
 	},
 	{
 		initialRouteName: 'Home'
@@ -40,6 +39,7 @@ const homeStackNav = createStackNavigator(
 const Drawer = createDrawerNavigator(
 	{
 		homeStackNav: homeStackNav,
+		ErrorReport: {screen: ErrorReport, navigationOptions: { headerShown: false }},
 	},
 	{
 		drawerPosition: 'left',

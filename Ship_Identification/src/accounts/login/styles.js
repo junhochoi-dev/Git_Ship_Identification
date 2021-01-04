@@ -4,26 +4,27 @@ const styles = StyleSheet.create({
 	container:{
 		justifyContent: 'center',
 		alignItems: 'center',
+		flexDirection: 'column',
+		marginTop: 20,
+		marginBottom: 20,
 	},
 	input_layout: {
-		margin: 5,
-		width: '80%',
-		flexDirection: 'column',
+		margin: 15,
 	},
 	input: {
 		color: 'black',
 	},
 	btn_login: {
-		margin: 5,
-		width: 325,
+		width: '100%',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
 	btn_others: {
-		margin: 5,
+		marginLeft: 5,
+		marginRight: 5,
 		alignItems: 'center',
 		justifyContent: 'center',
-		width: '40%',
+		width: '50%',
 	},
 });
 

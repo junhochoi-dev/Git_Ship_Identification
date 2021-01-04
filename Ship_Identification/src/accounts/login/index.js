@@ -29,37 +29,35 @@ export default class Login extends Component{
 	}
 	render(){
 		return(
-			<base.Container style={styles.container}>
+			<base.Container>
+				<base.Header>
+				</base.Header>
 				<base.Content padder>
-					<base.Form style={{margin: 40,}}>
-						<base.Text style={{fontSize: 60, alignItems: 'center',}}>선박정보{'\n'}확인체계</base.Text>
-						<base.Form style={styles.input_layout}>
-							<base.Item floatingLabel>
-								<base.Label style={styles.input}>아이디</base.Label>
-								<base.Input onChangeText={(serviceNum) => this.setState({serviceNum})}
-									keyboardType="number-pad"/>
-							</base.Item>
-							<base.Item floatingLabel>
-								<base.Label style={styles.input}>비밀번호</base.Label>
-								<base.Input onChangeText={(password) => this.setState({password})}
-									secureTextEntry={ true }/>
-							</base.Item>
-						</base.Form>
+					<base.Form style={styles.container}>							
+						<base.Text style={{fontSize: 80, marginTop: 100}}>선박정보{'\n'}확인체계</base.Text>
+						<base.Item floatingLabel>
+							<base.Label style={styles.input}>아이디</base.Label>
+							<base.Input onChangeText={(serviceNum) => this.setState({serviceNum})}
+								keyboardType="number-pad"/>
+						</base.Item>
+						<base.Item floatingLabel>
+							<base.Label style={styles.input}>비밀번호</base.Label>
+							<base.Input onChangeText={(password) => this.setState({password})}
+								secureTextEntry={ true }/>
+						</base.Item>
+					</base.Form>
 
-						<base.Form style={{alignItems: 'center',}}>
-							<base.Form>
-								<base.Button style={styles.btn_login} bordered onPress={this.executeLogin}>
-									<base.Text>로그인</base.Text>
-								</base.Button>
-							</base.Form>
-							<base.Form style={{margin: 10, flex: 1, flexDirection: 'row', }}>
-								<base.Button style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Signup1')}>
-									<base.Text>회원가입</base.Text>
-								</base.Button>
-								<base.Button style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Signup1')}>
-									<base.Text>비밀번호찾기</base.Text>
-								</base.Button>
-							</base.Form>
+					<base.Form style={{alignItems: 'center',}}>
+						<base.Button style={styles.btn_login} bordered onPress={this.executeLogin}>
+							<base.Text>로그인</base.Text>
+						</base.Button>
+						<base.Form style={{margin: 10, flex: 1, flexDirection: 'row', }}>
+							<base.Button style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Signup1')}>
+								<base.Text>회원가입</base.Text>
+							</base.Button>
+							<base.Button style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Signup1')}>
+								<base.Text>비밀번호찾기</base.Text>
+							</base.Button>
 						</base.Form>
 					</base.Form>
 				</base.Content>

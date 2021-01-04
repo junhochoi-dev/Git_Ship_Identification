@@ -37,7 +37,7 @@ export default class OptionHome extends Component{
 						<base.Icon name='ios-create'/>
 						<base.Text>회원정보 수정</base.Text>
 					</base.Button>
-					<base.Button style={{width:'100%', marginBottom: 10,}} >
+					<base.Button style={{width:'100%', marginBottom: 10,}} onPress={()=>this.props.navigation.navigate('ErrorReport')}>
 						<base.Icon name='ios-warning'/>
 						<base.Text>오류보고</base.Text>
 					</base.Button>

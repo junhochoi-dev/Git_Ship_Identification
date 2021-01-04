@@ -42,28 +42,30 @@ export default class Signup1 extends Component{
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
-					<base.Form>
-						<base.Item floatingLabel>
+					<base.Form style={{alignItems:'center', justifyContent: 'center'}}>
+						<base.Item regular style={{margin: 10,}}>
 							<base.Label>아이디</base.Label>
 							<base.Input onChangeText={(serviceNum) => this.setState({serviceNum})} keyboardType="number-pad"/>
 						</base.Item>
-						<base.Button bordered onPress={() => alert( alertMessage )}>
+						<base.Button bordered style={{width: '30%'}} onPress={() => alert( alertMessage )}>
 							<base.Text>아이디조건</base.Text>
 						</base.Button>
-						<base.Item floatingLabel>
+						<base.Item regular style={{margin: 10,}}>
 							<base.Label>비밀번호</base.Label>
 							<base.Input onChangeText={(password) => this.setState({password})} secureTextEntry={ true }/>
 						</base.Item>
-						<base.Item floatingLabel>
+						<base.Item regular style={{margin: 10,}}>
 							<base.Label>비밀번호확인</base.Label>
 							<base.Input onChangeText={(passwordCheck) => this.setState({passwordCheck})} secureTextEntry={ true }/>
 						</base.Item>
-						<base.Button bordered onPress={()=>this.props.navigation.popToTop()}>
-							<base.Text>취소</base.Text>
-						</base.Button>
-						<base.Button bordered onPress={this.executeSignup1}>
-							<base.Text>다음</base.Text>
-						</base.Button>
+						<base.Form style={{flexDirection: 'row', alignItems:'center',}}>
+							<base.Button bordered style={{width: '45%', margin: 10,}} onPress={()=>this.props.navigation.popToTop()}>
+								<base.Text>취소</base.Text>
+							</base.Button>
+							<base.Button bordered style={{width: '45%', margin: 10,}} onPress={this.executeSignup1}>
+								<base.Text>다음</base.Text>
+							</base.Button>
+						</base.Form>
 					</base.Form>
 				</base.Content>
 			</base.Container>

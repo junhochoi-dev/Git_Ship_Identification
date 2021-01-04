@@ -25,15 +25,15 @@ export default class Home extends Component{
 								flexDirection: 'row', 
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: 100,
+								height: 120,
 							}}>
-							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
-								<base.Icon name='ios-construct'/>
-								<base.Text>개발중</base.Text>
+							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }}>
+								<base.Icon name='ios-camera'/>
+								<base.Text>AI선박통합검색</base.Text>
 							</base.CardItem>
-							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
-								<base.Icon name='ios-construct'/>
-								<base.Text>개발중</base.Text>
+							<base.CardItem button active style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
+								<base.Icon name='ios-paper-plane'/>
+								<base.Text>드론검색</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}}>
 								<base.Icon name='ios-construct'/>
@@ -47,12 +47,8 @@ export default class Home extends Component{
 								flexDirection: 'row', 
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: 100,
+								height: 120,
 							}}>
-							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }}>
-								<base.Icon name='ios-camera'/>
-								<base.Text>AI선박통합검색</base.Text>
-							</base.CardItem>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }} onPress={()=>this.props.navigation.navigate('Search')}>
 								<base.Icon name='ios-search'/>
 								<base.Text>선박통합검색</base.Text>
@@ -69,7 +65,7 @@ export default class Home extends Component{
 								flexDirection: 'row', 
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: 100,
+								height: 120,
 							}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10,}} onPress={()=>this.props.navigation.navigate('Register')}>
 								<base.Icon name='ios-add-circle'/>
@@ -87,7 +83,7 @@ export default class Home extends Component{
 								flexDirection: 'row', 
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: 100,
+								height: 120,
 							}}>
 							<base.CardItem button style={{flexDirection: 'column', marginLeft: 10, marginRight: 10, }} onPress={()=>Linking.openURL('http://m.kma.go.kr')}>
 								<base.Icon name='ios-sunny'/>
