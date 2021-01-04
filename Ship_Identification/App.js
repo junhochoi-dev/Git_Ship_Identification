@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer'
 
 import Login from './src/accounts/login';
 import Signup1 from './src/accounts/signup1';
@@ -16,11 +17,9 @@ import SearchMap from './src/main/searchMap';
 import DetailWastedShip from './src/main/detailWastedShip';
 import DetailCommonShip from './src/main/detailCommonShip';
 
-const loginStackNav = createStackNavigator({
-	Login: {screen: Login, navigationOptions: { headerShown: false }},
-	Signup1: {screen: Signup1, navigationOptions: { headerShown: false }},
-	Signup2: {screen: Signup2, navigationOptions: { headerShown: false }},
-});
+import OptionHome from './src/option/optionHome';
+
+
 
 const homeStackNav = createStackNavigator(
 	{
@@ -31,19 +30,34 @@ const homeStackNav = createStackNavigator(
 		SearchMap: {screen: SearchMap, navigationOptions: { headerShown: false }},
 		DetailCommonShip: {screen: DetailCommonShip, navigationOptions: { headerShown: false }},
 		DetailWastedShip: {screen: DetailWastedShip, navigationOptions: { headerShown: false }},
+
 	},
 	{
 		initialRouteName: 'Home'
 	}
 );
 
-const Root = createSwitchNavigator(
+const Drawer = createDrawerNavigator(
 	{
-		loginStackNav: loginStackNav,
 		homeStackNav: homeStackNav,
 	},
 	{
-		initialRouteName: 'loginStackNav'
+		drawerPosition: 'left',
+  		contentComponent: OptionHome,
+	}
+);
+
+const loginStackNav = createStackNavigator({
+	Login: {screen: Login, navigationOptions: { headerShown: false }},
+	Signup1: {screen: Signup1, navigationOptions: { headerShown: false }},
+	Signup2: {screen: Signup2, navigationOptions: { headerShown: false }},
+});
+
+
+const Root = createSwitchNavigator(
+	{
+		loginStackNav,
+		Drawer,
 	}
 );
 

@@ -58,11 +58,6 @@ export default class Login extends Component{
 							<base.Button style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Signup1')}>
 								<base.Text>비밀번호찾기</base.Text>
 							</base.Button>
-						</base.Form>	
-						<base.Form>
-							<base.Button style={styles.btn_login} bordered onPress={()=>this.props.navigation.navigate('Home')}>
-								<base.Text>TEST</base.Text>
-							</base.Button>
 						</base.Form>
 					</base.Form>
 				</base.Content>

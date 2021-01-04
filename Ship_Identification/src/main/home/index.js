@@ -10,7 +10,7 @@ export default class Home extends Component{
 			<base.Container>
 				<base.Header>
 					<base.Left>
-						<base.Button transparent>
+						<base.Button transparent onPress={()=>this.props.navigation.openDrawer()}>
 							<base.Icon name='ios-menu'/>
 						</base.Button>
 					</base.Left>
