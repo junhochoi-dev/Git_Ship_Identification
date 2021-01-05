@@ -56,7 +56,15 @@ export default class DetailWastedShip extends Component{
 				</base.Header>
 				<base.Content padder contentContainerStyle={{ flex: 1 }}>
 					<base.Card>
-						<base.CardItem>
+						<base.CardItem bordered>
+							<base.Text style={{fontSize: 40,}}> {this.state.imo} </base.Text>
+						</base.CardItem>
+					</base.Card>
+					<base.Card>
+						<base.CardItem bordered>
+							<base.Text>선박사진</base.Text>
+						</base.CardItem>
+						<base.CardItem bordered>
 							<Svg width={300} height={200}>
 									<Image
 										width={'100%'}
@@ -65,13 +73,12 @@ export default class DetailWastedShip extends Component{
 										/>
 								</Svg>
 						</base.CardItem>
-						<base.CardItem>
-							<base.Text> IMO : {this.state.imo} </base.Text>
+						<base.CardItem bordered>
+							<base.Text>상세정보</base.Text>
 						</base.CardItem>
-						<base.CardItem>
-							<base.Text> 위도 : {this.state.latitude} </base.Text>
-							<base.Text> 경도 : {this.state.longitude} </base.Text>
-						</base.CardItem>
+						<base.Card><base.CardItem><base.Text> IMO : {this.state.imo} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text> 위도 : {this.state.latitude} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text> 경도 : {this.state.longitude} </base.Text></base.CardItem></base.Card>
 					</base.Card>
 					<MapView
 						style={{flex: 1}}

@@ -18,6 +18,15 @@ export const requestLogout = (token) =>
 	}
 })
 
+export const requestUserData = (token) => 
+	request.post('/Accounts/info/',{},{
+		headers: {
+		'AUTHORIZATION': 'jwt ' + token,
+		'Accept': 'application/json',
+		'Content-Type': 'application/json',
+	}
+})
+
 // User's detail Info
 export const requestSignup = (serviceNum, password, name, rank, position, belong, phone, device_id) => 
 	request.post('/Accounts/signup/',{

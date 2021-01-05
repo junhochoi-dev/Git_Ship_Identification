@@ -39,7 +39,7 @@ export default class Search extends Component{
 		return(
 			<base.Form>
 				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
-				<base.Button block light>
+				<base.Button block light onPress={this.searchBoat}>
 					<base.Text>선박검색하기</base.Text>
 				</base.Button>
 			</base.Form>
@@ -57,6 +57,12 @@ export default class Search extends Component{
 				build_year: this.state.build_year,
 				current_flag: this.state.current_flag,
 				home_port: this.state.home_port,
+			})
+		}
+		else{ // flag == 'Wasted'{
+			this.props.navigation.navigate('SearchResult', {
+				flag: this.state.flag,
+				title: this.state.title,
 			})
 		}
 	}

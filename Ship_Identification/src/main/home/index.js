@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styles from './styles';
 import * as base from 'native-base';
 import { Linking, Image } from 'react-native';
-
+import * as Font from 'expo-font';
 export default class Home extends Component{
 	render(){
 		return(
@@ -27,9 +27,9 @@ export default class Home extends Component{
 								justifyContent: 'center',
 								height: 130,
 							}}>
-							<base.CardItem button style={styles.iconBackground}>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchAI')}>
 								<base.Icon name='ios-camera'/>
-								<base.Text>AI선박통합검색</base.Text>
+								<base.Text>AI선박검색</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground}>
 								<base.Icon name='ios-paper-plane'/>
@@ -100,6 +100,7 @@ export default class Home extends Component{
 						</base.Card>
 					</base.Form>
 				</base.Content>
+			<StatusBar hidden/>
 			</base.Container>
 		);
 	}

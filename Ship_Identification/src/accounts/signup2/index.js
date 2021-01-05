@@ -45,24 +45,33 @@ export default class Signup2 extends Component{
 						<base.Title>개인정보등록</base.Title>
 					</base.Body>
 				</base.Header>
-				<base.Content padder>
-					<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 10,}}>
-						<base.Button style={{width:'70%'}} bordered onPress={() => alert('개발중')}>
+				<base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent: 'center', flex: 1,}}>
+					<base.Form style={{flexDirection: 'column', alignItems: 'center', margin: 5,}}>
+						<base.Button style={{width: 350, margin: 5,}} bordered onPress={() => alert('개발중')}>
 						<base.Text>선박정보확인체계 이용약관 동의</base.Text>
 						</base.Button>
-						<base.CheckBox checked={false} />
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 5,}}>
+							<base.CheckBox checked={false} />
+							<base.Text style={{marginLeft: 15}}> 위 내용에 동의합니다 </base.Text>
+						</base.Form>
 					</base.Form>
-					<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 10,}}>
-						<base.Button style={{width:'70%'}} bordered onPress={() => alert('개발중')}>
+					<base.Form style={{flexDirection: 'column', alignItems: 'center', margin: 5,}}>
+						<base.Button style={{width: 350, margin: 5,}} bordered onPress={() => alert('개발중')}>
 						<base.Text>개인정보 수집 및 이용약관 동의</base.Text>
 						</base.Button>
-						<base.CheckBox checked={true} />
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 5,}}>
+							<base.CheckBox checked={false} />
+							<base.Text style={{marginLeft: 15}}> 위 내용에 동의합니다 </base.Text>
+						</base.Form>
 					</base.Form>
-					<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 10,}}>
-						<base.Button style={{width:'70%'}} bordered onPress={() => alert('개발중')}>
-							<base.Text>위치정보 이용약관 동의</base.Text>
+					<base.Form style={{flexDirection: 'column', alignItems: 'center', margin: 5,}}>
+						<base.Button style={{width: 350, margin: 5,}} bordered onPress={() => alert('개발중')}>
+						<base.Text>위치정보 이용약관 동의</base.Text>
 						</base.Button>
-						<base.CheckBox checked={false} />
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 5,}}>
+							<base.CheckBox checked={false} />
+							<base.Text style={{marginLeft: 15}}> 위 내용에 동의합니다 </base.Text>
+						</base.Form>
 					</base.Form>
 					<base.Item floatingLabel>
 						<base.Label>이름</base.Label>
@@ -94,6 +103,7 @@ export default class Signup2 extends Component{
 						</base.Button>
 					</base.Form>
 				</base.Content>
+			<StatusBar hidden/>
 			</base.Container>
 		);
 	}

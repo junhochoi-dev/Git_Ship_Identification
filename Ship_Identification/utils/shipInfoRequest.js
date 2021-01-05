@@ -33,7 +33,7 @@ export const registerWastedShip = (token, flag, base64, title, latitude, longitu
             'Accept': 'application/json',
             'Content-Type': 'application/json',
 }})
-
+// searchCommonShip with condition
 export const searchCommonShip = (token, name, imo, calsign, mmsi, vessel_type, build_year, current_flag, home_port) => 
     request.post('/Boats/boat/searching/', {
 			name: name,
@@ -50,9 +50,30 @@ export const searchCommonShip = (token, name, imo, calsign, mmsi, vessel_type, b
             'Accept': 'application/json',
             'Content-Type': 'application/json',
 }})
+// searchWastedShip with condition
+export const searchWastedShip = (token, title) => 
+    request.post('/Boats/boat/searchingwasted/', {
+			title: title,
+		}, {
+        headers: {
+            'AUTHORIZATION': 'jwt ' + token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+}})
 
-export const searchWastedShip = (token) => 
+// searchWastedShip List
+export const searchWastedShipList = (token) => 
     request.post('/Boats/boat/wastedboats/', {
+		}, {
+        headers: {
+            'AUTHORIZATION': 'jwt ' + token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+}})
+
+export const requestCommonShipDetail = (token, id) => 
+    request.post('/Boats/boat/detail/', {
+			id: id,
 		}, {
         headers: {
             'AUTHORIZATION': 'jwt ' + token,
@@ -69,13 +90,13 @@ export const requestWastedShipDetail = (token, id) =>
             'Accept': 'application/json',
             'Content-Type': 'application/json',
 }})
-// export const searchWastedShip = (token, flag, title) => 
-//     request.post('/Boats/boat/searching/', {
-// 			flag: flag,
-// 			title: title,
-// 		}, {
-//         headers: {
-//             'AUTHORIZATION': 'jwt ' + token,
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json',
-// }})
+
+export const requestAIResult = (token, base64) => 
+    request.post('/Boats/boat/predict/', {
+			base64: base64,
+		}, {
+        headers: {
+            'AUTHORIZATION': 'jwt ' + token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+}})

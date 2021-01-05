@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import * as base from 'native-base';
 import { FlatList } from 'react-native';
 import { getToken } from '../../../utils/getToken';
-import { searchCommonShip } from '../../../utils/shipInfoRequest';
+import { searchCommonShip, searchWastedShip } from '../../../utils/shipInfoRequest';
 import ShowShip from './showShip';
 export default class SearchResult extends Component{
 	constructor(props) {
@@ -11,7 +11,6 @@ export default class SearchResult extends Component{
 		this.state = {
 			data: [],
 			
-			img: '',
 			flag: '',
 			
 			name: '', IMO: '', Calsign: '', MMSI: '', vessel_type: '',
@@ -20,10 +19,12 @@ export default class SearchResult extends Component{
 			title: '', latitude: '', longitude: '', detail: '',
 		};
 		this.showResult = this.showResult(this);
+		this.getDetail = this.getDetail.bind(this);
 	}
 	
 	showResult(){
 		const flag = this.props.navigation.getParam('flag')
+		this.state.flag = flag
 		const name = this.props.navigation.getParam('name')
 		const imo = this.props.navigation.getParam('imo')
 		const calsign = this.props.navigation.getParam('calsign')
@@ -32,22 +33,42 @@ export default class SearchResult extends Component{
 		const build_year = this.props.navigation.getParam('build_year')
 		const current_flag = this.props.navigation.getParam('current_flag')
         const home_port = this.props.navigation.getParam('home_port')
+		
+		const title = this.props.navigation.getParam('title')
+		
 		getToken().then((token) => {
-			searchCommonShip(token, name, imo, calsign, mmsi, vessel_type, build_year, current_flag, home_port).then((response) => {
-            if(response.status == 200){
-				console.log('success')
-				console.log(response.data.data)
-				this.setState({ data: this.state.data.concat(response.data.data) })
-            }
-            else{
-                console.log('fail')
-            }
-		})
+			if(flag == 'Normal'){
+				searchCommonShip(token, name, imo, calsign, mmsi, vessel_type, build_year, current_flag, home_port).then((response) => {
+				if(response.status == 200){
+					this.setState({ data: this.state.data.concat(response.data.data) })
+				}
+				else{
+					console.log('fail')
+				}
+				})
+			}
+			else{ // flag == 'Wasted'
+				searchWastedShip(token, title).then((response) => {
+				if(response.status == 200){
+					this.setState({ data: this.state.data.concat(response.data.data) })
+				}
+				else{
+					console.log('fail')
+				}
+				})
+			}
         })
 	}
 	
+	getDetail(id){
+		if(this.state.flag == 'Normal'){
+			this.props.navigation.navigate('DetailCommonShip',{id: id})}
+		else{ // flag == 'Wasted'
+			this.props.navigation.navigate('DetailWastedShip',{id: id})}
+	}
+	
 	render(){
-		if(this.state.data.length == 0){
+		if(this.state.data.data == ''){
             return(
                 <base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
 					<base.Text style ={{fontSize: 30}}>데이터 가져오는 중</base.Text>
@@ -72,8 +93,8 @@ export default class SearchResult extends Component{
 						<base.Content padder>
 							<FlatList
 								sytle={{flex:1}}
-								data = {this.state.data}
-								renderItem={({item}) => <ShowShip boat={item}/>}
+								data={this.state.data}
+								renderItem={({item}) => <ShowShip boat={item} flag={this.state.flag} onPress={()=>this.getDetail(item.id)}/>}
 							/>
 						</base.Content>
 					</base.Container>

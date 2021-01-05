@@ -11,7 +11,6 @@ import { registerCommonShip, registerWastedShip } from '../../../utils/shipInfoR
 var BUTTONS = [
   { text: "카메라로 등록하기", icon: "ios-camera", iconColor: "#2c8ef4" },
   { text: "갤러리에서 등록하기", icon: "ios-images", iconColor: "#f42ced" },
-  { text: "등록한 사진 삭제하기", icon: "trash", iconColor: "#fa213b" },
   { text: "취소", icon: "close", iconColor: "#25de5b" }
 ];
 var DESTRUCTIVE_INDEX = 3;

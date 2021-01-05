@@ -6,7 +6,7 @@ import * as Location from 'expo-location';
 import MapView, { Marker, Callout} from 'react-native-maps';
 import { Svg, Image } from 'react-native-svg';
 import { getToken } from '../../../utils/getToken';
-import { searchWastedShip } from '../../../utils/shipInfoRequest';
+import { searchWastedShipList } from '../../../utils/shipInfoRequest';
 export default class SearchMap extends Component{ // only use for Wasted Boat
 	constructor(props) {
 		super(props);
@@ -20,14 +20,16 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 	}
 	requestShipLocation(){
 		getToken().then((token) => {
-			searchWastedShip(token).then((response) =>{
-				if(response.status == 200){
+			searchWastedShipList(token).then((response) =>{
+				if(response.status == 200){ // request success
 					this.setState({data: this.state.data.concat(response.data.data)})
 				}
 				else{
                 console.log('fail')
             	}
-			})
+			}).catch((error) => { // request fail
+					console.log(error.message)
+				})
         })
 	}
 	getLocation = async () => {
@@ -96,16 +98,20 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 							longitudeDelta: 0.05,
 						}}
 						onRegionChange={(region) => {
-							this.setState({latitude: region.latitude, longitude: region.longitude});
+							this.setState({latitude: parseFloat(region.latitude).toFixed(6), longitude: parseFloat(region.longitude).toFixed(6)});
 						}}
 						>
 						{ requestMarker(this.state.data) }
 					</MapView>
 					
-					<base.Text style={{position: 'absolute', alignSelf: 'center', bottom: '5%', backgroundColor: 'white', fontSize: 20, width: '50%',
-									  borderRadius: 5, borderColor: 'black'}}>
-						위도 : {this.state.latitude}{'\n'}경도 : {this.state.longitude}</base.Text>
-
+					<base.Item rounded style={{position: 'absolute', alignSelf: 'center', bottom: '10%', backgroundColor: 'white', width: '60%'}}>
+						<base.Text style={{backgroundColor: 'white', fontSize: 20,}}>
+						위도 : {this.state.latitude}</base.Text>
+					</base.Item>
+					<base.Item rounded style={{position: 'absolute', alignSelf: 'center', bottom: '5%', backgroundColor: 'white', width: '60%'}}>
+						<base.Text style={{backgroundColor: 'white', fontSize: 20,}}>
+						경도 : {this.state.longitude}</base.Text>
+					</base.Item>
 					<base.Button rounded style={{ position: 'absolute', right: '5%', bottom: '5%', }}>
 						<base.Icon name='ios-locate'/>
 					</base.Button>
