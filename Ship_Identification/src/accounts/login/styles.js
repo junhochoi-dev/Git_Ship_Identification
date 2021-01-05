@@ -9,9 +9,11 @@ const styles = StyleSheet.create({
 		marginBottom: 20,
 	},
 	input_layout: {
-		margin: 15,
+		margin: 10,
 	},
 	input: {
+		marginTop: 20,
+		marginBottom: 20,
 		color: 'black',
 	},
 	btn_login: {

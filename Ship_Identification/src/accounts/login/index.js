@@ -34,15 +34,13 @@ export default class Login extends Component{
 				</base.Header>
 				<base.Content padder>
 					<base.Form style={styles.container}>							
-						<base.Text style={{fontSize: 80, marginTop: 100}}>선박정보{'\n'}확인체계</base.Text>
-						<base.Item floatingLabel>
-							<base.Label style={styles.input}>아이디</base.Label>
-							<base.Input onChangeText={(serviceNum) => this.setState({serviceNum})}
+						<base.Text style={{fontSize: 80, marginTop: 100, marginBottom: 20}}>선박정보{'\n'}확인체계</base.Text>
+						<base.Item regular style={styles.input_layout}>
+							<base.Input placeholder='아이디' onChangeText={(serviceNum) => this.setState({serviceNum})}
 								keyboardType="number-pad"/>
 						</base.Item>
-						<base.Item floatingLabel>
-							<base.Label style={styles.input}>비밀번호</base.Label>
-							<base.Input onChangeText={(password) => this.setState({password})}
+						<base.Item regular style={styles.input_layout}>
+							<base.Input placeholder='비밀번호' onChangeText={(password) => this.setState({password})}
 								secureTextEntry={ true }/>
 						</base.Item>
 					</base.Form>
@@ -50,6 +48,9 @@ export default class Login extends Component{
 					<base.Form style={{alignItems: 'center',}}>
 						<base.Button style={styles.btn_login} bordered onPress={this.executeLogin}>
 							<base.Text>로그인</base.Text>
+						</base.Button>
+						<base.Button style={styles.btn_login} bordered onPress={()=>this.props.navigation.navigate('Home')}>
+							<base.Text>TEST</base.Text>
 						</base.Button>
 						<base.Form style={{margin: 10, flex: 1, flexDirection: 'row', }}>
 							<base.Button style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Signup1')}>

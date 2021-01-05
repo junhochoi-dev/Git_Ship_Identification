@@ -19,7 +19,7 @@ import DetailCommonShip from './src/main/detailCommonShip';
 
 import OptionHome from './src/option/optionHome';
 import ErrorReport from './src/option/errorReport';
-
+import MyAccount from './src/option/myAccount';
 
 const homeStackNav = createStackNavigator(
 	{
@@ -40,6 +40,7 @@ const Drawer = createDrawerNavigator(
 	{
 		homeStackNav: homeStackNav,
 		ErrorReport: {screen: ErrorReport, navigationOptions: { headerShown: false }},
+		MyAccount: {screen: MyAccount, navigationOptions: { headerShown: false }},
 	},
 	{
 		drawerPosition: 'left',

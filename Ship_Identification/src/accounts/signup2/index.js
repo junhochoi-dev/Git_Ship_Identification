@@ -46,18 +46,24 @@ export default class Signup2 extends Component{
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
-					<base.Button bordered onPress={() => alert('개발중')}>
+					<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 10,}}>
+						<base.Button style={{width:'70%'}} bordered onPress={() => alert('개발중')}>
 						<base.Text>선박정보확인체계 이용약관 동의</base.Text>
-					</base.Button>
-					<base.CheckBox checked={false} />
-					<base.Button bordered onPress={() => alert('개발중')}>
+						</base.Button>
+						<base.CheckBox checked={false} />
+					</base.Form>
+					<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 10,}}>
+						<base.Button style={{width:'70%'}} bordered onPress={() => alert('개발중')}>
 						<base.Text>개인정보 수집 및 이용약관 동의</base.Text>
-					</base.Button>
-					<base.CheckBox checked={false} />
-					<base.Button bordered onPress={() => alert('개발중')}>
-						<base.Text>위치정보 이용약관 동의</base.Text>
-					</base.Button>
-					<base.CheckBox checked={false} />
+						</base.Button>
+						<base.CheckBox checked={true} />
+					</base.Form>
+					<base.Form style={{flexDirection: 'row', alignItems: 'center', margin: 10,}}>
+						<base.Button style={{width:'70%'}} bordered onPress={() => alert('개발중')}>
+							<base.Text>위치정보 이용약관 동의</base.Text>
+						</base.Button>
+						<base.CheckBox checked={false} />
+					</base.Form>
 					<base.Item floatingLabel>
 						<base.Label>이름</base.Label>
 						<base.Input onChangeText={(name) => this.setState({name})}/>
@@ -79,12 +85,14 @@ export default class Signup2 extends Component{
 						<base.Input onChangeText={(phone) => this.setState({phone})}
 							 keyboardType="number-pad"/>
 					</base.Item>
-					<base.Button bordered onPress={()=>this.props.navigation.popToTop()}>
-							<base.Text>취소</base.Text>
+					<base.Form style={{flexDirection: 'row', alignItems:'center',}}>
+						<base.Button bordered style={{width: '45%', margin: 10,}} onPress={()=>this.props.navigation.popToTop()}>
+								<base.Text>취소</base.Text>
+							</base.Button>
+						<base.Button bordered style={{width: '45%', margin: 10,}} onPress={this.executeSignup2}>
+								<base.Text>회원가입</base.Text>
 						</base.Button>
-					<base.Button bordered onPress={this.executeSignup2}>
-							<base.Text>회원가입</base.Text>
-					</base.Button>
+					</base.Form>
 				</base.Content>
 			</base.Container>
 		);

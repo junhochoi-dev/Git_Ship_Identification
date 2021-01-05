@@ -29,7 +29,7 @@ export default class OptionHome extends Component{
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
-					<base.Button style={{width:'100%', marginBottom: 10,}} onPress={this.executeLogout}>
+					<base.Button style={{width:'100%', marginBottom: 10,}} onPress={()=>this.props.navigation.navigate('MyAccount')}>
 						<base.Icon name='ios-person'/>
 						<base.Text>내정보</base.Text>
 					</base.Button>
