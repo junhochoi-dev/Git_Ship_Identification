@@ -24,9 +24,14 @@ export default class OptionHome extends Component{
 		return(
 			<base.Container>
 				<base.Header>
-					<base.Body>
+					<base.Left>
+						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
+							<base.Icon name='arrow-back'/>
+						</base.Button>
+					</base.Left>
+					<base.Right>
 						<base.Title>옵션</base.Title>
-					</base.Body>
+					</base.Right>
 				</base.Header>
 				<base.Content padder>
 					<base.Button style={{width:'100%', marginBottom: 10,}} onPress={()=>this.props.navigation.navigate('MyAccount')}>

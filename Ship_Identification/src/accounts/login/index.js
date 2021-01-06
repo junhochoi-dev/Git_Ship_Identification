@@ -28,14 +28,13 @@ export default class Login extends Component{
 		else{ console.log('Invalid User')} })
 	}
 	render(){
-		
 		Font.loadAsync({
 			Nanum: require('../../../assets/font/Nanum.ttf'),
 			Nanum_Title: require('../../../assets/font/Nanum_Title.ttf'),
 		})
 		return(
 			<base.Container>
-				<base.Content padder>
+				<base.Content>
 					<base.Form style={styles.container}>
 						<Image resizeMode='contain' source={require('/workspace/Ship_Identification/assets/img/logo.jpg')} style={{height: 200, width: 400, marginTop: 80,}}/>
 						<base.Text style={{fontSize: 70, marginBottom: 20, fontFamily:'Nanum_Title'}}>선박정보{'\n'}확인체계</base.Text>

@@ -42,7 +42,8 @@ export default class Signup2 extends Component{
 			<base.Container>
 				<base.Header>
 					<base.Body>
-						<base.Title>개인정보등록</base.Title>
+						<base.Title>회원가입</base.Title>
+						<base.Subtitle>개인정보 입력</base.Subtitle>
 					</base.Body>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent: 'center', flex: 1,}}>

@@ -38,7 +38,8 @@ export default class Signup1 extends Component{
 			<base.Container>
 				<base.Header>
 					<base.Body>
-						<base.Title>아이디생성</base.Title>
+						<base.Title>회원가입</base.Title>
+						<base.Subtitle>아이디 비밀번호 생성</base.Subtitle>
 					</base.Body>
 				</base.Header>
 				<base.Content padder>

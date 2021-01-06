@@ -47,6 +47,7 @@ const Drawer = createDrawerNavigator(
 	{
 		drawerPosition: 'left',
   		contentComponent: OptionHome,
+		defaultNavigationOptions: { drawerLockMode: "locked-closed", }
 	}
 );
 
