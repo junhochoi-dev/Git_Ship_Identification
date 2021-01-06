@@ -11,6 +11,7 @@ import Signup2 from './src/accounts/signup2';
 
 import Home from './src/main/home';
 import Register from './src/main/register';
+import RegisterPlus from './src/main/registerPlus';
 import Search from './src/main/search';
 import SearchResult from './src/main/searchResult';
 import SearchMap from './src/main/searchMap';
@@ -26,6 +27,7 @@ const homeStackNav = createStackNavigator(
 	{
 		Home: {screen: Home, navigationOptions: { headerShown: false }},
 		Register: {screen: Register, navigationOptions: { headerShown: false }},
+		RegisterPlus: {screen: RegisterPlus, navigationOptions: { headerShown: false }},
 		Search: {screen: Search, navigationOptions: { headerShown: false }},
 		SearchResult: {screen: SearchResult, navigationOptions: { headerShown: false }},
 		SearchMap: {screen: SearchMap, navigationOptions: { headerShown: false }},

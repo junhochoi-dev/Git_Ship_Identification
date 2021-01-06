@@ -19,43 +19,63 @@ export default class Home extends Component{
 					</base.Right>
 				</base.Header>
 				<base.Content padder>
-					<base.Form>
-						<base.Text>TEST</base.Text>
-						<base.Card style={{
-								flexDirection: 'row', 
-								alignItems: 'center',
-								justifyContent: 'center',
-								height: 130,
-							}}>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchAI')}>
-								<base.Icon name='ios-camera'/>
-								<base.Text>AI선박검색</base.Text>
-							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground}>
-								<base.Icon name='ios-paper-plane'/>
-								<base.Text>드론검색</base.Text>
-							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground}>
-								<base.Icon name='ios-expand'/>
-								<base.Text>선박QR코드검색</base.Text>
-							</base.CardItem>
-						</base.Card>
-					</base.Form>
+					<base.Card>
+						<base.Form style={{margin: 10,}}>
+							<base.Text>일반검색</base.Text>
+							<base.Card style={{
+									flexDirection: 'row', 
+									alignItems: 'center',
+									justifyContent: 'center',
+									height: 100,
+								}}>
+								<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('Search')}>
+									<base.Icon name='ios-search'/>
+									<base.Text>선박통합검색</base.Text>
+								</base.CardItem>
+								<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchMap')}>
+									<base.Icon name='ios-map'/>
+									<base.Text>지도검색{'\n'}[유기,폐선박]</base.Text>
+								</base.CardItem>
+							</base.Card>
+						</base.Form>
+						<base.Form style={{margin: 10,}}>
+							<base.Text>기능검색</base.Text>
+							<base.Card style={{
+									flexDirection: 'row', 
+									alignItems: 'center',
+									justifyContent: 'center',
+									height: 100,
+								}}>
+								<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchAI')}>
+									<base.Icon name='ios-camera'/>
+									<base.Text>AI선박검색</base.Text>
+								</base.CardItem>
+								<base.CardItem button style={styles.iconBackground}>
+									<base.Icon name='ios-paper-plane'/>
+									<base.Text>드론검색</base.Text>
+								</base.CardItem>
+								<base.CardItem button style={styles.iconBackground}>
+									<base.Icon name='ios-expand'/>
+									<base.Text>선박QR코드검색</base.Text>
+								</base.CardItem>
+							</base.Card>
+						</base.Form>
+					</base.Card>
 					<base.Form>
 						<base.Text>검색</base.Text>
 						<base.Card style={{
 								flexDirection: 'row', 
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: 130,
+								height: 100,
 							}}>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('Search')}>
-								<base.Icon name='ios-search'/>
-								<base.Text>선박통합검색</base.Text>
+								<base.Icon name='logo-buffer'/>
+								<base.Text>일반선박 목록</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchMap')}>
-								<base.Icon name='ios-map'/>
-								<base.Text>지도검색{'\n'}[유기,폐선박]</base.Text>
+								<base.Icon name='logo-buffer'/>
+								<base.Text>유기,폐선박 목록</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>
@@ -65,14 +85,14 @@ export default class Home extends Component{
 								flexDirection: 'row', 
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: 130,
+								height: 100,
 							}}>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('Register')}>
 								<base.Icon name='ios-add-circle'/>
 								<base.Text>선박초기등록</base.Text>
 							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('Register')}>
-								<base.Icon name='logo-buffer'/>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('RegisterPlus')}>
+								<base.Icon name='ios-add-circle'/>
 								<base.Text>선박추가등록</base.Text>
 							</base.CardItem>
 						</base.Card>
@@ -83,7 +103,7 @@ export default class Home extends Component{
 								flexDirection: 'row', 
 								alignItems: 'center',
 								justifyContent: 'center',
-								height: 130,
+								height: 100,
 							}}>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.kma.go.kr')}>
 								<base.Icon name='ios-sunny'/>
