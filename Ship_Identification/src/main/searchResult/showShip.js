@@ -48,7 +48,7 @@ export default class ShowShip extends Component{
 				<base.Card>
 					<base.CardItem cardBody>
 						<base.Left>
-							<Image resizeMode='contain' source={{uri: img,}} style={{width: 150, height: 130,}}/>
+							<Image resizeMode='contain' source={{uri: img,}} style={{width: 150, height: 100,}}/>
 						</base.Left>
 						<base.Body>
 							{detailShip}

@@ -62,18 +62,18 @@ export default class Home extends Component{
 						</base.Form>
 					</base.Card>
 					<base.Form>
-						<base.Text>검색</base.Text>
+						<base.Text>선박 목록</base.Text>
 						<base.Card style={{
 								flexDirection: 'row', 
 								alignItems: 'center',
 								justifyContent: 'center',
 								height: 100,
 							}}>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('Search')}>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('ListCommonShip')}>
 								<base.Icon name='logo-buffer'/>
 								<base.Text>일반선박 목록</base.Text>
 							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchMap')}>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('ListWastedShip')}>
 								<base.Icon name='logo-buffer'/>
 								<base.Text>유기,폐선박 목록</base.Text>
 							</base.CardItem>

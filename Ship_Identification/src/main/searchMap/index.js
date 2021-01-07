@@ -11,12 +11,12 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 	constructor(props) {
 		super(props);
 		this.state = {
-			latitude: '',
-			longitude: '',
+			latitude: '35.098470',
+			longitude: '129.074269',
 			data: [],
 		};
 		this.requestShipLocation = this.requestShipLocation(this);
-		this.getLocation = this.getLocation(this);
+		this.getLocation = this.getLocation.bind(this);
 	}
 	requestShipLocation(){
 		getToken().then((token) => {
@@ -92,8 +92,8 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 					<MapView
 						style={{flex: 1}}
 						initialRegion={{
-							latitude: 35.098470,
-							longitude: 129.074269,
+							latitude: parseFloat(this.state.latitude),
+							longitude: parseFloat(this.state.longitude),
 							latitudeDelta: 0.05,
 							longitudeDelta: 0.05,
 						}}
@@ -104,15 +104,11 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 						{ requestMarker(this.state.data) }
 					</MapView>
 					
-					<base.Item rounded style={{position: 'absolute', alignSelf: 'center', bottom: '10%', backgroundColor: 'white', width: '60%'}}>
+					<base.Item style={{position: 'absolute', alignSelf: 'center', bottom: '10%', backgroundColor: 'white', width: '35%'}}>
 						<base.Text style={{backgroundColor: 'white', fontSize: 20,}}>
-						위도 : {this.state.latitude}</base.Text>
+						위도 = {this.state.latitude} {'\n'}경도 = {this.state.longitude}</base.Text>
 					</base.Item>
-					<base.Item rounded style={{position: 'absolute', alignSelf: 'center', bottom: '5%', backgroundColor: 'white', width: '60%'}}>
-						<base.Text style={{backgroundColor: 'white', fontSize: 20,}}>
-						경도 : {this.state.longitude}</base.Text>
-					</base.Item>
-					<base.Button rounded style={{ position: 'absolute', right: '5%', bottom: '5%', }}>
+					<base.Button rounded style={{ position: 'absolute', right: '5%', bottom: '5%', }} onPress={this.getLocation}>
 						<base.Icon name='ios-locate'/>
 					</base.Button>
 				</base.Content>
