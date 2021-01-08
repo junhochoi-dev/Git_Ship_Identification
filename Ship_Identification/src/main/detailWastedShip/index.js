@@ -66,12 +66,12 @@ export default class DetailWastedShip extends Component{
 						</base.CardItem>
 						<base.CardItem bordered>
 							<Svg width={300} height={200}>
-									<Image
-										width={'100%'}
-										height={'100%'}
-										href={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.img}}
-										/>
-								</Svg>
+								<Image
+									width={'100%'}
+									height={'100%'}
+									href={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.img}}
+									/>
+							</Svg>
 						</base.CardItem>
 						<base.CardItem bordered>
 							<base.Text>상세정보</base.Text>

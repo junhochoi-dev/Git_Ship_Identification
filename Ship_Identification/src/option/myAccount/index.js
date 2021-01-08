@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import * as base from 'native-base';
 import { getToken } from '../../../utils/getToken';
 import { requestUserData } from '../../../utils/userInfoRequest';
@@ -39,7 +39,15 @@ export default class MyAccount extends Component{
 		})
         })
 	}
-	render(){		
+	render(){
+		if(this.state.serviceNum == ''){
+            return(
+                <View style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
+				    <Text style ={{fontSize: 30}}>데이터 가져오는 중</Text>
+				    <base.Spinner color='blue' />
+                </View>
+            )
+        }
 		return(
 			<base.Container>
 				<base.Header>
@@ -54,7 +62,7 @@ export default class MyAccount extends Component{
 				</base.Header>
 				<base.Content padder>
 					<base.Form style={{alignItems: 'center'}}>
-						<Image source={require('/workspace/Ship_Identification/assets/img/logo.jpg')} resizeMode='contain' style={{width: 200, height: 250,}}/>
+						<Image source={require('/workspace/Ship_Identification/assets/img/logo.jpg')} resizeMode='contain' style={{width: 200, height: 300,}}/>
 					</base.Form>
 					<base.Card>
 						<base.Card><base.CardItem><base.Text> 이름 : {this.state.name} </base.Text></base.CardItem></base.Card>
