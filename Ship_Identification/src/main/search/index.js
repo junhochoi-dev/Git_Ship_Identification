@@ -98,6 +98,7 @@ export default class Search extends Component{
 				</base.Segment>
 				<base.Content padder>
 					<base.Card>
+						<base.Card><base.CardItem><base.Text> 검색할 선박의 정보를 입력하세요 </base.Text></base.CardItem></base.Card>
 						{detailInput}
 					</base.Card>
 				</base.Content>

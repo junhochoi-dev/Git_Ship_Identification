@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		flexDirection: 'column',
 		marginTop: 20,
-		marginBottom: 20,
+		marginBottom: 60,
 	},
 	input_layout: {
 		margin: 10,
@@ -22,8 +22,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	btn_others: {
-		marginLeft: 5,
-		marginRight: 5,
+		margin: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
 		width: '50%',

@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import * as base from 'native-base'
+import * as Font from 'expo-font';
 
 const alertMessage =
 	  ' 1. 숫자, 문자, 특수문자를 혼합하여 9자리 이상으로 조합\n' +
@@ -34,6 +35,10 @@ export default class Signup1 extends Component{
 		})}
 	}
 	render(){
+		Font.loadAsync({
+			Nanum: require('../../../assets/font/Nanum.ttf'),
+			Nanum_Title: require('../../../assets/font/Nanum_Title.ttf'),
+		})
 		return(
 			<base.Container>
 				<base.Header>
@@ -43,24 +48,24 @@ export default class Signup1 extends Component{
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
-					<base.Form style={{marginTop: 50}}>
-						<base.Text style={{fontSize: 70}}>환영합니다</base.Text>
-						<base.Text style={{fontSize: 20}}>아래의 정보를 입력해주세요</base.Text>
+					<base.Form style={{margin: 10,}}>
+						<base.Text style={{fontSize: 70, fontFamily: 'Nanum'}}>환영합니다</base.Text>
+						<base.Text style={{fontSize: 20, fontFamily: 'Nanum'}}>아래의 정보를 입력해주세요</base.Text>
 					</base.Form>
 					<base.Card>
 						<base.Form style={{alignItems:'center', justifyContent: 'center', margin: 10}}>
-							<base.Item floatingLabel style={{margin: 10,}}>
+							<base.Item floatingLabel style={{margin: 20,}}>
 								<base.Label>아이디</base.Label>
 								<base.Input onChangeText={(serviceNum) => this.setState({serviceNum})} keyboardType="number-pad"/>
 							</base.Item>
 							<base.Button bordered style={{width: '30%'}} onPress={() => alert( alertMessage )}>
 								<base.Text>아이디조건</base.Text>
 							</base.Button>
-							<base.Item floatingLabel style={{margin: 10,}}>
+							<base.Item floatingLabel style={{margin: 20,}}>
 								<base.Label>비밀번호</base.Label>
 								<base.Input onChangeText={(password) => this.setState({password})} secureTextEntry={ true }/>
 							</base.Item>
-							<base.Item floatingLabel style={{margin: 10,}}>
+							<base.Item floatingLabel style={{margin: 20,}}>
 								<base.Label>비밀번호확인</base.Label>
 								<base.Input onChangeText={(passwordCheck) => this.setState({passwordCheck})} secureTextEntry={ true }/>
 							</base.Item>

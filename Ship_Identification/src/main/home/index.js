@@ -111,7 +111,7 @@ export default class Home extends Component{
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground}>
 								<base.Icon name='ios-boat'/>
-								<base.Text>수협{'\n'}조업정보알리미</base.Text>
+								<base.Text>수협조업정보알리미</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.khoa.go.kr/')}>
 								<base.Icon name='ios-podium'/>

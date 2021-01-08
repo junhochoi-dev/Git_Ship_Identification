@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
+import { Image } from 'react-native';
 import * as base from 'native-base';
 import { getToken } from '../../../utils/getToken';
 import { requestUserData } from '../../../utils/userInfoRequest';
@@ -52,9 +53,12 @@ export default class MyAccount extends Component{
 					</base.Right>
 				</base.Header>
 				<base.Content padder>
+					<base.Form style={{alignItems: 'center'}}>
+						<Image source={require('/workspace/Ship_Identification/assets/img/logo.jpg')} resizeMode='contain' style={{width: 200, height: 250,}}/>
+					</base.Form>
 					<base.Card>
-						<base.Card><base.CardItem><base.Text> ID : {this.state.serviceNum} </base.Text></base.CardItem></base.Card>
 						<base.Card><base.CardItem><base.Text> 이름 : {this.state.name} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text> ID : {this.state.serviceNum} </base.Text></base.CardItem></base.Card>
 						<base.Card><base.CardItem><base.Text> 직급 : {this.state.rank} </base.Text></base.CardItem></base.Card>
 						<base.Card><base.CardItem><base.Text> 직책 : {this.state.position} </base.Text></base.CardItem></base.Card>
 						<base.Card><base.CardItem><base.Text> 소속 : {this.state.belong} </base.Text></base.CardItem></base.Card>
