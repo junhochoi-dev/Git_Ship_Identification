@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import * as base from 'native-base';
+import { SliderBox } from 'react-native-image-slider-box';
 var BUTTONS = [
   { text: "카메라로 등록하기", icon: "ios-camera", iconColor: "#2c8ef4" },
   { text: "갤러리에서 등록하기", icon: "ios-images", iconColor: "#f42ced" },
@@ -14,7 +15,12 @@ export default class RegisterPlus extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			
+			images: [
+				require('/workspace/Ship_Identification/assets/db/db1.jpg'),
+				require('/workspace/Ship_Identification/assets/db/db2.jpg'),
+				require('/workspace/Ship_Identification/assets/db/db3.jpg'),
+				require('/workspace/Ship_Identification/assets/db/db4.jpg'),
+			]
 		};
 	}
 	render(){
@@ -33,22 +39,24 @@ export default class RegisterPlus extends Component{
 					</base.Header>
 					<base.Content padder>
 						<base.Card>
-							<Image source={{uri:this.state.img}} style={{height: 800, width: null, flex: 1}}/>
-							<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
-								onPress={() =>
-									base.ActionSheet.show(
-									{
-									options: BUTTONS,
-									cancelButtonIndex: CANCEL_INDEX,
-									destructiveButtonIndex: DESTRUCTIVE_INDEX,
-									title: "Testing ActionSheet"
-									},
-									buttonIndex => {
-										{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
-									}
-								)}>
-								<base.Icon name='ios-add-circle' />
-							</base.Button>
+							<SliderBox
+								images={this.state.images}
+								sliderBoxHeight={300}
+								sliderBoxWidth={350}
+								ImageComponentStyle={{ width: '100%', height: 300 }}
+								onCurrentImagePressed={index => console.warn(`image ${index} pressed`)}
+								currentImageEmitter={index => console.warn(`current pos is: ${index}`)}
+								circleLoop
+								resizeMode={'contain'}
+								paginationBoxStyle={{
+									position: "absolute",
+									bottom: 0,
+									padding: 0,
+									alignItems: "center",
+									alignSelf: "center",
+									justifyContent: "center",
+								}}
+							/>
 						</base.Card>
 					</base.Content>
 				</base.Container>
