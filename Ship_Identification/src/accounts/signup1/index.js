@@ -58,7 +58,7 @@ export default class Signup1 extends Component{
 								<base.Label>아이디</base.Label>
 								<base.Input onChangeText={(serviceNum) => this.setState({serviceNum})} keyboardType="number-pad"/>
 							</base.Item>
-							<base.Button bordered style={{width: '30%'}} onPress={() => alert( alertMessage )}>
+							<base.Button bordered style={{width: '100%'}} onPress={() => alert( alertMessage )}>
 								<base.Text>아이디조건</base.Text>
 							</base.Button>
 							<base.Item floatingLabel style={{margin: 20,}}>

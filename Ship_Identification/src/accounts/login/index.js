@@ -67,7 +67,7 @@ export default class Login extends Component{
 								<base.Button light style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Signup1')}>
 									<base.Text style={{ fontFamily:'Nanum' }}>회원가입</base.Text>
 								</base.Button>
-								<base.Button light style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Signup1')}>
+								<base.Button light style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Lost')}>
 									<base.Text style={{ fontFamily:'Nanum' }}>비밀번호찾기</base.Text>
 								</base.Button>
 							</base.Form>
