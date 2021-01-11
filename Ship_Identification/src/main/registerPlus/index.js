@@ -16,11 +16,13 @@ export default class RegisterPlus extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
+			flag: 'Normal',
 			images: [],
 		};
 		this.pickImage = this.pickImage.bind(this);
 		this.pickPhoto = this.pickPhoto.bind(this);
 	}
+	onValueChange(value: string) { this.setState({ flag: value }); }
 	
 	async pickPhoto() {
 		if(ImagePicker.getCameraPermissionsAsync()) ImagePicker.requestCameraPermissionsAsync()
@@ -72,7 +74,7 @@ export default class RegisterPlus extends Component{
 						</base.Right>
 					</base.Header>
 					<base.Content padder>
-						<base.Card style={{width: '100%', height: 400,}}>
+						<base.Card style={{width: '100%', height: 350,}}>
 							<base.Card><base.CardItem><base.Text>추가할 선박 사진 목록</base.Text></base.CardItem></base.Card>
 							<SliderBox
 								images={this.state.images}
@@ -85,8 +87,6 @@ export default class RegisterPlus extends Component{
 								resizeMode={'contain'}
 								paginationBoxStyle={{
 									position: "absolute",
-									bottom: 0,
-									padding: 0,
 									alignItems: "center",
 									alignSelf: "center",
 									justifyContent: "center",
@@ -111,13 +111,16 @@ export default class RegisterPlus extends Component{
 							</base.Button>
 						</base.Card>
 						<base.Card>
-							<base.CardItem>
-								<base.Text>사진을 추가로 등록할 선박의 유형을 선택하세요</base.Text>
-							</base.CardItem>
-							<base.Item floatingLabel>
-								<base.Label>선박유형</base.Label>
-								<base.Input></base.Input>
-							</base.Item>
+							<base.Card><base.CardItem><base.Text>선박유형선택</base.Text></base.CardItem></base.Card>
+							<base.Picker
+								mode='dropdown'
+								style={{ width: '100%' }}
+								selectedValue={this.state.flag}
+								onValueChange={this.onValueChange.bind(this)}
+								>
+								<base.Picker.Item label='일반선박' value='Normal' />
+								<base.Picker.Item label='유기,폐선박' value='Wasted' />
+							</base.Picker>
 						</base.Card>
 						<base.Card>
 							<base.CardItem>

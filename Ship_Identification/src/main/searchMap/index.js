@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import * as base from 'native-base';
 import * as Location from 'expo-location';
-import MapView, { Marker, Callout} from 'react-native-maps';
+import MapView, { Marker, Callout } from 'react-native-maps';
 import { Svg, Image } from 'react-native-svg';
 import { getToken } from '../../../utils/getToken';
 import { searchWastedShipList } from '../../../utils/shipInfoRequest';
@@ -42,7 +42,7 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 		}
 	}
 	render(){
-		if(this.state.data == ''){
+		if(this.state.data == '' || this.state.latitude == '' || this.state.longitude == ''){
             return(
                 <View style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
 				    <Text style ={{fontSize: 30}}>데이터 가져오는 중</Text>
@@ -97,17 +97,14 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 							latitudeDelta: 0.05,
 							longitudeDelta: 0.05,
 						}}
+						showsUserLocation={true}
+						showsMyLocationButton={true}
 						onRegionChange={(region) => {
 							this.setState({latitude: parseFloat(region.latitude).toFixed(6), longitude: parseFloat(region.longitude).toFixed(6)});
 						}}
 						>
 						{ requestMarker(this.state.data) }
 					</MapView>
-					
-					<base.Item style={{position: 'absolute', alignSelf: 'center', bottom: '10%', backgroundColor: 'white', width: '35%'}}>
-						<base.Text style={{backgroundColor: 'white', fontSize: 20,}}>
-						위도 = {this.state.latitude} {'\n'}경도 = {this.state.longitude}</base.Text>
-					</base.Item>
 					<base.Button rounded style={{ position: 'absolute', right: '5%', bottom: '5%', }} onPress={this.getLocation}>
 						<base.Icon name='ios-locate'/>
 					</base.Button>

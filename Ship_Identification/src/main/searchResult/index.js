@@ -17,6 +17,8 @@ export default class SearchResult extends Component{
 			build_year: '', current_flag: '', home_port: '',
 			
 			title: '', latitude: '', longitude: '', detail: '',
+			
+			len: '',
 		};
 		this.showResult = this.showResult(this);
 		this.getDetail = this.getDetail.bind(this);
@@ -40,6 +42,7 @@ export default class SearchResult extends Component{
 			if(flag == 'Normal'){
 				searchCommonShip(token, name, imo, calsign, mmsi, vessel_type, build_year, current_flag, home_port).then((response) => {
 				if(response.status == 200){
+					this.setState({ len: response.data.data.length })
 					this.setState({ data: this.state.data.concat(response.data.data) })
 				}
 				else{
@@ -50,6 +53,7 @@ export default class SearchResult extends Component{
 			else{ // flag == 'Wasted'
 				searchWastedShip(token, title).then((response) => {
 				if(response.status == 200){
+					this.setState({ len: response.data.data.length })
 					this.setState({ data: this.state.data.concat(response.data.data) })
 				}
 				else{
@@ -91,6 +95,7 @@ export default class SearchResult extends Component{
 							</base.Right>
 						</base.Header>
 						<base.Content padder>
+							<base.Card><base.CardItem><base.Text>선박 검색 결과 [{this.state.len}척]</base.Text></base.CardItem></base.Card>
 							<FlatList
 								sytle={{flex:1}}
 								data={this.state.data}

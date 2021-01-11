@@ -90,13 +90,15 @@ export default class Register extends Component{
 		return(
 			<base.Form>
 				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
-				<base.Form style={{flexDirection: 'row',}}>
-					<base.Text style={{width: 150,}}>위도 {this.state.latitude}</base.Text>
-					<base.Text style={{width: 150,}}>경도 {this.state.longitude}</base.Text>
-					<base.Button light onPress={this.getLocation}>
-								<base.Text>현재위치등록하기</base.Text>
+				<base.Card>
+					<base.Form style={{flexDirection: 'row',}}>
+						<base.Card><base.CardItem><base.Text style={{width: 150,}}>위도 {this.state.latitude}</base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{width: 150,}}>경도 {this.state.longitude}</base.Text></base.CardItem></base.Card>
+					</base.Form>
+					<base.Button light style={{width:'100%'}} onPress={this.getLocation}>
+						<base.Text>현재위치등록하기</base.Text>
 					</base.Button>
-				</base.Form>
+				</base.Card>
 				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록" onChangeText={(detail) => this.setState({detail})}/>
 				<base.Button block light onPress={this.registerBoat}>
 					<base.Text>선박등록하기</base.Text>
@@ -147,6 +149,7 @@ export default class Register extends Component{
 					</base.Header>
 					<base.Content padder>
 						<base.Card>
+							<base.Card><base.CardItem><base.Text>추가할 선박 사진 목록</base.Text></base.CardItem></base.Card>
 							<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
 							<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
 								onPress={() =>
@@ -165,7 +168,7 @@ export default class Register extends Component{
 							</base.Button>
 						</base.Card>
 						<base.Card>
-							<base.Text>  선박유형선택</base.Text>
+							<base.Card><base.CardItem><base.Text>선박유형선택</base.Text></base.CardItem></base.Card>
 							<base.Picker
 								mode='dropdown'
 								style={{ width: '100%' }}
@@ -179,7 +182,6 @@ export default class Register extends Component{
 						<base.Card>
 							{detailInput}
 						</base.Card>
-						
 					</base.Content>
 				</base.Container>
 			</base.Root>
