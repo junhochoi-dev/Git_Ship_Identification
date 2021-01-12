@@ -34,7 +34,9 @@ export default class Login extends Component{
 			AsyncStorage.setItem('token', response.data['data']['token']);
 			this.props.navigation.navigate('Home')
 		}
-		else{ console.log('Invalid User')} })
+		else{
+			console.log('failed')
+		}})
 	}
 	render(){
 		if(!this.state.isReady){

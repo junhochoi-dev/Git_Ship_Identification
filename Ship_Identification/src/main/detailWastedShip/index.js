@@ -73,15 +73,18 @@ export default class DetailWastedShip extends Component{
 									/>
 							</Svg>
 						</base.CardItem>
-						<base.CardItem bordered>
-							<base.Text style={{fontFamily:'Nanum_Title'}}>상세정보</base.Text>
-						</base.CardItem>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> IMO : {this.state.imo} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 위도 : {this.state.latitude} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 경도 : {this.state.longitude} </base.Text></base.CardItem></base.Card>
 					</base.Card>
+						<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+							<base.Text style={{fontFamily:'Nanum'}}> IMO : {this.state.imo} </base.Text>
+						</base.Item>
+						<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+							<base.Text style={{fontFamily:'Nanum'}}> 위도 : {this.state.latitude} </base.Text>
+						</base.Item>
+						<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+							<base.Text style={{fontFamily:'Nanum'}}> 경도 : {this.state.longitude} </base.Text>
+						</base.Item>
 					<MapView
-						style={{flex: 1}}
+						style={{flex: 1, marginTop: 10}}
 						initialRegion={{
 							latitude: parseFloat(this.state.latitude),
 							longitude: parseFloat(this.state.longitude),

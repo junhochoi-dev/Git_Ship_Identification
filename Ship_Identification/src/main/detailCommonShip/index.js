@@ -77,18 +77,25 @@ export default class DetailCommonShip extends Component{
 										/>
 								</Svg>
 						</base.CardItem>
-						<base.CardItem bordered>
-							<base.Text style={{fontFamily:'Nanum_Title'}}>상세정보</base.Text>
-						</base.CardItem>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 선박명 : {this.state.name} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> IMO : {this.state.imo} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> MMSI : {this.state.mmsi} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> CallSign : {this.state.Calsign} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 선박용도 : {this.state.vessel_type} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 생산연도 : {this.state.build_year} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 입항국가 : {this.state.current_flag} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 정착항 : {this.state.home_port} </base.Text></base.CardItem></base.Card>
 					</base.Card>
+					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+						<base.Text style={{fontFamily:'Nanum'}}> 선박명 : {this.state.name} </base.Text>
+					</base.Item>
+					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+						<base.Text style={{fontFamily:'Nanum'}}> IMO : {this.state.imo} </base.Text>
+					</base.Item>
+					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+						<base.Text style={{fontFamily:'Nanum'}}> MMSI : {this.state.mmsi} </base.Text>
+					</base.Item>
+					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+						<base.Text style={{fontFamily:'Nanum'}}> CallSign : {this.state.Calsign} </base.Text>
+					</base.Item>
+					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+						<base.Text style={{fontFamily:'Nanum'}}> 입항국가 : {this.state.current_flag} </base.Text>
+					</base.Item>
+					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+						<base.Text style={{fontFamily:'Nanum'}}> 정착항 : {this.state.home_port} </base.Text>
+					</base.Item>
 				</base.Content>				
 			</base.Container>
 		);

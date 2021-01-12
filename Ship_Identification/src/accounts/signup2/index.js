@@ -76,36 +76,82 @@ export default class Signup2 extends Component{
 						</base.Form>
 					</base.Form>
 					<base.Form style={{margin:10,}}>
-						<base.Item floatingLabel>
-							<base.Label>이름</base.Label>
-							<base.Input onChangeText={(name) => this.setState({name})}/>
+						<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+							<base.Input
+								placeholder='이름'
+								onChangeText={(name) => this.setState({name})}
+								style={{fontFamily:'Nanum'}}
+								placeholderStyle={{fontFamily:'Nanum'}}
+								/>
 						</base.Item>
-						<base.Item floatingLabel>
-							<base.Label>직급</base.Label>
-							<base.Input onChangeText={(rank) => this.setState({rank})}/>
+						<base.Form style={{flexDirection: 'row', width: '100%'}}>
+							<base.Item regular style={{ flex :1, width: '100%', margin: 10, borderRadius: 10}}>
+								<base.Input
+									placeholder='년'
+									onChangeText={(rank) => this.setState({rank})}
+									style={{fontFamily:'Nanum'}}
+									placeholderStyle={{fontFamily:'Nanum'}}
+									/>
+							</base.Item>
+							<base.Item regular style={{ flex :1, width: '100%', margin: 10, borderRadius: 10}}>
+								<base.Input
+									placeholder='월'
+									onChangeText={(rank) => this.setState({rank})}
+									style={{fontFamily:'Nanum'}}
+									placeholderStyle={{fontFamily:'Nanum'}}
+									/>
+							</base.Item>
+							<base.Item regular style={{ flex :1, width: '100%', margin: 10, borderRadius: 10}}>
+								<base.Input
+									placeholder='일'
+									onChangeText={(rank) => this.setState({rank})}
+									style={{fontFamily:'Nanum'}}
+									placeholderStyle={{fontFamily:'Nanum'}}
+									/>
+							</base.Item>
+						</base.Form>
+						<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+							<base.Input
+								placeholder='직급'
+								onChangeText={(rank) => this.setState({rank})}
+								style={{fontFamily:'Nanum'}}
+								placeholderStyle={{fontFamily:'Nanum'}}
+								/>
 						</base.Item>
-						<base.Item floatingLabel>
-							<base.Label>직책</base.Label>
-							<base.Input onChangeText={(position) => this.setState({position})}/>
+						<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+							<base.Input
+								placeholder='직책'
+								onChangeText={(position) => this.setState({position})}
+								style={{fontFamily:'Nanum'}}
+								placeholderStyle={{fontFamily:'Nanum'}}
+								/>
 						</base.Item>
-						<base.Item floatingLabel>
-							<base.Label>소속</base.Label>
-							<base.Input onChangeText={(belong) => this.setState({belong})}/>
+						<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+							<base.Input
+								placeholder='소속'
+								onChangeText={(belong) => this.setState({belong})}
+								style={{fontFamily:'Nanum'}}
+								placeholderStyle={{fontFamily:'Nanum'}}
+								/>
 						</base.Item>
-						<base.Item floatingLabel>
-							<base.Label>번호</base.Label>
-							<base.Input onChangeText={(phone) => this.setState({phone})}
-								 keyboardType="number-pad"/>
+						<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+							<base.Input
+								placeholder='번호'
+								onChangeText={(phone) => this.setState({phone})}
+								style={{fontFamily:'Nanum'}}
+								placeholderStyle={{fontFamily:'Nanum'}}
+								keyboardType="number-pad"
+								/>
 						</base.Item>
 					</base.Form>
-					<base.Form style={{flexDirection: 'row', alignItems:'center',}}>
-						<base.Button bordered style={{width: '45%', margin: 10,}} onPress={()=>this.props.navigation.popToTop()}>
-								<base.Text>취소</base.Text>
+						<base.Form style={{flexDirection: 'row', alignItems:'center',}}>
+							<base.Button bordered style={{width: '45%', margin: 10,}} onPress={()=>this.props.navigation.popToTop()}>
+									<base.Text>취소</base.Text>
+								</base.Button>
+							<base.Button bordered style={{width: '45%', margin: 10,}} onPress={this.executeSignup2}>
+									<base.Text>회원가입</base.Text>
 							</base.Button>
-						<base.Button bordered style={{width: '45%', margin: 10,}} onPress={this.executeSignup2}>
-								<base.Text>회원가입</base.Text>
-						</base.Button>
-					</base.Form>
+						</base.Form>
 					</base.Card>
 				</base.Content>
 			<StatusBar hidden/>

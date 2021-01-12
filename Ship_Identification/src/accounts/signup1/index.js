@@ -54,20 +54,34 @@ export default class Signup1 extends Component{
 					</base.Form>
 					<base.Card>
 						<base.Form style={{alignItems:'center', justifyContent: 'center', margin: 10}}>
-							<base.Item floatingLabel style={{margin: 20,}}>
-								<base.Label>아이디</base.Label>
-								<base.Input onChangeText={(serviceNum) => this.setState({serviceNum})} keyboardType="number-pad"/>
+							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+								<base.Input
+									placeholder='아이디'
+									onChangeText={(serviceNum) => this.setState({serviceNum})}
+									style={{fontFamily:'Nanum'}}
+									placeholderStyle={{fontFamily:'Nanum'}}
+									keyboardType="number-pad"/>
 							</base.Item>
 							<base.Button bordered style={{width: '100%'}} onPress={() => alert( alertMessage )}>
 								<base.Text>아이디조건</base.Text>
 							</base.Button>
-							<base.Item floatingLabel style={{margin: 20,}}>
-								<base.Label>비밀번호</base.Label>
-								<base.Input onChangeText={(password) => this.setState({password})} secureTextEntry={ true }/>
+							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+								<base.Input
+									placeholder='비밀번호'
+									onChangeText={(password) => this.setState({password})}
+									style={{fontFamily:'Nanum'}}
+									placeholderStyle={{fontFamily:'Nanum'}}
+									secureTextEntry={ true }
+									/>
 							</base.Item>
-							<base.Item floatingLabel style={{margin: 20,}}>
-								<base.Label>비밀번호확인</base.Label>
-								<base.Input onChangeText={(passwordCheck) => this.setState({passwordCheck})} secureTextEntry={ true }/>
+							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+								<base.Input
+									placeholder='비밀번호확인'
+									onChangeText={(passwordCheck) => this.setState({passwordCheck})}
+									style={{fontFamily:'Nanum'}}
+									placeholderStyle={{fontFamily:'Nanum'}}
+									secureTextEntry={ true }
+									/>
 							</base.Item>
 							<base.Form style={{flexDirection: 'row', alignItems:'center',}}>
 								<base.Button bordered style={{width: '45%', margin: 10,}} onPress={()=>this.props.navigation.popToTop()}>
