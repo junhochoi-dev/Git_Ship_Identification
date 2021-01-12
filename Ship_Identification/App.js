@@ -23,6 +23,8 @@ import ListWastedShip from './src/main/listWastedShip';
 import DetailWastedShip from './src/main/detailWastedShip';
 import DetailCommonShip from './src/main/detailCommonShip';
 
+import TEST from './src/main/TEST';
+
 import OptionHome from './src/option/optionHome';
 import ErrorReport from './src/option/errorReport';
 import MyAccount from './src/option/myAccount';
@@ -42,8 +44,9 @@ const homeStackNav = createStackNavigator(
 		ListWastedShip: {screen: ListWastedShip, navigationOptions: { headerShown: false }},
 		DetailCommonShip: {screen: DetailCommonShip, navigationOptions: { headerShown: false }},
 		DetailWastedShip: {screen: DetailWastedShip, navigationOptions: { headerShown: false }},
-	},
-	{
+		
+		TEST: {screen: TEST, navigationOptions: { headerShown: false }},
+	},	{
 		initialRouteName: 'Home'
 	}
 );

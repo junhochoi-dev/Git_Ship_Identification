@@ -47,7 +47,7 @@ export default class ListCommonShip extends Component{
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title>일반선박 전체목록</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>일반선박 전체목록</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{ flex: 1 }}>

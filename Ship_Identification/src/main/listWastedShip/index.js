@@ -47,7 +47,7 @@ export default class ListWastedShip extends Component{
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title>유기,폐선박 전체목록</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>유기,폐선박 전체목록</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{ flex: 1 }}>

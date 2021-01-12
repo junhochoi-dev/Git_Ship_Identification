@@ -96,6 +96,12 @@ export default class Home extends Component{
 								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>수치조류도</base.Text>
 							</base.CardItem>
 						</base.Card>
+						<base.Card><base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST')}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-add-circle' style={{fontSize:35, color: '#006eee',}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>TEST</base.Text>
+							</base.CardItem></base.Card>
 					</base.Form>
 				</base.Content>
 			<StatusBar hidden/>
