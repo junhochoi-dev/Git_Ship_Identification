@@ -23,18 +23,18 @@ export default class ShowShip extends Component{
 	detailCommon = () => {
 		return(
 			<base.Form>
-				<base.Card><base.Text> {this.props.boat.name} </base.Text></base.Card>
-				<base.Text> IMO : {this.props.boat.imo} </base.Text>
-				<base.Text> MMSI : {this.props.boat.mmsi} </base.Text>
+				<base.Item regular style={{justifyContent: 'center', margin: 5, width: 180}}><base.Text style={{fontFamily:'Nanum', fontSize: 15}}>{this.props.boat.name}</base.Text></base.Item>
+				<base.Text style={{fontFamily:'Nanum',}}> IMO : {this.props.boat.imo} </base.Text>
+				<base.Text style={{fontFamily:'Nanum',}}> MMSI : {this.props.boat.mmsi} </base.Text>
 			</base.Form>
 		)
 	}
 	detailWasted = () =>{
 		return(
 			<base.Form>
-				<base.Card><base.Text> {this.props.boat.title} </base.Text></base.Card>
-				<base.Text> 위도 : {this.props.boat.latitude} </base.Text>
-				<base.Text> 경도 : {this.props.boat.longitude} </base.Text>
+				<base.Card style={{alignItems:'center'}}><base.Text style={{fontFamily:'Nanum'}}>{this.props.boat.title}</base.Text></base.Card>
+				<base.Text style={{fontFamily:'Nanum',}}> 위도 : {this.props.boat.latitude} </base.Text>
+				<base.Text style={{fontFamily:'Nanum',}}> 경도 : {this.props.boat.longitude} </base.Text>
 			</base.Form>
 		)
 	}

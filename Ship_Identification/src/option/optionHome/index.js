@@ -23,7 +23,7 @@ export default class OptionHome extends Component{
 	render(){
 		return(
 			<base.Container>
-				<base.Header>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Left>
 						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 							<base.Icon name='arrow-back'/>
@@ -34,23 +34,23 @@ export default class OptionHome extends Component{
 					</base.Right>
 				</base.Header>
 				<base.Content padder>
-					<base.Button style={{width:'100%', marginBottom: 10,}} onPress={()=>this.props.navigation.navigate('MyAccount')}>
+					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}} onPress={()=>this.props.navigation.navigate('MyAccount')}>
 						<base.Icon name='ios-person'/>
 						<base.Text>내정보</base.Text>
 					</base.Button>
-					<base.Button style={{width:'100%', marginBottom: 10,}}>
+					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}}>
 						<base.Icon name='ios-create'/>
 						<base.Text>회원정보 수정</base.Text>
 					</base.Button>
-					<base.Button style={{width:'100%', marginBottom: 10,}} onPress={()=>this.props.navigation.navigate('ErrorReport')}>
+					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}} onPress={()=>this.props.navigation.navigate('ErrorReport')}>
 						<base.Icon name='ios-warning'/>
 						<base.Text>오류보고</base.Text>
 					</base.Button>
-					<base.Button style={{width:'100%', marginBottom: 10,}} onPress={this.executeLogout}>
+					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}} onPress={this.executeLogout}>
 						<base.Icon name='ios-exit'/>
 						<base.Text>로그아웃</base.Text>
 					</base.Button>
-					<base.Button  style={{width:'100%', marginBottom: 10,}}>
+					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}}>
 						<base.Icon name='ios-information-circle'/>
 						<base.Text>개발자정보</base.Text>
 					</base.Button>

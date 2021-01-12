@@ -29,7 +29,7 @@ export default class Search extends Component{
 				<ValueInput label='제작년도' onChange={(build_year) => this.setState({build_year})}/>
 				<ValueInput label='입항국가' onChange={(current_flag) => this.setState({current_flag})}/>
 				<ValueInput label='정박항구' onChange={(home_port) => this.setState({home_port})}/>
-				<base.Button block light onPress={this.searchBoat}>
+				<base.Button block onPress={this.searchBoat} style={{backgroundColor: '#006eee'}}>
 					<base.Text>선박검색하기</base.Text>
 				</base.Button>
 			</base.Form>
@@ -39,7 +39,7 @@ export default class Search extends Component{
 		return(
 			<base.Form>
 				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
-				<base.Button block light onPress={this.searchBoat}>
+				<base.Button block onPress={this.searchBoat} style={{backgroundColor: '#006eee'}}>
 					<base.Text>선박검색하기</base.Text>
 				</base.Button>
 			</base.Form>
@@ -76,7 +76,7 @@ export default class Search extends Component{
 		}
 		return(
 			<base.Container>
-				<base.Header hasSegment>
+				<base.Header hasSegment style={{backgroundColor: '#006eee'}}>
 					<base.Left>
 						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 							<base.Icon name='arrow-back'/>
@@ -85,22 +85,21 @@ export default class Search extends Component{
 					<base.Body>
 					</base.Body>
 					<base.Right>
-						<base.Title>선박검색</base.Title>
+						<base.Title style={{fontFamily:'Nanum'}}>선박검색</base.Title>
 					</base.Right>
 				</base.Header>
-				<base.Segment>
-					<base.Button first active={this.state.flag == 'Normal'} style={{width: '40%'}} onPress={() => this.setState({flag: 'Normal'})}>
-					<base.Text>일반선박 검색</base.Text>
+				<base.Segment style={{backgroundColor: '#006eee',}}>
+					<base.Button first active={this.state.flag == 'Normal'} style={{width: '40%', justifyContent: 'center'}} onPress={() => this.setState({flag: 'Normal'})}>
+					<base.Text style={{fontFamily:'Nanum', fontSize: 15}}>일반선박 검색</base.Text>
 					</base.Button>
-					<base.Button last active={this.state.flag == 'Wasted'} style={{width: '40%'}} onPress={() => this.setState({flag: 'Wasted'})}>
-					<base.Text>유기,폐선박 검색</base.Text>
+					<base.Button last active={this.state.flag == 'Wasted'} style={{width: '40%', justifyContent: 'center'}} onPress={() => this.setState({flag: 'Wasted'})}>
+					<base.Text style={{fontFamily:'Nanum', fontSize: 15}}>유기,폐선박 검색</base.Text>
 					</base.Button>
 				</base.Segment>
 				<base.Content padder>
-					<base.Card>
-						<base.Card><base.CardItem><base.Text> 검색할 선박의 정보를 입력하세요 </base.Text></base.CardItem></base.Card>
-						{detailInput}
-					</base.Card>
+					<base.Text style={{fontFamily:'Nanum', fontSize: 40, color: '#006eee', margin: 5}}>선박검색</base.Text>
+					<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 5}}>검색할 선박의 정보를 입력하세요</base.Text>
+					{detailInput}
 				</base.Content>
 			</base.Container>
 		);

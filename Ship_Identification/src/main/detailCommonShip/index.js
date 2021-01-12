@@ -55,18 +55,18 @@ export default class DetailCommonShip extends Component{
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title>일반선박 세부정보</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>일반선박 세부정보</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{ flex: 1 }}>
 					<base.Card>
 						<base.CardItem bordered>
-							<base.Text style={{fontSize: 40,}}> {this.state.name} </base.Text>
+							<base.Text style={{fontFamily:'Nanum_Title', fontSize: 40,}}> {this.state.name} </base.Text>
 						</base.CardItem>
 					</base.Card>
 					<base.Card>
 						<base.CardItem bordered>
-							<base.Text>선박사진</base.Text>
+							<base.Text style={{fontFamily:'Nanum_Title'}}>선박사진</base.Text>
 						</base.CardItem>
 						<base.CardItem bordered>
 							<Svg width={300} height={200}>
@@ -78,16 +78,16 @@ export default class DetailCommonShip extends Component{
 								</Svg>
 						</base.CardItem>
 						<base.CardItem bordered>
-							<base.Text>상세정보</base.Text>
+							<base.Text style={{fontFamily:'Nanum_Title'}}>상세정보</base.Text>
 						</base.CardItem>
-						<base.Card><base.CardItem><base.Text> 선박명 : {this.state.name} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> IMO : {this.state.imo} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> MMSI : {this.state.mmsi} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> CallSign : {this.state.Calsign} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 선박용도 : {this.state.vessel_type} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 생산연도 : {this.state.build_year} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 입항국가 : {this.state.current_flag} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 정착항 : {this.state.home_port} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 선박명 : {this.state.name} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> IMO : {this.state.imo} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> MMSI : {this.state.mmsi} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> CallSign : {this.state.Calsign} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 선박용도 : {this.state.vessel_type} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 생산연도 : {this.state.build_year} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 입항국가 : {this.state.current_flag} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 정착항 : {this.state.home_port} </base.Text></base.CardItem></base.Card>
 					</base.Card>
 				</base.Content>				
 			</base.Container>

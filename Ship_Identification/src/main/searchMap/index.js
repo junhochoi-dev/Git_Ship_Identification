@@ -67,9 +67,11 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 										href={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + ship.wasted_img}}
 										/>
 								</Svg>
-								<Text>IMO : {ship.title}</Text>
-								<Text>위도 : {ship.latitude}</Text>
-								<Text>경도 : {ship.longitude}</Text>
+								<base.Card>
+									<Text style={{fontFamily:'Nanum',}}>IMO : {ship.title}</Text>
+									<Text style={{fontFamily:'Nanum',}}>위도 : {ship.latitude}</Text>
+									<Text style={{fontFamily:'Nanum',}}>경도 : {ship.longitude}</Text>
+								</base.Card>
 							</View>
 						</Callout>
 					</Marker>
@@ -78,33 +80,35 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 		}
 		return(
 			<base.Container>
-				<base.Header>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Left>
 						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 							<base.Icon name='arrow-back'/>
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title>유기,폐선박 지도 검색</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>유기,폐선박 지도 검색</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content contentContainerStyle={{ flex: 1 }} padder>
-					<MapView
-						style={{flex: 1}}
-						initialRegion={{
-							latitude: parseFloat(this.state.latitude),
-							longitude: parseFloat(this.state.longitude),
-							latitudeDelta: 0.05,
-							longitudeDelta: 0.05,
-						}}
-						showsUserLocation={true}
-						showsMyLocationButton={true}
-						onRegionChange={(region) => {
-							this.setState({latitude: parseFloat(region.latitude).toFixed(6), longitude: parseFloat(region.longitude).toFixed(6)});
-						}}
-						>
-						{ requestMarker(this.state.data) }
-					</MapView>
+					<base.Form style={{flex: 1,}}>
+						<MapView
+							style={{flex: 1}}
+							initialRegion={{
+								latitude: parseFloat(this.state.latitude),
+								longitude: parseFloat(this.state.longitude),
+								latitudeDelta: 0.05,
+								longitudeDelta: 0.05,
+							}}
+							showsUserLocation={true}
+							showsMyLocationButton={true}
+							onRegionChange={(region) => {
+								this.setState({latitude: parseFloat(region.latitude).toFixed(6), longitude: parseFloat(region.longitude).toFixed(6)});
+							}}
+							>
+							{ requestMarker(this.state.data) }
+						</MapView>
+					</base.Form>
 					<base.Button rounded style={{ position: 'absolute', right: '5%', bottom: '5%', }} onPress={this.getLocation}>
 						<base.Icon name='ios-locate'/>
 					</base.Button>

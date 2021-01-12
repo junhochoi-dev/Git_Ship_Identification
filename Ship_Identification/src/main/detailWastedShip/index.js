@@ -44,25 +44,25 @@ export default class DetailWastedShip extends Component{
         }
 		return(
 			<base.Container>
-				<base.Header>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Left>
 						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 							<base.Icon name='arrow-back'/>
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title>유기,폐선박 세부정보</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>유기,폐선박 세부정보</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{ flex: 1 }}>
 					<base.Card>
 						<base.CardItem bordered>
-							<base.Text style={{fontSize: 40,}}> {this.state.imo} </base.Text>
+							<base.Text style={{fontFamily:'Nanum_Title', fontSize: 40,}}> {this.state.imo} </base.Text>
 						</base.CardItem>
 					</base.Card>
 					<base.Card>
 						<base.CardItem bordered>
-							<base.Text>선박사진</base.Text>
+							<base.Text style={{fontFamily:'Nanum_Title'}}>선박사진</base.Text>
 						</base.CardItem>
 						<base.CardItem bordered>
 							<Svg width={300} height={200}>
@@ -74,11 +74,11 @@ export default class DetailWastedShip extends Component{
 							</Svg>
 						</base.CardItem>
 						<base.CardItem bordered>
-							<base.Text>상세정보</base.Text>
+							<base.Text style={{fontFamily:'Nanum_Title'}}>상세정보</base.Text>
 						</base.CardItem>
-						<base.Card><base.CardItem><base.Text> IMO : {this.state.imo} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 위도 : {this.state.latitude} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 경도 : {this.state.longitude} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> IMO : {this.state.imo} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 위도 : {this.state.latitude} </base.Text></base.CardItem></base.Card>
+						<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum'}}> 경도 : {this.state.longitude} </base.Text></base.CardItem></base.Card>
 					</base.Card>
 					<MapView
 						style={{flex: 1}}

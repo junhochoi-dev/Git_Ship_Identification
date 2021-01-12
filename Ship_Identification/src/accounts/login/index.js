@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { AsyncStorage, Image, ImageBackground } from 'react-native';
+import { AsyncStorage, Image, ImageBackground, View, Text } from 'react-native';
 import styles from './styles';
 import * as base from 'native-base'
 import Constants from 'expo-constants';
@@ -11,6 +11,8 @@ export default class Login extends Component{
 	constructor(props){
 		super(props)
 		this.state={
+			isReady: false,
+			
 			serviceNum: '',
 			password: '',
 			device_id: '',
@@ -18,7 +20,12 @@ export default class Login extends Component{
 		this.executeLogin = this.executeLogin.bind(this)
 	}
 	componentWillMount(){}
-	componentDidMount(){
+	async componentDidMount(){
+		await Font.loadAsync({
+			Nanum: require('../../../assets/font/Nanum.ttf'),
+			Nanum_Title: require('../../../assets/font/Nanum_Title.ttf'),
+		})
+		this.setState({isReady: true})
 		this.setState({device_id: Constants.deviceId})
 	}
 	executeLogin(){
@@ -30,10 +37,14 @@ export default class Login extends Component{
 		else{ console.log('Invalid User')} })
 	}
 	render(){
-		Font.loadAsync({
-			Nanum: require('../../../assets/font/Nanum.ttf'),
-			Nanum_Title: require('../../../assets/font/Nanum_Title.ttf'),
-		})
+		if(!this.state.isReady){
+            return(
+                <View style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
+				    <Text style ={{fontSize: 30}}>데이터 가져오는 중</Text>
+				    <base.Spinner color='blue' />
+                </View>
+            )
+        }
 		return(
 			<base.Container>
 				<ImageBackground source={require('/workspace/Ship_Identification/assets/img/login.jpeg')} style={{flex: 1, resizeMode: 'cover',}}>
@@ -71,9 +82,6 @@ export default class Login extends Component{
 									<base.Text style={{ fontFamily:'Nanum' }}>비밀번호찾기</base.Text>
 								</base.Button>
 							</base.Form>
-							<base.Button light style={styles.btn_login} bordered onPress={()=>this.props.navigation.navigate('Home')}>
-								<base.Text style={{ fontFamily:'Nanum' }}>TEST</base.Text>
-							</base.Button>
 						</base.Form>
 					</base.Content>
 					<StatusBar hidden/>

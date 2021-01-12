@@ -84,18 +84,18 @@ export default class SearchResult extends Component{
 			return(
 				<base.Root>
 					<base.Container>
-						<base.Header>
+						<base.Header style={{backgroundColor: '#006eee'}}>
 							<base.Left>
 								<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 									<base.Icon name='arrow-back'/>
 								</base.Button>
 							</base.Left>
 							<base.Right>
-								<base.Title>선박검색결과</base.Title>
+								<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박검색결과</base.Title>
 							</base.Right>
 						</base.Header>
 						<base.Content padder>
-							<base.Card><base.CardItem><base.Text>선박 검색 결과 [{this.state.len}척]</base.Text></base.CardItem></base.Card>
+							<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum_Title', fontSize: 20, color: '#006eee',}}>선박 검색 결과 {this.state.len}척</base.Text></base.CardItem></base.Card>
 							<FlatList
 								sytle={{flex:1}}
 								data={this.state.data}

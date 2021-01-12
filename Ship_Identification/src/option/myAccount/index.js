@@ -4,6 +4,7 @@ import { Image, View, Text } from 'react-native';
 import * as base from 'native-base';
 import { getToken } from '../../../utils/getToken';
 import { requestUserData } from '../../../utils/userInfoRequest';
+import styles from './styles';
 export default class MyAccount extends Component{
 	constructor(props) {
 		super(props);
@@ -57,22 +58,20 @@ export default class MyAccount extends Component{
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title>내정보</base.Title>
+						<base.Title style={{fontFamily:'Nanum'}}>내정보</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder>
 					<base.Form style={{alignItems: 'center'}}>
 						<Image source={require('/workspace/Ship_Identification/assets/img/logo.jpg')} resizeMode='contain' style={{width: 200, height: 300,}}/>
 					</base.Form>
-					<base.Card>
-						<base.Card><base.CardItem><base.Text> 이름 : {this.state.name} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> ID : {this.state.serviceNum} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 직급 : {this.state.rank} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 직책 : {this.state.position} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 소속 : {this.state.belong} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 연락처 : {this.state.phone} </base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text> 기기정보 : {this.state.device_id } </base.Text></base.CardItem></base.Card>
-					</base.Card>					
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 이름 : {this.state.name} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> ID : {this.state.serviceNum} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 직급 : {this.state.rank} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 직책 : {this.state.position} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 소속 : {this.state.belong} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 연락처 : {this.state.phone} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> 기기정보 : {this.state.device_id } </base.Text></base.Item>		
 				</base.Content>
 			</base.Container>
 		);
