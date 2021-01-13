@@ -63,14 +63,14 @@ export default class RegisterPlus extends Component{
 		return(
 			<base.Root>
 				<base.Container>
-					<base.Header>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 						<base.Left>
 							<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 								<base.Icon name='arrow-back'/>
 							</base.Button>
 						</base.Left>
 						<base.Right>
-							<base.Title>선박추가등록</base.Title>
+							<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박추가등록</base.Title>
 						</base.Right>
 					</base.Header>
 					<base.Content padder>
@@ -94,7 +94,7 @@ export default class RegisterPlus extends Component{
 							/>
 						</base.Card>
 						<base.Card>
-							<base.Button style={{width: '100%',}}
+							<base.Button style={{width: '100%', backgroundColor: '#006eee'}}
 									onPress={() =>
 										base.ActionSheet.show(
 										{
@@ -123,15 +123,12 @@ export default class RegisterPlus extends Component{
 							</base.Picker>
 						</base.Card>
 						<base.Card>
-							<base.CardItem>
-								<base.Text>그 선박명을 입력하세요</base.Text>
-							</base.CardItem>
 							<base.Item floatingLabel>
 								<base.Label>선박명</base.Label>
 								<base.Input></base.Input>
 							</base.Item>
 						</base.Card>
-						<base.Button style={{width: '100%',}}>
+						<base.Button style={{width: '100%', backgroundColor: '#006eee'}}>
 							<base.Text>추가 사진 등록하기</base.Text>
 						</base.Button>
 					</base.Content>
