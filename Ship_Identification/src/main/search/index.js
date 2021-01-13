@@ -30,7 +30,7 @@ export default class Search extends Component{
 				<ValueInput label='입항국가' onChange={(current_flag) => this.setState({current_flag})}/>
 				<ValueInput label='정박항구' onChange={(home_port) => this.setState({home_port})}/>
 				<base.Button block onPress={this.searchBoat} style={{backgroundColor: '#006eee'}}>
-					<base.Text>선박검색하기</base.Text>
+					<base.Text style={{fontFamily: 'Nanum'}}>선박검색하기</base.Text>
 				</base.Button>
 			</base.Form>
 		)

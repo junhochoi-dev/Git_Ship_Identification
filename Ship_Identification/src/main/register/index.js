@@ -80,8 +80,8 @@ export default class Register extends Component{
 				<ValueInput label='제작년도' onChange={(build_year) => this.setState({build_year})}/>
 				<ValueInput label='입항국가' onChange={(current_flag) => this.setState({current_flag})}/>
 				<ValueInput label='정박항구' onChange={(home_port) => this.setState({home_port})}/>
-				<base.Button block light onPress={this.registerBoat}>
-					<base.Text>선박등록하기</base.Text>
+				<base.Button block light onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
+					<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
 				</base.Button>
 			</base.Form>
 		)
@@ -90,18 +90,28 @@ export default class Register extends Component{
 		return(
 			<base.Form>
 				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
-				<base.Card>
 					<base.Form style={{flexDirection: 'row',}}>
-						<base.Card><base.CardItem><base.Text style={{width: 150,}}>위도 {this.state.latitude}</base.Text></base.CardItem></base.Card>
-						<base.Card><base.CardItem><base.Text style={{width: 150,}}>경도 {this.state.longitude}</base.Text></base.CardItem></base.Card>
+						<base.Item regular style={{
+							flex: 1,
+							borderRadius: 5,
+							width: '100%',
+							height: 50,
+							margin: 5
+							}}><base.Text style={{fontFamily: 'Nanum'}}>위도 {this.state.latitude}</base.Text></base.Item>
+						<base.Item regular style={{
+							flex: 1,
+							borderRadius: 5,
+							width: '100%',
+							height: 50,
+							margin: 5
+						}}><base.Text style={{fontFamily: 'Nanum'}}>경도 {this.state.longitude}</base.Text></base.Item>
 					</base.Form>
 					<base.Button light style={{width:'100%'}} onPress={this.getLocation}>
-						<base.Text>현재위치등록하기</base.Text>
+						<base.Text style={{fontFamily: 'Nanum'}}>현재위치등록하기</base.Text>
 					</base.Button>
-				</base.Card>
-				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록" onChangeText={(detail) => this.setState({detail})}/>
-				<base.Button block light onPress={this.registerBoat}>
-					<base.Text>선박등록하기</base.Text>
+				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록" onChangeText={(detail) => this.setState({detail})} style={{fontFamily: 'Nanum'}}/>
+				<base.Button block light onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
+					<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
 				</base.Button>
 			</base.Form>
 		)
@@ -137,14 +147,14 @@ export default class Register extends Component{
 		return(
 			<base.Root>
 				<base.Container>
-					<base.Header>
+					<base.Header style={{backgroundColor: '#006eee'}}>
 						<base.Left>
 							<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 								<base.Icon name='arrow-back'/>
 							</base.Button>
 						</base.Left>
 						<base.Right>
-							<base.Title>선박등록</base.Title>
+							<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박등록</base.Title>
 						</base.Right>
 					</base.Header>
 					<base.Content padder>
@@ -180,7 +190,9 @@ export default class Register extends Component{
 							</base.Picker>
 						</base.Card>
 						<base.Card>
-							{detailInput}
+							<base.Form style={{margin: 10,}}>
+								{detailInput}
+							</base.Form>							
 						</base.Card>
 					</base.Content>
 				</base.Container>
