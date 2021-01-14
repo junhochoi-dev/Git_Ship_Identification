@@ -23,8 +23,6 @@ import ListWastedShip from './src/main/listWastedShip';
 import DetailWastedShip from './src/main/detailWastedShip';
 import DetailCommonShip from './src/main/detailCommonShip';
 
-import TEST from './src/main/TEST';
-
 import OptionHome from './src/option/optionHome';
 import ErrorReport from './src/option/errorReport';
 import MyAccount from './src/option/myAccount';
@@ -44,8 +42,6 @@ const homeStackNav = createStackNavigator(
 		ListWastedShip: {screen: ListWastedShip, navigationOptions: { headerShown: false }},
 		DetailCommonShip: {screen: DetailCommonShip, navigationOptions: { headerShown: false }},
 		DetailWastedShip: {screen: DetailWastedShip, navigationOptions: { headerShown: false }},
-		
-		TEST: {screen: TEST, navigationOptions: { headerShown: false }},
 	},	{
 		initialRouteName: 'Home'
 	}
@@ -66,10 +62,10 @@ const Drawer = createDrawerNavigator(
 
 const loginStackNav = createStackNavigator(
 	{
-	Login: {screen: Login, navigationOptions: { headerShown: false }},
-	Lost: {screen: Lost, navigationOptions: { headerShown: false }},
-	Signup1: {screen: Signup1, navigationOptions: { headerShown: false }},
-	Signup2: {screen: Signup2, navigationOptions: { headerShown: false }},
+		Login: {screen: Login, navigationOptions: { headerShown: false }},
+		Lost: {screen: Lost, navigationOptions: { headerShown: false }},
+		Signup1: {screen: Signup1, navigationOptions: { headerShown: false }},
+		Signup2: {screen: Signup2, navigationOptions: { headerShown: false }},
 	},
 	{
 		initialRouteName: 'Login'

@@ -50,12 +50,23 @@ export default class SearchAI extends Component{
 			allowsEditing: true,
 			aspect: [1, 1],
 			quality: 1,
-		}).then((result) => this.setState({img: result.uri, base64: result.base64}))
+		}).then((result) => {
+			this.setState({img: result.uri})
+			ImageManipulator.manipulateAsync(
+				result.uri,
+				[{resize: {width: 50, height: 50}}],
+				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
+			).then((result) => {
+				console.log(this.state.base64)
+				this.setState({base64: result.base64})
+			})
+		})
 	}
+	
 	getAIResult(){
 		getToken().then((token) =>{
 			requestAIResult(token, this.state.base64).then((response) => {
-				console.log(response.status)
+				console.log(response.data.data)
 			})
 		})
 	}

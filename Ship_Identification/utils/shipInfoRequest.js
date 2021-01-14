@@ -93,7 +93,7 @@ export const requestWastedShipDetail = (token, id) =>
 
 export const requestAIResult = (token, base64) => 
     request.post('/Boats/boat/predict/', {
-			base64: base64,
+			image_data: base64,
 		}, {
         headers: {
             'AUTHORIZATION': 'jwt ' + token,

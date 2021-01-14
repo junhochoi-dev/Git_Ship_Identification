@@ -33,17 +33,18 @@ export default class Home extends Component{
 								</base.Form>
 								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>선박통합검색</base.Text>
 							</base.CardItem>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchAI')}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-add-circle' style={{fontSize:35, color: '#006eee',}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>선박AI검색
+								</base.Text>
+							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchMap')}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-map' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
 								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>지도검색</base.Text>
-							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST')}>
-								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-add-circle' style={{fontSize:35, color: '#006eee',}}/>
-								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>TEST</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>

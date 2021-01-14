@@ -160,8 +160,8 @@ export default class Register extends Component{
 					<base.Content padder>
 						<base.Card>
 							<base.Form style={{margin: 10,}}>
-								<base.Item regular style={{width:'100%', height: 80, borderRadius: 10, flexDirection: 'column',  alignItems: 'flex-start'}}>
-									<base.Text style={{fontFamily:'Nanum', margin: 10}}>선박유형선택</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박유형선택</base.Text>
+								<base.Item regular style={{width:'100%', height: 40, borderRadius: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
 									<base.Picker
 										mode='dropdown'
 										style={{ width: '100%',}}
@@ -175,7 +175,8 @@ export default class Register extends Component{
 								</base.Item>
 							</base.Form>
 							<base.Form style={{margin: 10,}}>
-								<base.Item regular style={{width:'100%', height: width, borderRadius: 10,}}>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박사진등록</base.Text>
+								<base.Item regular style={{width:'100%', height: 300, borderRadius: 10, flexDirection: 'column'}}>
 									<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
 									<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
 										onPress={() =>
