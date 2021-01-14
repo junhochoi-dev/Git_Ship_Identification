@@ -41,54 +41,62 @@ export default class Signup1 extends Component{
 		})
 		return(
 			<base.Container>
-				<base.Header>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Body>
-						<base.Title>회원가입</base.Title>
-						<base.Subtitle>아이디 비밀번호 생성</base.Subtitle>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>회원가입</base.Title>
+						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 10}}>아이디 비밀번호 생성</base.Subtitle>
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
-					<base.Form style={{margin: 10,}}>
-						<base.Text style={{fontSize: 70, fontFamily: 'Nanum'}}>환영합니다</base.Text>
-						<base.Text style={{fontSize: 20, fontFamily: 'Nanum'}}>아래의 정보를 입력해주세요</base.Text>
+					<base.Form style={{margin: 5,}}>
+						<base.Text style={{fontFamily:'Nanum', fontSize: 40, color: '#006eee', margin: 5}}>환영합니다</base.Text>
+						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 5}}>아래의 정보를 입력해주세요</base.Text>
 					</base.Form>
 					<base.Card>
 						<base.Form style={{alignItems:'center', justifyContent: 'center', margin: 10}}>
-							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
-								<base.Input
-									placeholder='아이디'
-									onChangeText={(serviceNum) => this.setState({serviceNum})}
-									style={{fontFamily:'Nanum'}}
-									placeholderStyle={{fontFamily:'Nanum'}}
-									keyboardType="number-pad"/>
-							</base.Item>
-							<base.Button bordered style={{width: '100%'}} onPress={() => alert( alertMessage )}>
-								<base.Text>아이디조건</base.Text>
-							</base.Button>
-							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
-								<base.Input
-									placeholder='비밀번호'
-									onChangeText={(password) => this.setState({password})}
-									style={{fontFamily:'Nanum'}}
-									placeholderStyle={{fontFamily:'Nanum'}}
-									secureTextEntry={ true }
-									/>
-							</base.Item>
-							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
-								<base.Input
-									placeholder='비밀번호확인'
-									onChangeText={(passwordCheck) => this.setState({passwordCheck})}
-									style={{fontFamily:'Nanum'}}
-									placeholderStyle={{fontFamily:'Nanum'}}
-									secureTextEntry={ true }
-									/>
-							</base.Item>
-							<base.Form style={{flexDirection: 'row', alignItems:'center',}}>
-								<base.Button bordered style={{width: '45%', margin: 10,}} onPress={()=>this.props.navigation.popToTop()}>
-									<base.Text>취소</base.Text>
+							<base.Form style={{width: '100%',}}>
+								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+									<base.Input
+										placeholder='아이디'
+										onChangeText={(serviceNum) => this.setState({serviceNum})}
+										style={{fontFamily:'Nanum'}}
+										placeholderStyle={{fontFamily:'Nanum'}}
+										keyboardType="number-pad"/>
+								</base.Item>
+							</base.Form>
+							<base.Form style={{width: '100%', margin: 10,}}>
+								<base.Button bordered style={{width: '100%', borderRadius: 10}} onPress={() => alert( alertMessage )}>
+									<base.Text style={{fontFamily:'Nanum'}}>아이디조건</base.Text>
 								</base.Button>
-								<base.Button bordered style={{width: '45%', margin: 10,}} onPress={this.executeSignup1}>
-									<base.Text>다음</base.Text>
+							</base.Form>
+							<base.Form style={{width: '100%',}}>
+								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+									<base.Input
+										placeholder='비밀번호'
+										onChangeText={(password) => this.setState({password})}
+										style={{fontFamily:'Nanum'}}
+										placeholderStyle={{fontFamily:'Nanum'}}
+										secureTextEntry={ true }
+										/>
+								</base.Item>
+							</base.Form>
+							<base.Form style={{width: '100%',}}>
+								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+									<base.Input
+										placeholder='비밀번호확인'
+										onChangeText={(passwordCheck) => this.setState({passwordCheck})}
+										style={{fontFamily:'Nanum'}}
+										placeholderStyle={{fontFamily:'Nanum'}}
+										secureTextEntry={ true }
+										/>
+								</base.Item>
+							</base.Form>
+							<base.Form style={{flexDirection: 'row', alignItems:'center', marginTop: 10, marginBottom: 10,}}>
+								<base.Button bordered style={{ flex: 1, width: '100%', marginRight: 5, borderRadius: 10}} onPress={()=>this.props.navigation.popToTop()}>
+									<base.Text style={{fontFamily:'Nanum'}}>취소</base.Text>
+								</base.Button>
+								<base.Button bordered style={{ flex: 1,width: '100%', marginLeft: 5, borderRadius: 10}} onPress={this.executeSignup1}>
+									<base.Text style={{fontFamily:'Nanum'}}>다음</base.Text>
 								</base.Button>
 							</base.Form>
 						</base.Form>

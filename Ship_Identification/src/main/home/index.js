@@ -18,8 +18,8 @@ export default class Home extends Component{
 						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박정보확인체계</base.Title>
 					</base.Right>
 				</base.Header>
-				<base.Content padder>
-					<base.Form>
+				<base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent:'center', flex: 1,}}>
+					<base.Form style={{width: '100%', flex: 1,}}>
 						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 10}}>일반검색</base.Text>
 						<base.Card style={{
 								flexDirection: 'row', 
@@ -39,9 +39,15 @@ export default class Home extends Component{
 								</base.Form>
 								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>지도검색</base.Text>
 							</base.CardItem>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST')}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-add-circle' style={{fontSize:35, color: '#006eee',}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>TEST</base.Text>
+							</base.CardItem>
 						</base.Card>
 					</base.Form>
-					<base.Form>
+					<base.Form style={{width: '100%', flex: 1,}}>
 						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 10}}>선박 목록</base.Text>
 						<base.Card style={{
 								flexDirection: 'row', 
@@ -69,7 +75,7 @@ export default class Home extends Component{
 							</base.CardItem>
 						</base.Card>
 					</base.Form>
-					<base.Form>
+					<base.Form style={{width: '100%', flex: 1,}}>
 						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 10}}>추가기능</base.Text>
 						<base.Card style={{
 								flexDirection: 'row', 
@@ -96,12 +102,6 @@ export default class Home extends Component{
 								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>수치조류도</base.Text>
 							</base.CardItem>
 						</base.Card>
-						<base.Card><base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST')}>
-								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-add-circle' style={{fontSize:35, color: '#006eee',}}/>
-								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>TEST</base.Text>
-							</base.CardItem></base.Card>
 					</base.Form>
 				</base.Content>
 			<StatusBar hidden/>

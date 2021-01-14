@@ -159,7 +159,7 @@ export default class Register extends Component{
 					</base.Header>
 					<base.Content padder>
 						<base.Card>
-							<base.Card><base.CardItem><base.Text>추가할 선박 사진 목록</base.Text></base.CardItem></base.Card>
+							<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 추가할 사진 목록 </base.Text></base.Item>
 							<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
 							<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
 								onPress={() =>
