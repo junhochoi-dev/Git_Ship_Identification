@@ -159,37 +159,41 @@ export default class Register extends Component{
 					</base.Header>
 					<base.Content padder>
 						<base.Card>
-							<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 추가할 사진 목록 </base.Text></base.Item>
-							<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
-							<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
-								onPress={() =>
-									base.ActionSheet.show(
-									{
-									options: BUTTONS,
-									cancelButtonIndex: CANCEL_INDEX,
-									destructiveButtonIndex: DESTRUCTIVE_INDEX,
-									title: "Testing ActionSheet"
-									},
-									buttonIndex => {
-										{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
-									}
-								)}>
-								<base.Icon name='ios-add-circle' />
-							</base.Button>
-						</base.Card>
-						<base.Card>
-							<base.Card><base.CardItem><base.Text>선박유형선택</base.Text></base.CardItem></base.Card>
-							<base.Picker
-								mode='dropdown'
-								style={{ width: '100%' }}
-								selectedValue={this.state.flag}
-								onValueChange={this.onValueChange.bind(this)}
-								>
-								<base.Picker.Item label='일반선박' value='Normal' />
-								<base.Picker.Item label='유기,폐선박' value='Wasted' />
-							</base.Picker>
-						</base.Card>
-						<base.Card>
+							<base.Form style={{margin: 10,}}>
+								<base.Item regular style={{width:'100%', height: 80, borderRadius: 10, flexDirection: 'column',  alignItems: 'flex-start'}}>
+									<base.Text style={{fontFamily:'Nanum', margin: 10}}>선박유형선택</base.Text>
+									<base.Picker
+										mode='dropdown'
+										style={{ width: '100%',}}
+										selectedValue={this.state.flag}
+										itemTextStyle={{fontFamily:'Nanum',}}
+										onValueChange={this.onValueChange.bind(this)}
+										>
+										<base.Picker.Item label='일반선박' value='Normal'/>
+										<base.Picker.Item label='유기,폐선박' value='Wasted'/>
+									</base.Picker>
+								</base.Item>
+							</base.Form>
+							<base.Form style={{margin: 10,}}>
+								<base.Item regular style={{width:'100%', height: width, borderRadius: 10,}}>
+									<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
+									<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
+										onPress={() =>
+											base.ActionSheet.show(
+											{
+											options: BUTTONS,
+											cancelButtonIndex: CANCEL_INDEX,
+											destructiveButtonIndex: DESTRUCTIVE_INDEX,
+											title: "Testing ActionSheet"
+											},
+											buttonIndex => {
+												{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
+											}
+										)}>
+										<base.Icon name='ios-add-circle' />
+									</base.Button>
+								</base.Item>
+							</base.Form>
 							<base.Form style={{margin: 10,}}>
 								{detailInput}
 							</base.Form>							
