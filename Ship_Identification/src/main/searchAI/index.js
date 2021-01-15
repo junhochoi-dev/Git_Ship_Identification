@@ -6,6 +6,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
 import { getToken } from '../../../utils/getToken';
 import { requestAIResult } from '../../../utils/shipInfoRequest';
+
 var BUTTONS = [
   { text: "카메라로 등록하기", icon: "ios-camera", iconColor: "#2c8ef4" },
   { text: "갤러리에서 등록하기", icon: "ios-images", iconColor: "#f42ced" },
@@ -162,6 +163,11 @@ export default class SearchAI extends Component{
 						<base.Button block onPress={this.getAIResult} style={{backgroundColor: '#006eee'}}>
 							<base.Text style={{fontFamily:'Nanum',}}>AI선박검색</base.Text>
 						</base.Button>
+						<base.Card>
+							<base.Form>
+								
+							</base.Form>
+						</base.Card>
 							{AIResult}					
 					</base.Content>
 				</base.Container>
