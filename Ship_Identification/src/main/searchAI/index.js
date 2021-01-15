@@ -19,13 +19,14 @@ export default class SearchAI extends Component{
 		this.state = {
 			img: '',
 			base64: '',
-			first: [],
-			second: [],
-			third: [],
+			data: [],
 		};
 		this.pickPhoto = this.pickPhoto.bind(this);
 		this.pickImage = this.pickImage.bind(this);
 		this.getAIResult = this.getAIResult.bind(this);
+		
+		this.showAIResult = this.showAIResult.bind(this);
+		this.loading = this.loading.bind(this);
 	}
 	
 	async pickPhoto() {
@@ -69,27 +70,57 @@ export default class SearchAI extends Component{
 	getAIResult(){
 		getToken().then((token) =>{
 			requestAIResult(token, this.state.base64).then((response) => {
-				console.log('test1')
-				console.log(response.data.data)
-				console.log('test2')
-				console.log(response.data.data[0])
-				this.setState({
-					first: this.state.data.concat(response.data.data[0]),
-					second: this.state.data.concat(response.data.data[1]),
-					third: this.state.data.concat(response.data.data[2])
-				})
-				console.log('test3')
-				console.log(this.state.first)
-				
-				console.log('test4')
-				console.log(this.state.second)
-				
-				console.log('test5')
-				console.log(this.state.third)
+				this.setState({ data: this.state.data.concat(response.data.data),})
 			}) 
 		})
 	}
+	
+	showAIResult = () => {
+		return(
+			<base.Card>
+				<base.Card>
+					<base.CardItem>
+						<base.Text>1.</base.Text>
+						<base.Text>{this.state.data[0][0]}</base.Text>
+						<base.Text>{this.state.data[0][1]}</base.Text>
+					</base.CardItem>
+				</base.Card>
+				<base.Card>
+					<base.CardItem>
+						<base.Text>2.</base.Text>
+						<base.Text>{this.state.data[1][0]}</base.Text>
+						<base.Text>{this.state.data[1][1]}</base.Text>
+					</base.CardItem>
+				</base.Card>
+				<base.Card>
+					<base.CardItem>
+						<base.Text>3.</base.Text>
+						<base.Text>{this.state.data[2][0]}</base.Text>
+						<base.Text>{this.state.data[2][1]}</base.Text>
+					</base.CardItem>
+				</base.Card>
+			</base.Card>
+		)
+	}
+	
+	loading = () => {
+		return(
+			<base.Card>
+				<base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1, height: 400}}>
+					<base.Text style ={{fontSize: 30}}>데이터 가져오는 중</base.Text>
+					<base.Spinner color='blue' />
+				</base.Form>
+			</base.Card>
+		)
+	}
 	render(){
+		let AIResult
+		if(!this.state.data.length){
+			AIResult = this.loading()
+		}
+		else{
+			AIResult = this.showAIResult()
+		}
 		return(
 			<base.Root>
 				<base.Container>
@@ -128,9 +159,7 @@ export default class SearchAI extends Component{
 						<base.Button block light onPress={this.getAIResult}>
 							<base.Text>AI선박검색</base.Text>
 						</base.Button>
-						<base.Text>1등 {this.state.first[0]}</base.Text>
-						<base.Text>1등 {this.state.first[1]}</base.Text>
-						
+							{AIResult}					
 					</base.Content>
 				</base.Container>
 			</base.Root>
