@@ -80,7 +80,7 @@ export default class Register extends Component{
 				<ValueInput label='제작년도' onChange={(build_year) => this.setState({build_year})}/>
 				<ValueInput label='입항국가' onChange={(current_flag) => this.setState({current_flag})}/>
 				<ValueInput label='정박항구' onChange={(home_port) => this.setState({home_port})}/>
-				<base.Button block light onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
+				<base.Button block onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
 					<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
 				</base.Button>
 			</base.Form>
@@ -90,7 +90,7 @@ export default class Register extends Component{
 		return(
 			<base.Form>
 				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
-					<base.Form style={{flexDirection: 'row',}}>
+					<base.Form style={{flexDirection: 'row', marginBottom: 10,}}>
 						<base.Item regular style={{
 							flex: 1,
 							borderRadius: 5,
@@ -106,11 +106,11 @@ export default class Register extends Component{
 							margin: 5
 						}}><base.Text style={{fontFamily: 'Nanum'}}>경도 {this.state.longitude}</base.Text></base.Item>
 					</base.Form>
-					<base.Button light style={{width:'100%'}} onPress={this.getLocation}>
+					<base.Button block onPress={this.getLocation}  style={{backgroundColor: '#006eee'}}>
 						<base.Text style={{fontFamily: 'Nanum'}}>현재위치등록하기</base.Text>
 					</base.Button>
-				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록" onChangeText={(detail) => this.setState({detail})} style={{fontFamily: 'Nanum'}}/>
-				<base.Button block light onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
+				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록" onChangeText={(detail) => this.setState({detail})} style={{fontFamily: 'Nanum', marginTop:10, marginBottom: 10, borderRadius: 10}}/>
+				<base.Button block onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
 					<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
 				</base.Button>
 			</base.Form>

@@ -11,14 +11,14 @@ export default class Lost extends Component{
 	render(){
 		return(
 			<base.Container>
-				<base.Header>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Left>
 						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 							<base.Icon name='arrow-back'/>
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title>비밀번호찾기</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>비밀번호찾기</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent: 'center', flex: 1,}}>
