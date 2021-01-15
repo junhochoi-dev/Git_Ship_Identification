@@ -35,7 +35,7 @@ export default class Home extends Component{
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchAI')}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-add-circle' style={{fontSize:35, color: '#006eee',}}/>
+									<base.Icon name='ios-camera' style={{fontSize:35, color: '#006eee',}}/>
 								</base.Form>
 								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>선박AI검색
 								</base.Text>

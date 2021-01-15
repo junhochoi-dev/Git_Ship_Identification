@@ -80,23 +80,26 @@ export default class SearchAI extends Component{
 			<base.Card>
 				<base.Card>
 					<base.CardItem>
-						<base.Text>1.</base.Text>
-						<base.Text>{this.state.data[0][0]}</base.Text>
-						<base.Text>{this.state.data[0][1]}</base.Text>
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+							<base.Text style={{fontFamily: 'Nanum', fontSize: 50, color: 'red', flex: 1,}}>{this.state.data[0][1]}</base.Text>
+							<base.Text style={{fontFamily: 'Nanum', fontSize: 30,}}>{this.state.data[0][0]}</base.Text>
+						</base.Form>
 					</base.CardItem>
 				</base.Card>
 				<base.Card>
 					<base.CardItem>
-						<base.Text>2.</base.Text>
-						<base.Text>{this.state.data[1][0]}</base.Text>
-						<base.Text>{this.state.data[1][1]}</base.Text>
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+							<base.Text style={{fontFamily: 'Nanum', fontSize: 50, color: 'red', flex: 1,}}>{this.state.data[1][1]}</base.Text>
+							<base.Text style={{fontFamily: 'Nanum', fontSize: 30,}}>{this.state.data[1][0]}</base.Text>
+						</base.Form>
 					</base.CardItem>
 				</base.Card>
 				<base.Card>
 					<base.CardItem>
-						<base.Text>3.</base.Text>
-						<base.Text>{this.state.data[2][0]}</base.Text>
-						<base.Text>{this.state.data[2][1]}</base.Text>
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+							<base.Text style={{fontFamily: 'Nanum', fontSize: 50, color: 'red', flex: 1,}}>{this.state.data[2][1]}</base.Text>
+							<base.Text style={{fontFamily: 'Nanum', fontSize: 30,}}>{this.state.data[2][0]}</base.Text>
+						</base.Form>
 					</base.CardItem>
 				</base.Card>
 			</base.Card>
@@ -107,7 +110,7 @@ export default class SearchAI extends Component{
 		return(
 			<base.Card>
 				<base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1, height: 400}}>
-					<base.Text style ={{fontSize: 30}}>데이터 가져오는 중</base.Text>
+					<base.Text style ={{fontFamily:'Nanum',fontSize: 30}}>데이터 가져오는 중</base.Text>
 					<base.Spinner color='blue' />
 				</base.Form>
 			</base.Card>
@@ -124,20 +127,20 @@ export default class SearchAI extends Component{
 		return(
 			<base.Root>
 				<base.Container>
-					<base.Header>
+						<base.Header style={{backgroundColor: '#006eee'}}>
 						<base.Left>
 							<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 								<base.Icon name='arrow-back'/>
 							</base.Button>
 						</base.Left>
 						<base.Right>
-							<base.Title>선박AI검색</base.Title>
+							<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박AI검색</base.Title>
 						</base.Right>
 					</base.Header>
 					<base.Content padder>
 						<base.Card>
 							<base.CardItem bordered>
-								<base.Text>검색 사진 등록</base.Text>
+								<base.Text style={{fontFamily:'Nanum',}}>검색 사진 등록</base.Text>
 							</base.CardItem>
 							<Image source={{uri:this.state.img}} style={{height: 250, width: '100%', flex: 1}}/>
 							<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
@@ -156,8 +159,8 @@ export default class SearchAI extends Component{
 								<base.Icon name='ios-add-circle' />
 							</base.Button>
 						</base.Card>
-						<base.Button block light onPress={this.getAIResult}>
-							<base.Text>AI선박검색</base.Text>
+						<base.Button block onPress={this.getAIResult} style={{backgroundColor: '#006eee'}}>
+							<base.Text style={{fontFamily:'Nanum',}}>AI선박검색</base.Text>
 						</base.Button>
 							{AIResult}					
 					</base.Content>
