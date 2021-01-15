@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator } from 'react-navigation-drawer'
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import Login from './src/accounts/login';
 import Lost from './src/accounts/lost';
@@ -72,7 +72,6 @@ const loginStackNav = createStackNavigator(
 	}
 	
 );
-
 
 const Root = createSwitchNavigator(
 	{

@@ -19,6 +19,9 @@ export default class SearchAI extends Component{
 		this.state = {
 			img: '',
 			base64: '',
+			first: [],
+			second: [],
+			third: [],
 		};
 		this.pickPhoto = this.pickPhoto.bind(this);
 		this.pickImage = this.pickImage.bind(this);
@@ -66,8 +69,24 @@ export default class SearchAI extends Component{
 	getAIResult(){
 		getToken().then((token) =>{
 			requestAIResult(token, this.state.base64).then((response) => {
+				console.log('test1')
 				console.log(response.data.data)
-			})
+				console.log('test2')
+				console.log(response.data.data[0])
+				this.setState({
+					first: this.state.data.concat(response.data.data[0]),
+					second: this.state.data.concat(response.data.data[1]),
+					third: this.state.data.concat(response.data.data[2])
+				})
+				console.log('test3')
+				console.log(this.state.first)
+				
+				console.log('test4')
+				console.log(this.state.second)
+				
+				console.log('test5')
+				console.log(this.state.third)
+			}) 
 		})
 	}
 	render(){
@@ -109,6 +128,9 @@ export default class SearchAI extends Component{
 						<base.Button block light onPress={this.getAIResult}>
 							<base.Text>AI선박검색</base.Text>
 						</base.Button>
+						<base.Text>1등 {this.state.first[0]}</base.Text>
+						<base.Text>1등 {this.state.first[1]}</base.Text>
+						
 					</base.Content>
 				</base.Container>
 			</base.Root>
