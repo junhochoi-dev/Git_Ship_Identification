@@ -7,6 +7,8 @@ import * as ImageManipulator from 'expo-image-manipulator';
 import { getToken } from '../../../utils/getToken';
 import { requestAIResult } from '../../../utils/shipInfoRequest';
 
+import HorizontalBarGraph from '@chartiful/react-native-horizontal-bar-graph';
+
 var BUTTONS = [
   { text: "카메라로 등록하기", icon: "ios-camera", iconColor: "#2c8ef4" },
   { text: "갤러리에서 등록하기", icon: "ios-images", iconColor: "#f42ced" },
@@ -85,6 +87,39 @@ export default class SearchAI extends Component{
 							<base.Text style={{fontFamily: 'Nanum', fontSize: 50, color: 'red', flex: 1,}}>{this.state.data[0][1]}</base.Text>
 							<base.Text style={{fontFamily: 'Nanum', fontSize: 30,}}>{this.state.data[0][0]}</base.Text>
 						</base.Form>
+							<base.Form style={{flex: 1}}>
+								<HorizontalBarGraph
+									data={[100]}
+									labels={['AI 일치율']}
+									width={375}
+									height={70}
+									barRadius={10}
+									barColor='black'
+									baseConfig={{
+										hasYAxisBackgroundLines: true,
+										xAxisLabelStyle: {
+											rotation: 0,
+											fontSize: 10,
+											yOffset: 0,
+											xOffset: -20
+										},
+										yAxisLabelStyle: {
+											rotation: 0,
+											fontSize: 10,
+											prefix: '%',
+											position: 'bottom',
+											decimals: 2,
+										}
+									}}
+									style={{
+										padding: 10,
+										borderRadius: 10,
+										width: 70,
+										height: 375,
+										backgroundColor: 'grey'
+									}}
+								/>
+							</base.Form>
 					</base.CardItem>
 				</base.Card>
 				<base.Card>
@@ -93,6 +128,39 @@ export default class SearchAI extends Component{
 							<base.Text style={{fontFamily: 'Nanum', fontSize: 50, color: 'red', flex: 1,}}>{this.state.data[1][1]}</base.Text>
 							<base.Text style={{fontFamily: 'Nanum', fontSize: 30,}}>{this.state.data[1][0]}</base.Text>
 						</base.Form>
+							<base.Form style={{flex: 1}}>
+								<HorizontalBarGraph
+									data={[100]}
+									labels={['AI 일치율']}
+									width={375}
+									height={70}
+									barRadius={10}
+									barColor='black'
+									baseConfig={{
+										hasYAxisBackgroundLines: true,
+										xAxisLabelStyle: {
+											rotation: 0,
+											fontSize: 10,
+											yOffset: 0,
+											xOffset: -20
+										},
+										yAxisLabelStyle: {
+											rotation: 0,
+											fontSize: 10,
+											prefix: '%',
+											position: 'bottom',
+											decimals: 2,
+										}
+									}}
+									style={{
+										padding: 10,
+										borderRadius: 10,
+										width: 70,
+										height: 375,
+										backgroundColor: 'grey'
+									}}
+								/>
+							</base.Form>
 					</base.CardItem>
 				</base.Card>
 				<base.Card>
@@ -101,6 +169,39 @@ export default class SearchAI extends Component{
 							<base.Text style={{fontFamily: 'Nanum', fontSize: 50, color: 'red', flex: 1,}}>{this.state.data[2][1]}</base.Text>
 							<base.Text style={{fontFamily: 'Nanum', fontSize: 30,}}>{this.state.data[2][0]}</base.Text>
 						</base.Form>
+							<base.Form style={{flex: 1}}>
+								<HorizontalBarGraph
+									data={[100]}
+									labels={['AI 일치율']}
+									width={375}
+									height={70}
+									barRadius={10}
+									barColor='black'
+									baseConfig={{
+										hasYAxisBackgroundLines: true,
+										xAxisLabelStyle: {
+											rotation: 0,
+											fontSize: 10,
+											yOffset: 0,
+											xOffset: -20
+										},
+										yAxisLabelStyle: {
+											rotation: 0,
+											fontSize: 10,
+											prefix: '%',
+											position: 'bottom',
+											decimals: 2,
+										}
+									}}
+									style={{
+										padding: 10,
+										borderRadius: 10,
+										width: 70,
+										height: 375,
+										backgroundColor: 'grey'
+									}}
+								/>
+							</base.Form>
 					</base.CardItem>
 				</base.Card>
 			</base.Card>
@@ -164,9 +265,6 @@ export default class SearchAI extends Component{
 							<base.Text style={{fontFamily:'Nanum',}}>AI선박검색</base.Text>
 						</base.Button>
 						<base.Card>
-							<base.Form>
-								
-							</base.Form>
 						</base.Card>
 							{AIResult}					
 					</base.Content>

@@ -8,6 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@chartiful/react-native-chart-builder": "^0.1.8",
+    "@chartiful/react-native-horizontal-bar-graph": "^0.1.2",
     "@react-native-community/masked-view": "^0.1.10",
     "axios": "^0.21.1",
     "expo": "~40.0.0",
