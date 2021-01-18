@@ -7,6 +7,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import Login from './src/accounts/login';
 import Lost from './src/accounts/lost';
+import AccessRights from './src/accounts/accessRights'; 
 import Signup1 from './src/accounts/signup1';
 import Signup2 from './src/accounts/signup2';
 
@@ -64,6 +65,7 @@ const loginStackNav = createStackNavigator(
 	{
 		Login: {screen: Login, navigationOptions: { headerShown: false }},
 		Lost: {screen: Lost, navigationOptions: { headerShown: false }},
+		AccessRights: {screen: AccessRights, navigationOptions: { headerShown: false }},
 		Signup1: {screen: Signup1, navigationOptions: { headerShown: false }},
 		Signup2: {screen: Signup2, navigationOptions: { headerShown: false }},
 	},
