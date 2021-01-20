@@ -147,7 +147,7 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 							position: 'absolute',
 							top: '5%', left: '5%',
 							backgroundColor: '#006eee',
-							height: 60, width: 60,
+							height: 55, width: 55,
 								alignItems:'center', justifyContent:'center'}}
 						onPress={this.moveCurrentLocation}>
 						<base.Icon name='ios-locate'/>
@@ -159,7 +159,7 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 						<base.Button rounded
 							style={{
 								backgroundColor: '#006eee',
-								height: 60, width: 60,
+								height: 55, width: 55,
 								alignItems:'center', justifyContent:'center'}}
 							onPress={this.moveLocation}
 							>

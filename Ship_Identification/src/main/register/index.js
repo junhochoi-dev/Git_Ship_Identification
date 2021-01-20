@@ -90,26 +90,26 @@ export default class Register extends Component{
 		return(
 			<base.Form>
 				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
-					<base.Form style={{flexDirection: 'row', marginBottom: 10,}}>
+					<base.Form style={{flexDirection: 'row', marginBottom: 10, alignItems: 'center'}}>
 						<base.Item regular style={{
 							flex: 1,
-							borderRadius: 5,
+							borderRadius: 10,
 							width: '100%',
 							height: 50,
 							margin: 5
-							}}><base.Text style={{fontFamily: 'Nanum'}}>위도 {this.state.latitude}</base.Text></base.Item>
+							}}><base.Text style={{fontFamily: 'Nanum', }}>위도 {this.state.latitude}</base.Text></base.Item>
 						<base.Item regular style={{
 							flex: 1,
-							borderRadius: 5,
+							borderRadius: 10,
 							width: '100%',
 							height: 50,
 							margin: 5
 						}}><base.Text style={{fontFamily: 'Nanum'}}>경도 {this.state.longitude}</base.Text></base.Item>
+						<base.Icon onPress={this.getLocation} name='ios-compass' style={{color:'#006eee',fontSize: 40}}/>
 					</base.Form>
-					<base.Button block onPress={this.getLocation}  style={{backgroundColor: '#006eee'}}>
-						<base.Text style={{fontFamily: 'Nanum'}}>현재위치등록하기</base.Text>
-					</base.Button>
-				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록" onChangeText={(detail) => this.setState({detail})} style={{fontFamily: 'Nanum', marginTop:10, marginBottom: 10, borderRadius: 10}}/>
+				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록"
+					onChangeText={(detail) => this.setState({detail})}
+					style={{fontFamily: 'Nanum', marginTop:10, marginBottom: 10, borderRadius: 10,}}/>
 				<base.Button block onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
 					<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
 				</base.Button>
@@ -178,7 +178,7 @@ export default class Register extends Component{
 								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박사진등록</base.Text>
 								<base.Item regular style={{width:'100%', height: 300, borderRadius: 10, flexDirection: 'column'}}>
 									<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
-									<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
+									<base.Button transparent style={{position: 'absolute', right: 0, bottom: '5%',}}  
 										onPress={() =>
 											base.ActionSheet.show(
 											{
@@ -191,7 +191,7 @@ export default class Register extends Component{
 												{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
 											}
 										)}>
-										<base.Icon name='ios-add-circle' />
+										<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
 									</base.Button>
 								</base.Item>
 							</base.Form>

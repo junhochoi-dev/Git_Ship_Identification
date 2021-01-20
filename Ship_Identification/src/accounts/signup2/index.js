@@ -21,6 +21,8 @@ export default class Signup2 extends Component{
 			day: '',
 			
 			device_id : '',
+			
+			birthday: '',
         }
 		this.executeSignup2 = this.executeSignup2.bind(this)
 	}
@@ -48,7 +50,7 @@ export default class Signup2 extends Component{
 				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Body>
 						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>회원가입</base.Title>
-						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 10}}>개인정보 입력</base.Subtitle>
+						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 10, marginTop: 5}}>개인정보 입력</base.Subtitle>
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
@@ -64,6 +66,15 @@ export default class Signup2 extends Component{
 									onChangeText={(name) => this.setState({name})}
 									style={{fontFamily:'Nanum'}}
 									placeholderStyle={{fontFamily:'Nanum'}}
+									/>
+							</base.Item>
+							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+								<base.Input
+									placeholder='생년월일 (ex. 19000101)'
+									onChangeText={(birthday) => this.setState({birthday})}
+									style={{fontFamily:'Nanum'}}
+									placeholderStyle={{fontFamily:'Nanum'}}
+									keyboardType="number-pad"
 									/>
 							</base.Item>
 							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
@@ -92,7 +103,18 @@ export default class Signup2 extends Component{
 							</base.Item>
 							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
 								<base.Input
-									placeholder='번호'
+									placeholder='이메일'
+									onChangeText={(email) => this.setState({email})}
+									style={{fontFamily:'Nanum'}}
+									placeholderStyle={{fontFamily:'Nanum'}}
+									/>
+							</base.Item>
+							<base.Form style={{alignItems: 'center'}}>
+								<base.Text style={{fontFamily:'Nanum',}}>* 비밀번호를 잃어버렸을 때, 초기화된 비밀번호가 전송됩니다</base.Text>
+							</base.Form>
+							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
+								<base.Input
+									placeholder='연락처'
 									onChangeText={(phone) => this.setState({phone})}
 									style={{fontFamily:'Nanum'}}
 									placeholderStyle={{fontFamily:'Nanum'}}

@@ -31,7 +31,15 @@ export default class AccessRights extends Component{
 								사진 촬영, 영상 촬영을 이용하기 위해 카메라 사용 권한에 접근합니다.
 							</base.Text>
 						</base.Form>
-
+						<base.Form style={{margin: 20,}}>
+							<base.Form style={{ flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+								<base.Icon name='ios-compass'/>
+								<base.Text style={{ fontFamily:'Nanum', fontSize: 30, margin: 10,}}>앨범</base.Text>
+							</base.Form>
+							<base.Text style={{ fontFamily:'Nanum' }}>
+								선박 등록을 위한 사진을 불러올 때에 앨범 접근 권한을 가져옵니다.
+							</base.Text>
+						</base.Form>
 						<base.Form style={{margin: 20,}}>
 							<base.Form style={{ flex: 1, flexDirection: 'row', alignItems: 'center'}}>
 								<base.Icon name='ios-compass'/>
@@ -46,7 +54,7 @@ export default class AccessRights extends Component{
 								<base.Text style={{fontFamily:'Nanum'}}>취소</base.Text>
 							</base.Button>
 							<base.Button bordered style={{ flex: 1,width: '100%', marginLeft: 5, borderRadius: 10}} onPress={()=>this.props.navigation.navigate('Signup1')}>
-								<base.Text style={{fontFamily:'Nanum'}}>위 내용에 대해 동의합니다</base.Text>
+								<base.Text style={{fontFamily:'Nanum'}}>위 내용에 대해 모두 동의합니다</base.Text>
 							</base.Button>
 						</base.Form>
 					</base.Form>

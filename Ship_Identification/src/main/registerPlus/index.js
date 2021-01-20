@@ -99,7 +99,8 @@ export default class RegisterPlus extends Component{
 								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박사진등록</base.Text>
 								<base.Item regular style={{width:'100%', height: 300, borderRadius: 10, flexDirection: 'column', marginBottom: 10,}}>
 									<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
-									<base.Button transparent style={{position: 'absolute', right: 0, bottom: 0,}}  
+									<base.Button transparent style={{position: 'absolute', right: 0, bottom: '5%'
+											,}}  
 										onPress={() =>
 											base.ActionSheet.show(
 											{
@@ -112,7 +113,7 @@ export default class RegisterPlus extends Component{
 												{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
 											}
 										)}>
-										<base.Icon name='ios-add-circle' />
+										<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
 									</base.Button>
 								</base.Item>
 								

@@ -38,7 +38,7 @@ export default class Search extends Component{
 	wastedInput = () => {
 		return(
 			<base.Form>
-				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
+				<ValueInput label='유기,폐선박 관리번호' onChange={(title) => this.setState({title})}/>
 				<base.Button block onPress={this.searchBoat} style={{backgroundColor: '#006eee'}}>
 					<base.Text>선박검색하기</base.Text>
 				</base.Button>

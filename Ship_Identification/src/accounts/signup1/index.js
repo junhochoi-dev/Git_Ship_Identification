@@ -44,7 +44,7 @@ export default class Signup1 extends Component{
 				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Body>
 						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>회원가입</base.Title>
-						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 10}}>아이디 비밀번호 생성</base.Subtitle>
+						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 10, marginTop: 5}}>아이디 비밀번호 생성</base.Subtitle>
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
@@ -65,9 +65,10 @@ export default class Signup1 extends Component{
 								</base.Item>
 							</base.Form>
 							<base.Form style={{width: '100%', margin: 10,}}>
-								<base.Button bordered style={{width: '100%', borderRadius: 10}} onPress={() => alert( alertMessage )}>
-									<base.Text style={{fontFamily:'Nanum'}}>아이디조건</base.Text>
-								</base.Button>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 개인신상 및 부서명칭 등과 관련 내용 미기입</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 일반 사전에 등록된 단어 미기입</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 동일문자 3회 이상 반복 미사용</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 연속적인 오름차순, 내림차순 미사용</base.Text>
 							</base.Form>
 							<base.Form style={{width: '100%',}}>
 								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
@@ -90,6 +91,14 @@ export default class Signup1 extends Component{
 										secureTextEntry={ true }
 										/>
 								</base.Item>
+							</base.Form>
+							<base.Form style={{width: '100%', margin: 10,}}>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 개인신상 및 부서명칭 등과 관련 내용 미기입</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 일반 사전에 등록된 단어 미기입</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 숫자, 문자, 특수문자를 혼합하여 9자리 이상으로 조합</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 사용자 아이디와 미일치</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 동일문자 3회 이상 반복 미사용</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 연속적인 오름차순, 내림차순 미사용</base.Text>
 							</base.Form>
 							<base.Form style={{flexDirection: 'row', alignItems:'center', marginTop: 10, marginBottom: 10,}}>
 								<base.Button bordered style={{ flex: 1, width: '100%', marginRight: 5, borderRadius: 10}} onPress={()=>this.props.navigation.popToTop()}>
