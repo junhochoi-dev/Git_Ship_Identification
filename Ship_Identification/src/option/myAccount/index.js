@@ -65,12 +65,12 @@ export default class MyAccount extends Component{
 					<base.Form style={{alignItems: 'center'}}>
 						<Image source={require('/workspace/Ship_Identification/assets/img/logo.jpg')} resizeMode='contain' style={{width: 200, height: 300,}}/>
 					</base.Form>
-						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 이름 : {this.state.name} </base.Text></base.Item>
-						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> ID : {this.state.serviceNum} </base.Text></base.Item>
-						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 직급 : {this.state.rank} </base.Text></base.Item>
-						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 직책 : {this.state.position} </base.Text></base.Item>
-						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 소속 : {this.state.belong} </base.Text></base.Item>
-						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 20}}> 연락처 : {this.state.phone} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> 이름 : {this.state.name} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> ID : {this.state.serviceNum} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> 직급 : {this.state.rank} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> 직책 : {this.state.position} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> 소속 : {this.state.belong} </base.Text></base.Item>
+						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> 연락처 : {this.state.phone} </base.Text></base.Item>
 						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> 기기정보 : {this.state.device_id } </base.Text></base.Item>		
 				</base.Content>
 			</base.Container>
