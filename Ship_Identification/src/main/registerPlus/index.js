@@ -97,8 +97,17 @@ export default class RegisterPlus extends Component{
 							</base.Form>
 							<base.Form style={{margin: 10,}}>
 								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박사진등록</base.Text>
-								<base.Item regular style={{width:'100%', height: 300, borderRadius: 10, flexDirection: 'column', marginBottom: 10,}}>
-									<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
+								<base.Item regular style={{width:'100%', height: 350, borderRadius: 10, flexDirection: 'column', marginBottom: 10,}}>
+									<SliderBox
+										images={this.state.images}
+										dotColor="#006eee"
+										inactiveDotColor="#90A4AE"
+										sliderBoxHeight={300}
+										circleLoop
+										onCurrentImagePressed={index => console.warn(`image ${index} pressed`)}
+										currentImageEmitter={index => console.warn(`current pos is: ${index}`)}
+										ImageComponentStyle={{borderRadius: 10, width: '80%', margin: 10}}
+									/>
 									<base.Button transparent style={{position: 'absolute', right: 0, bottom: '5%'
 											,}}  
 										onPress={() =>
@@ -116,7 +125,8 @@ export default class RegisterPlus extends Component{
 										<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
 									</base.Button>
 								</base.Item>
-								
+							</base.Form>
+							<base.Form style={{margin: 10,}}>
 								<base.Button block style={{backgroundColor: '#006eee'}}>
 									<base.Text style={{fontFamily: 'Nanum'}}>추가 사진 등록하기</base.Text>
 								</base.Button>

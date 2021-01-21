@@ -34,6 +34,7 @@ export default class SearchAI extends Component{
 			img: '',
 			base64: '',
 			data: [],
+			percentage: [],
 			
 		};
 		this.pickPhoto = this.pickPhoto.bind(this);
@@ -90,7 +91,14 @@ export default class SearchAI extends Component{
 			getToken().then((token) =>{
 				requestAIResult(token, this.state.base64).then((response) => {
 					console.log(response.data.data)
-					this.setState({ data: this.state.data.concat(response.data.data),})
+					console.log(response.data.data.percent[0])
+					console.log(response.data.data.percent[1])
+					console.log(response.data.data.percent[2])
+					
+					console.log(response.data.data.result[0].imo)
+					this.setState({ percentage: this.state.data.concat(response.data.data.percent),})
+					
+					this.setState({ data: this.state.data.concat(response.data.data.result),})
 				}) 
 			})
 		}
@@ -104,13 +112,13 @@ export default class SearchAI extends Component{
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
 								<base.Form style={{flex: 1,}}>
-									<Image source={require('/workspace/Ship_Identification/assets/db/db2.jpg')} style={{width: 150, height: 100,}}/>
+									<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[0].main_img}} style={{width: 150, height: 100,}}/>
 								</base.Form>
 								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[0][0]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[0][3]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[0][4]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[0][5]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[0].name}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[0].imo}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[0].calsign}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[0].mmsi}</base.Text>
 								</base.Form>
 							</base.Form>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
@@ -119,12 +127,12 @@ export default class SearchAI extends Component{
 										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
 										keys={keys}
 										colors={colors}
-										data={[{value:76.3, remainder: 23.7}]}
+										data={[{value: parseFloat(this.state.percentage[0]), remainder: 100 - parseFloat(this.state.percentage[0])}]}
 										showGrid={true}
 										contentInset={{ top: 30, bottom: 30 }}
 										horizontal={true}
 									/>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>76.3%</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>{this.state.percentage[0]}</base.Text>
 								</base.Card>
 							</base.Form>
 						</base.Form>
@@ -135,13 +143,13 @@ export default class SearchAI extends Component{
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
 								<base.Form style={{flex: 1,}}>
-									<Image source={require('/workspace/Ship_Identification/assets/db/db2.jpg')} style={{width: 150, height: 100,}}/>
+									<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[1].main_img}} style={{width: 150, height: 100,}}/>
 								</base.Form>
 								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[1][0]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[1][3]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[1][4]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[1][5]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[1].name}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[1].imo}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[1].calsign}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[1].mmsi}</base.Text>
 								</base.Form>
 							</base.Form>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
@@ -150,12 +158,12 @@ export default class SearchAI extends Component{
 										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
 										keys={keys}
 										colors={colors}
-										data={[{value:76.3, remainder: 23.7}]}
+										data={[{value: parseFloat(this.state.percentage[1]), remainder: 100 - parseFloat(this.state.percentage[1])}]}
 										showGrid={true}
 										contentInset={{ top: 30, bottom: 30 }}
 										horizontal={true}
 									/>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>76.3%</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>{this.state.percentage[1]}</base.Text>
 								</base.Card>
 							</base.Form>
 						</base.Form>
@@ -166,13 +174,13 @@ export default class SearchAI extends Component{
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
 								<base.Form style={{flex: 1,}}>
-									<Image source={require('/workspace/Ship_Identification/assets/db/db2.jpg')} style={{width: 150, height: 100,}}/>
+									<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[2].main_img}} style={{width: 150, height: 100,}}/>
 								</base.Form>
 								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[2][0]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[2][3]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[2][4]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[2][5]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[2].name}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[2].imo}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[2].calsign}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[2].mmsi}</base.Text>
 								</base.Form>
 							</base.Form>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
@@ -181,12 +189,12 @@ export default class SearchAI extends Component{
 										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
 										keys={keys}
 										colors={colors}
-										data={[{value:76.3, remainder: 23.7}]}
+										data={[{value: parseFloat(this.state.percentage[2]), remainder: 100 - parseFloat(this.state.percentage[2])}]}
 										showGrid={true}
 										contentInset={{ top: 30, bottom: 30 }}
 										horizontal={true}
 									/>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>76.3%</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>{this.state.percentage[2]}</base.Text>
 								</base.Card>
 							</base.Form>
 						</base.Form>

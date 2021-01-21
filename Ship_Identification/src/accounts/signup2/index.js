@@ -110,7 +110,7 @@ export default class Signup2 extends Component{
 									/>
 							</base.Item>
 							<base.Form style={{alignItems: 'center'}}>
-								<base.Text style={{fontFamily:'Nanum',}}>* 비밀번호를 잃어버렸을 때, 초기화된 비밀번호가 전송됩니다</base.Text>
+								<base.Text style={{fontFamily:'Nanum',}}>* 비밀번호를 잊어버렸을 때, 초기화된 비밀번호가 전송됩니다</base.Text>
 							</base.Form>
 							<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
 								<base.Input
