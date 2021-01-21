@@ -103,50 +103,60 @@ export default class SearchAI extends Component{
 					<base.CardItem>
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<Image resizeMode='contain' source={{uri: '/workspace/Ship_Identification/assets/db/db1.jpg'}} style={{width: 150, height: 100,}}/>
-								<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+								<base.Form style={{flex: 1,}}>
+									<Image source={require('/workspace/Ship_Identification/assets/db/db2.jpg')} style={{width: 150, height: 100,}}/>
+								</base.Form>
+								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
 									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[0][0]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : 7651893</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : 6321587</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[0][3]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[0][4]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[0][5]}</base.Text>
 								</base.Form>
 							</base.Form>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<StackedBarChart
-									style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
-									keys={keys}
-									colors={colors}
-									data={[{value:98.5, remainder: 1.5}]}
-									showGrid={true}
-									contentInset={{ top: 30, bottom: 30 }}
-									horizontal={true}
-								/>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red',}}>98.5%</base.Text>
+							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
+								<base.Card style={{width: '100%', padding: 10, flexDirection: 'row', alignItems: 'center', height: '80%'}}>
+									<StackedBarChart
+										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
+										keys={keys}
+										colors={colors}
+										data={[{value:76.3, remainder: 23.7}]}
+										showGrid={true}
+										contentInset={{ top: 30, bottom: 30 }}
+										horizontal={true}
+									/>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>76.3%</base.Text>
+								</base.Card>
 							</base.Form>
 						</base.Form>
 					</base.CardItem>
-				</base.Card>
+				</base.Card>		
 				<base.Card>
 					<base.CardItem>
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<Image resizeMode='contain' source={{uri: '/workspace/Ship_Identification/assets/db/db2.jpg'}} style={{width: 150, height: 100,}}/>
-								<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+								<base.Form style={{flex: 1,}}>
+									<Image source={require('/workspace/Ship_Identification/assets/db/db2.jpg')} style={{width: 150, height: 100,}}/>
+								</base.Form>
+								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
 									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[1][0]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : 7651893</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : 1321237</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[1][3]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[1][4]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[1][5]}</base.Text>
 								</base.Form>
 							</base.Form>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<StackedBarChart
-									style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
-									keys={keys}
-									colors={colors}
-									data={[{value: 84.4, remainder: 15.6}]}
-									showGrid={true}
-									contentInset={{ top: 30, bottom: 30 }}
-									horizontal={true}
-								/>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red',}}>84.4%</base.Text>
+							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
+								<base.Card style={{width: '100%', padding: 10, flexDirection: 'row', alignItems: 'center', height: '80%'}}>
+									<StackedBarChart
+										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
+										keys={keys}
+										colors={colors}
+										data={[{value:76.3, remainder: 23.7}]}
+										showGrid={true}
+										contentInset={{ top: 30, bottom: 30 }}
+										horizontal={true}
+									/>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>76.3%</base.Text>
+								</base.Card>
 							</base.Form>
 						</base.Form>
 					</base.CardItem>
@@ -155,24 +165,29 @@ export default class SearchAI extends Component{
 					<base.CardItem>
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<Image resizeMode='contain' source={{uri: '/workspace/Ship_Identification/assets/db/db3.jpg'}} style={{width: 150, height: 100,}}/>
-								<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+								<base.Form style={{flex: 1,}}>
+									<Image source={require('/workspace/Ship_Identification/assets/db/db2.jpg')} style={{width: 150, height: 100,}}/>
+								</base.Form>
+								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
 									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[2][0]}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : 7111343</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : 6720587</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[2][3]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[2][4]}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[2][5]}</base.Text>
 								</base.Form>
 							</base.Form>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<StackedBarChart
-									style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
-									keys={keys}
-									colors={colors}
-									data={[{value:76.3, remainder: 23.7}]}
-									showGrid={true}
-									contentInset={{ top: 30, bottom: 30 }}
-									horizontal={true}
-								/>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red',}}>76.3%</base.Text>
+							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
+								<base.Card style={{width: '100%', padding: 10, flexDirection: 'row', alignItems: 'center', height: '80%'}}>
+									<StackedBarChart
+										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
+										keys={keys}
+										colors={colors}
+										data={[{value:76.3, remainder: 23.7}]}
+										showGrid={true}
+										contentInset={{ top: 30, bottom: 30 }}
+										horizontal={true}
+									/>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>76.3%</base.Text>
+								</base.Card>
 							</base.Form>
 						</base.Form>
 					</base.CardItem>
@@ -237,37 +252,6 @@ export default class SearchAI extends Component{
 						<base.Button block onPress={this.getAIResult} style={{backgroundColor: '#006eee'}}>
 							<base.Text style={{fontFamily:'Nanum',}}>AI선박검색</base.Text>
 						</base.Button>
-						
-				<base.Card>
-					<base.CardItem>
-						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<base.Form style={{flex: 1,}}>
-									<Image source={require('/workspace/Ship_Identification/assets/db/db2.jpg')} style={{width: 150, height: 100,}}/>
-								</base.Form>
-								<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', flex: 1}}>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>ABCDEFG SHIP</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : 7111343</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : 6720587</base.Text>
-								</base.Form>
-							</base.Form>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '120%'}}>
-								<base.Card style={{width: '100%', padding: 10,}}>
-									<StackedBarChart
-										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
-										keys={keys}
-										colors={colors}
-										data={[{value:76.3, remainder: 23.7}]}
-										showGrid={true}
-										contentInset={{ top: 30, bottom: 30 }}
-										horizontal={true}
-									/>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red',}}>76.3%</base.Text>
-								</base.Card>
-							</base.Form>
-						</base.Form>
-					</base.CardItem>
-				</base.Card>
 							{AIResult}					
 					</base.Content>
 				</base.Container>
