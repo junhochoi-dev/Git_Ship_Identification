@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
+import { Alert } from 'react-native';
 import * as base from 'native-base'
 import Constants from 'expo-constants';
 
@@ -37,6 +38,10 @@ export default class Signup2 extends Component{
 		.then((response) => {
             if(response.status == 200){
                 console.log("success")
+				Alert.alert(
+					'선박확인체계 알림',
+					this.state.serviceNum + '님 환영합니다',
+				)
 				this.props.navigation.popToTop();
             }
             else{

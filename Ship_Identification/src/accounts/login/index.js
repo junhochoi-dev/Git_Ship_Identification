@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { AsyncStorage, Image, ImageBackground, View, Text } from 'react-native';
+import { AsyncStorage, Image, ImageBackground, View, Text, Alert } from 'react-native';
 import styles from './styles';
 import * as base from 'native-base'
 import Constants from 'expo-constants';
@@ -32,6 +32,10 @@ export default class Login extends Component{
 		requestLogin(this.state.serviceNum, this.state.password, this.state.device_id).then((response) => {
 		if(response.status == 200){
 			AsyncStorage.setItem('token', response.data['data']['token']);
+			Alert.alert(
+				'선박확인체계 알림',
+				this.state.serviceNum + '님 반갑습니다',
+			)
 			this.props.navigation.navigate('Home')
 		}
 		else{
@@ -80,7 +84,8 @@ export default class Login extends Component{
 								<base.Button light style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('AccessRights')}>
 									<base.Text style={{ fontFamily:'Nanum' }}>회원가입</base.Text>
 								</base.Button>
-								<base.Button light style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('Lost')}>
+								<base.Button light style={styles.btn_others} bordered
+									onPress={()=>this.props.navigation.navigate('Lost')}>
 									<base.Text style={{ fontFamily:'Nanum' }}>비밀번호찾기</base.Text>
 								</base.Button>
 							</base.Form>

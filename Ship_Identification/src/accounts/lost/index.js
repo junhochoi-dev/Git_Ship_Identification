@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
+import { Alert } from 'react-native';
 import * as base from 'native-base'
 import Constants from 'expo-constants';
 export default class Lost extends Component{
@@ -52,6 +53,16 @@ export default class Lost extends Component{
 								/>
 						</base.Item>
 					</base.Form>
+					
+					<base.Button block style={{backgroundColor: '#006eee'}} onPress={()=>{
+							Alert.alert(
+								'선박확인체계 알림',
+								'초기화된 비밀번호가 해당 이메일로 전송되었습니다',
+							);
+							this.props.navigation.popToTop();
+						}}>
+						<base.Text style={{fontFamily: 'Nanum'}}>비밀번호 초기화하기</base.Text>
+					</base.Button>
 				</base.Content>
 			<StatusBar hidden/>
 			</base.Container>
