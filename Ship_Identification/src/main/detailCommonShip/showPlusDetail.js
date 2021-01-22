@@ -12,7 +12,7 @@ export default class ShowPlusDetail extends Component{
 		const img = 'https://shipcheck-server-vrxqx.run.goorm.io' + address
 		return(
 			<TouchableHighlight style={{flex: 1,}}>
-				<base.Card style={{width: 200, height: 180}}>
+				<base.Card style={{width: 180, height: 180}}>
 					<base.CardItem>
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 							<Image resizeMode='contain' source={{uri:img}} style={{width: 150, height: 100,}}/>

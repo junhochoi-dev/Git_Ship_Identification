@@ -70,7 +70,7 @@ export default class RegisterPlus extends Component{
 							</base.Button>
 						</base.Left>
 						<base.Right>
-							<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박추가등록</base.Title>
+							<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박정보추가등록</base.Title>
 						</base.Right>
 					</base.Header>
 					<base.Content padder>
@@ -128,7 +128,7 @@ export default class RegisterPlus extends Component{
 							</base.Form>
 							<base.Form style={{margin: 10,}}>
 								<base.Button block style={{backgroundColor: '#006eee'}}>
-									<base.Text style={{fontFamily: 'Nanum'}}>추가 사진 등록하기</base.Text>
+									<base.Text style={{fontFamily: 'Nanum'}}>추가 정보 등록하기</base.Text>
 								</base.Button>
 							</base.Form>
 						</base.Card>

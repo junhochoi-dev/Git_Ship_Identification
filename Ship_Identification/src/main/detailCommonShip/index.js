@@ -67,7 +67,7 @@ export default class DetailCommonShip extends Component{
 		let plusDetail
 		if(!this.state.data.length){ plusDetail = 
 			<base.Button block onPress={()=>this.props.navigation.navigate('RegisterPlus')} style={{backgroundColor: '#006eee', margin: 10}}>
-				<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
+				<base.Text style={{fontFamily: 'Nanum'}}>추가 정보 등록하기</base.Text>
 			</base.Button>}
 		else { plusDetail = 
 								<FlatList
@@ -77,7 +77,7 @@ export default class DetailCommonShip extends Component{
 									renderItem={({item}) => <ShowPlusDetail ship={item}/>}
 									ListFooterComponent={
 										<TouchableHighlight style={{flex: 1,}} onPress={()=>this.props.navigation.navigate('RegisterPlus')}>
-											<base.Card style={{width: 200, height: 180, alignItems: 'center', justifyContent: 'center'}}>
+											<base.Card style={{width: 180, height: 180, alignItems: 'center', justifyContent: 'center'}}>
 												<base.Icon name='ios-add-circle' style={{color: '#006eee', fontSize: 60}}/>
 											</base.Card>
 										</TouchableHighlight>	
@@ -98,7 +98,7 @@ export default class DetailCommonShip extends Component{
 				<base.Content padder>
 					<base.Card>
 						<base.CardItem bordered>
-							<base.Text style={{fontFamily:'Nanum_Title', fontSize: 40,}}> {this.state.name} </base.Text>
+							<base.Text style={{fontFamily:'Nanum_Title', fontSize: 30,}}> {this.state.name} </base.Text>
 						</base.CardItem>
 							<base.Form style={{width: '100%'}}>
 								<Svg width={'100%'} height={250}>

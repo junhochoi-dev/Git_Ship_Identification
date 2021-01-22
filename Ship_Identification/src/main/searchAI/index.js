@@ -16,14 +16,6 @@ var BUTTONS = [
 var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
 
-
-const data = [
-	{
-		value: 88.4,
-		remainder: 11.6,
-	},
-]
-
 const colors = ['#006eee', '#81d4fa']
 const keys = [ 'value', 'remainder',]
 
@@ -35,7 +27,7 @@ export default class SearchAI extends Component{
 			base64: '',
 			data: [],
 			percentage: [],
-			functionOn: 'off',
+			functionOn: false,
 		};
 		this.pickPhoto = this.pickPhoto.bind(this);
 		this.pickImage = this.pickImage.bind(this);
@@ -89,7 +81,7 @@ export default class SearchAI extends Component{
 			alert('검색할 사진을 등록하세요')
 		}
 		else {
-			this.setState({functionOn: 'on'})
+			this.setState({functionOn: true})
 			getToken().then((token) =>{
 				requestAIResult(token, this.state.base64).then((response) => {
 					this.setState({ percentage: this.state.data.concat(response.data.data.percent),})
@@ -202,8 +194,8 @@ export default class SearchAI extends Component{
 		return(
 			<base.Card>
 				<base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1, height: 300}}>
+					<base.Icon name='ios-pulse' style={{color:'#006eee',fontSize: 150}}/>
 					<base.Text style ={{fontFamily:'Nanum',fontSize: 30}}>AI 분석 대기 모드</base.Text>
-					<base.Spinner color='blue' />
 				</base.Form>
 			</base.Card>
 		)
@@ -220,9 +212,9 @@ export default class SearchAI extends Component{
 	}
 	render(){
 		let AIResult
-		if(!this.state.data.length && this.state.functionOn == 'off') { AIResult = this.waiting() }
-		else if(!this.state.data.length && this.state.functionOn == 'on'){ AIResult = this.loading() }
-		else { AIResult = this.showAIResult() }
+		if(this.state.data.length) { AIResult = this.showAIResult() }
+		else if(this.state.functionOn) { AIResult = this.loading() }
+		else { AIResult = this.waiting() }
 		return(
 			<base.Root>
 				<base.Container>
@@ -245,17 +237,19 @@ export default class SearchAI extends Component{
 								<Image source={{uri:this.state.img}} style={{height: 250, width: '100%', flex: 1}}/>
 								<base.Button transparent style={{position: 'absolute', right: 0, bottom: '5%',}}  
 									onPress={() =>
-										base.ActionSheet.show(
 										{
-										options: BUTTONS,
-										cancelButtonIndex: CANCEL_INDEX,
-										destructiveButtonIndex: DESTRUCTIVE_INDEX,
-										title: "사진등록유형"
-										},
-										buttonIndex => {
-											{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
+											this.setState({data: [], functionOn: false})
+											base.ActionSheet.show({
+												options: BUTTONS,
+												cancelButtonIndex: CANCEL_INDEX,
+												destructiveButtonIndex: DESTRUCTIVE_INDEX,
+												title: "사진등록유형"
+											},
+											buttonIndex => {
+												{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
+											})
 										}
-									)}>
+									}>
 									<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
 								</base.Button>
 							</base.Form>
