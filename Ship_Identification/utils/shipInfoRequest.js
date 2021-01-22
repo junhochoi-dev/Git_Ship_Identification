@@ -81,6 +81,26 @@ export const requestCommonShipDetail = (token, id) =>
             'Content-Type': 'application/json',
 }})
 
+export const requestCommonShipPlusDetail = (token, id) => 
+    request.post('/Boats/boat/image/', {
+			id: id,
+		}, {
+        headers: {
+            'AUTHORIZATION': 'jwt ' + token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+}})
+
+export const requestCommonShipPlusDetailDetail = (token, id) => 
+    request.post('/Boats/boat/imagedetail/', {
+			id: id,
+		}, {
+        headers: {
+            'AUTHORIZATION': 'jwt ' + token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+}})
+
 export const requestWastedShipDetail = (token, id) => 
     request.post('/Boats/boat/detailwastedboat/', {
 			id: id,

@@ -35,7 +35,7 @@ export default class SearchAI extends Component{
 			base64: '',
 			data: [],
 			percentage: [],
-			
+			functionOn: 'off',
 		};
 		this.pickPhoto = this.pickPhoto.bind(this);
 		this.pickImage = this.pickImage.bind(this);
@@ -43,6 +43,7 @@ export default class SearchAI extends Component{
 		
 		this.showAIResult = this.showAIResult.bind(this);
 		this.loading = this.loading.bind(this);
+		this.waiting = this.waiting.bind(this);
 	}
 	
 	async pickPhoto() {
@@ -88,16 +89,10 @@ export default class SearchAI extends Component{
 			alert('검색할 사진을 등록하세요')
 		}
 		else {
+			this.setState({functionOn: 'on'})
 			getToken().then((token) =>{
 				requestAIResult(token, this.state.base64).then((response) => {
-					console.log(response.data.data)
-					console.log(response.data.data.percent[0])
-					console.log(response.data.data.percent[1])
-					console.log(response.data.data.percent[2])
-					
-					console.log(response.data.data.result[0].imo)
 					this.setState({ percentage: this.state.data.concat(response.data.data.percent),})
-					
 					this.setState({ data: this.state.data.concat(response.data.data.result),})
 				}) 
 			})
@@ -203,12 +198,21 @@ export default class SearchAI extends Component{
 			</base.Card>
 		)
 	}
-	
+	waiting = () => {
+		return(
+			<base.Card>
+				<base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1, height: 300}}>
+					<base.Text style ={{fontFamily:'Nanum',fontSize: 30}}>AI 분석 대기 모드</base.Text>
+					<base.Spinner color='blue' />
+				</base.Form>
+			</base.Card>
+		)
+	}
 	loading = () => {
 		return(
 			<base.Card>
-				<base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1, height: 400}}>
-					<base.Text style ={{fontFamily:'Nanum',fontSize: 30}}>데이터 가져오는 중</base.Text>
+				<base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1, height: 300}}>
+					<base.Text style ={{fontFamily:'Nanum',fontSize: 30}}>선박 AI 데이터 분석 중</base.Text>
 					<base.Spinner color='blue' />
 				</base.Form>
 			</base.Card>
@@ -216,12 +220,9 @@ export default class SearchAI extends Component{
 	}
 	render(){
 		let AIResult
-		if(!this.state.data.length){
-			AIResult = this.loading()
-		}
-		else{
-			AIResult = this.showAIResult()
-		}
+		if(!this.state.data.length && this.state.functionOn == 'off') { AIResult = this.waiting() }
+		else if(!this.state.data.length && this.state.functionOn == 'on'){ AIResult = this.loading() }
+		else { AIResult = this.showAIResult() }
 		return(
 			<base.Root>
 				<base.Container>

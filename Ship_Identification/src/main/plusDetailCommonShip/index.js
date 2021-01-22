@@ -3,33 +3,29 @@ import React, { Component } from 'react';
 import { View, Text, FlatList, Image} from 'react-native';
 import * as base from 'native-base';
 import ShowPlusDetail from './showPlusDetail';
+import { getToken } from '../../../utils/getToken';
+import { requestCommonShipPlusDetail } from '../../../utils/shipInfoRequest';
 export default class PlusDetailCommonShip extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
 			name: '',
-			data: [
-				{img : require('/workspace/Ship_Identification/assets/db/db1.jpg'), no: 313},
-				{img : require('/workspace/Ship_Identification/assets/db/db2.jpg'), no: 1651},
-				{img : require('/workspace/Ship_Identification/assets/db/db3.jpg'), no: 711},
-				{img : require('/workspace/Ship_Identification/assets/db/db4.jpg'), no: 141},
-				{img : require('/workspace/Ship_Identification/assets/db/db1.jpg'), no: 41},
-				{img : require('/workspace/Ship_Identification/assets/db/db2.jpg'), no: 612},
-				{img : require('/workspace/Ship_Identification/assets/db/db3.jpg'), no: 1512},
-				{img : require('/workspace/Ship_Identification/assets/db/db2.jpg'), no: 1651},
-				{img : require('/workspace/Ship_Identification/assets/db/db3.jpg'), no: 711},
-				{img : require('/workspace/Ship_Identification/assets/db/db4.jpg'), no: 141},
-				{img : require('/workspace/Ship_Identification/assets/db/db1.jpg'), no: 41},
-				{img : require('/workspace/Ship_Identification/assets/db/db2.jpg'), no: 612},
-				{img : require('/workspace/Ship_Identification/assets/db/db3.jpg'), no: 1512},
-				{img : require('/workspace/Ship_Identification/assets/db/db2.jpg'), no: 1651},
-				{img : require('/workspace/Ship_Identification/assets/db/db3.jpg'), no: 711},
-				{img : require('/workspace/Ship_Identification/assets/db/db4.jpg'), no: 141},
-				{img : require('/workspace/Ship_Identification/assets/db/db1.jpg'), no: 41},
-				{img : require('/workspace/Ship_Identification/assets/db/db2.jpg'), no: 612},
-				{img : require('/workspace/Ship_Identification/assets/db/db3.jpg'), no: 1512},
-			]
+			id: '',
 		};
+		this.getPlusDetail = this.getPlusDetail.bind(this);
+	}
+	componentDidMount(){ this.setState({ id: this.props.navigation.getParam('id')}) }
+	getPlusDetail(){
+		getToken().then((token) => {
+			requestCommonShipPlusDetail(token, 104).then((response) => {
+				if(response.status == 200){
+					console.log(response.data.data)
+				}
+				else{
+					console.log('fail')
+				}
+			})
+		})
 	}
 	render(){
 		return(
@@ -45,12 +41,10 @@ export default class PlusDetailCommonShip extends Component{
 					</base.Right>
 				</base.Header>
 				<base.Content padder>
-					<FlatList
-						sytle={{flex:1,}}
-						data={this.state.data}
-						numColumns={2}
-						renderItem={({item}) => <ShowPlusDetail ship={item}/>}
-					/>
+					<base.Button block style={{backgroundColor: '#006eee'}} onPress={this.getPlusDetail()}>
+						<base.Text style={{fontFamily:'Nanum',}}>추가정보 불러오기</base.Text>
+					</base.Button>
+					
 				</base.Content>				
 			</base.Container>
 		);

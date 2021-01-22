@@ -24,6 +24,7 @@ export default class DetailCommonShip extends Component{
 			const id = this.props.navigation.getParam('id');
 			requestCommonShipDetail(token, id).then((ship) =>{
 				this.setState({
+					id: id,
 					name: ship.data.data.name,
 					imo: ship.data.data.imo,
 					Calsign: ship.data.data.Calsign,
@@ -81,7 +82,8 @@ export default class DetailCommonShip extends Component{
 						</base.CardItem>
 					</base.Card>
 					<base.Form>
-						<base.Button block style={{backgroundColor: '#006eee'}} onPress={()=>this.props.navigation.navigate('PlusDetailCommonShip', {name: this.state.name})}>
+						<base.Button block style={{backgroundColor: '#006eee'}} onPress={()=>this.props.navigation.navigate('PlusDetailCommonShip', {
+								name: this.state.name, id: this.state.id})}>
 							<base.Text style={{fontFamily:'Nanum',}}>추가정보 불러오기</base.Text>
 						</base.Button>
 					</base.Form>
