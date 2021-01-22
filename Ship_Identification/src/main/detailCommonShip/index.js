@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList, TouchableHighlight } from 'react-native';
 import * as base from 'native-base';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 import { Svg, Image } from 'react-native-svg';
 import { getToken } from '../../../utils/getToken';
 import { requestCommonShipDetail } from '../../../utils/shipInfoRequest';
+import { requestCommonShipPlusDetail } from '../../../utils/shipInfoRequest';
+import ShowPlusDetail from './showPlusDetail';
 export default class DetailCommonShip extends Component{
 	constructor(props) {
 		super(props);
@@ -16,8 +18,11 @@ export default class DetailCommonShip extends Component{
 			name: '', imo: '', Calsign: '', mmsi: '', vessel_type: '',
 			build_year: '', current_flag: '', home_port: '',
 			img: '',
+			
+			data: [],
 		};
 		this.showCommonShipDetail = this.showCommonShipDetail(this);
+		this.getPlusDetail = this.getPlusDetail(this);
 	}
 	showCommonShipDetail(){
 		getToken().then((token) => {
@@ -38,8 +43,20 @@ export default class DetailCommonShip extends Component{
 			})
         })
 	}
+	getPlusDetail(){
+		getToken().then((token) => {
+			requestCommonShipPlusDetail(token, this.props.navigation.getParam('id')).then((response) => {
+				if(response.status == 200){
+					this.setState({ data: this.state.data.concat(response.data.data),})
+				}
+				else{
+					console.log('fail')
+				}
+			})
+		})
+	}
 	render(){
-		if(this.state.img == '' || this.state.latitude == '' || this.state.longitude == ''){
+		if(this.state.img == ''){
             return(
                 <base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
 					<base.Text style ={{fontSize: 30}}>데이터 가져오는 중</base.Text>
@@ -47,6 +64,25 @@ export default class DetailCommonShip extends Component{
 				</base.Form>
             )
         }
+		let plusDetail
+		if(!this.state.data.length){ plusDetail = 
+			<base.Button block onPress={()=>this.props.navigation.navigate('RegisterPlus')} style={{backgroundColor: '#006eee', margin: 10}}>
+				<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
+			</base.Button>}
+		else { plusDetail = 
+								<FlatList
+									sytle={{flex:1, height: 180}}
+									data={this.state.data}
+									horizontal={true}
+									renderItem={({item}) => <ShowPlusDetail ship={item}/>}
+									ListFooterComponent={
+										<TouchableHighlight style={{flex: 1,}} onPress={()=>this.props.navigation.navigate('RegisterPlus')}>
+											<base.Card style={{width: 200, height: 180, alignItems: 'center', justifyContent: 'center'}}>
+												<base.Icon name='ios-add-circle' style={{color: '#006eee', fontSize: 60}}/>
+											</base.Card>
+										</TouchableHighlight>	
+									}
+								/>}
 		return(
 			<base.Container>
 				<base.Header style={{backgroundColor: '#006eee'}}>
@@ -59,17 +95,11 @@ export default class DetailCommonShip extends Component{
 						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>일반선박 세부정보</base.Title>
 					</base.Right>
 				</base.Header>
-				<base.Content padder contentContainerStyle={{ flex: 1 }}>
+				<base.Content padder>
 					<base.Card>
 						<base.CardItem bordered>
 							<base.Text style={{fontFamily:'Nanum_Title', fontSize: 40,}}> {this.state.name} </base.Text>
 						</base.CardItem>
-					</base.Card>
-					<base.Card>
-						<base.CardItem bordered>
-							<base.Text style={{fontFamily:'Nanum_Title'}}>선박사진</base.Text>
-						</base.CardItem>
-						<base.CardItem bordered>
 							<base.Form style={{width: '100%'}}>
 								<Svg width={'100%'} height={250}>
 									<Image
@@ -79,32 +109,30 @@ export default class DetailCommonShip extends Component{
 										/>
 								</Svg>
 							</base.Form>
-						</base.CardItem>
+							<base.Form>
+								{plusDetail}
+							</base.Form>
+						<base.Form style={{justifyContent: 'center', margin: 10,}}>
+							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+								<base.Text style={{fontFamily:'Nanum'}}> 선박명 : {this.state.name} </base.Text>
+							</base.Item>
+							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+								<base.Text style={{fontFamily:'Nanum'}}> IMO : {this.state.imo} </base.Text>
+							</base.Item>
+							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+								<base.Text style={{fontFamily:'Nanum'}}> MMSI : {this.state.mmsi} </base.Text>
+							</base.Item>
+							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+								<base.Text style={{fontFamily:'Nanum'}}> CallSign : {this.state.Calsign} </base.Text>
+							</base.Item>
+							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+								<base.Text style={{fontFamily:'Nanum'}}> 입항국가 : {this.state.current_flag} </base.Text>
+							</base.Item>
+							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
+								<base.Text style={{fontFamily:'Nanum'}}> 정착항 : {this.state.home_port} </base.Text>
+							</base.Item>
+						</base.Form>
 					</base.Card>
-					<base.Form>
-						<base.Button block style={{backgroundColor: '#006eee'}} onPress={()=>this.props.navigation.navigate('PlusDetailCommonShip', {
-								name: this.state.name, id: this.state.id})}>
-							<base.Text style={{fontFamily:'Nanum',}}>추가정보 불러오기</base.Text>
-						</base.Button>
-					</base.Form>
-					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
-						<base.Text style={{fontFamily:'Nanum'}}> 선박명 : {this.state.name} </base.Text>
-					</base.Item>
-					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
-						<base.Text style={{fontFamily:'Nanum'}}> IMO : {this.state.imo} </base.Text>
-					</base.Item>
-					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
-						<base.Text style={{fontFamily:'Nanum'}}> MMSI : {this.state.mmsi} </base.Text>
-					</base.Item>
-					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
-						<base.Text style={{fontFamily:'Nanum'}}> CallSign : {this.state.Calsign} </base.Text>
-					</base.Item>
-					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
-						<base.Text style={{fontFamily:'Nanum'}}> 입항국가 : {this.state.current_flag} </base.Text>
-					</base.Item>
-					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
-						<base.Text style={{fontFamily:'Nanum'}}> 정착항 : {this.state.home_port} </base.Text>
-					</base.Item>
 				</base.Content>				
 			</base.Container>
 		);
