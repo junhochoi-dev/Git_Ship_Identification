@@ -11,6 +11,7 @@ export default class PlusDetailCommonShip extends Component{
 		this.state = {
 			name: '',
 			id: '',
+			data: [],
 		};
 		this.getPlusDetail = this.getPlusDetail.bind(this);
 	}
@@ -19,7 +20,7 @@ export default class PlusDetailCommonShip extends Component{
 		getToken().then((token) => {
 			requestCommonShipPlusDetail(token, 104).then((response) => {
 				if(response.status == 200){
-					console.log(response.data.data)
+					this.setState({ data: this.state.data.concat(response.data.data),})
 				}
 				else{
 					console.log('fail')
@@ -41,10 +42,15 @@ export default class PlusDetailCommonShip extends Component{
 					</base.Right>
 				</base.Header>
 				<base.Content padder>
-					<base.Button block style={{backgroundColor: '#006eee'}} onPress={this.getPlusDetail()}>
+					<base.Button block style={{backgroundColor: '#006eee'}} onPress={()=>this.getPlusDetail()}>
 						<base.Text style={{fontFamily:'Nanum',}}>추가정보 불러오기</base.Text>
 					</base.Button>
-					
+					<FlatList
+						sytle={{flex:1,}}
+						data={this.state.data}
+						numColumns={2}
+						renderItem={({item}) => <ShowPlusDetail ship={item}/>}
+					/>
 				</base.Content>				
 			</base.Container>
 		);
