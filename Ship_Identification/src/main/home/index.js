@@ -15,7 +15,7 @@ export default class Home extends Component{
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박확인체계</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20,}}>선박확인체계</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent:'center', flex: 1,}}>

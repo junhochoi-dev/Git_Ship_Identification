@@ -76,14 +76,12 @@ export default class Search extends Component{
 		}
 		return(
 			<base.Container>
-				<base.Header hasSegment style={{backgroundColor: '#006eee'}}>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Left>
 						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 							<base.Icon name='arrow-back'/>
 						</base.Button>
 					</base.Left>
-					<base.Body>
-					</base.Body>
 					<base.Right>
 						<base.Title style={{fontFamily:'Nanum'}}>선박검색</base.Title>
 					</base.Right>

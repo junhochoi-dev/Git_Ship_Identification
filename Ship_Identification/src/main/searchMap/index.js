@@ -116,7 +116,7 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>유기,폐선박 지도 검색</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>유기선박 및 폐선박 지도 검색</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content contentContainerStyle={{ flex: 1 }}>

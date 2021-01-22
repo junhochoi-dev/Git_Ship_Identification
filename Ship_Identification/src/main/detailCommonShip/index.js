@@ -48,7 +48,7 @@ export default class DetailCommonShip extends Component{
         }
 		return(
 			<base.Container>
-				<base.Header>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Left>
 						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 							<base.Icon name='arrow-back'/>
@@ -69,15 +69,22 @@ export default class DetailCommonShip extends Component{
 							<base.Text style={{fontFamily:'Nanum_Title'}}>선박사진</base.Text>
 						</base.CardItem>
 						<base.CardItem bordered>
-							<Svg width={300} height={200}>
+							<base.Form style={{width: '100%'}}>
+								<Svg width={'100%'} height={250}>
 									<Image
 										width={'100%'}
 										height={'100%'}
 										href={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.img}}
 										/>
 								</Svg>
+							</base.Form>
 						</base.CardItem>
 					</base.Card>
+					<base.Form>
+						<base.Button block style={{backgroundColor: '#006eee'}} onPress={()=>this.props.navigation.navigate('PlusDetailCommonShip', {name: this.state.name})}>
+							<base.Text style={{fontFamily:'Nanum',}}>추가정보 불러오기</base.Text>
+						</base.Button>
+					</base.Form>
 					<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
 						<base.Text style={{fontFamily:'Nanum'}}> 선박명 : {this.state.name} </base.Text>
 					</base.Item>

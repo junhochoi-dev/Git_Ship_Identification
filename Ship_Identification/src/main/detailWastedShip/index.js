@@ -65,13 +65,15 @@ export default class DetailWastedShip extends Component{
 							<base.Text style={{fontFamily:'Nanum_Title'}}>선박사진</base.Text>
 						</base.CardItem>
 						<base.CardItem bordered>
-							<Svg width={300} height={200}>
-								<Image
-									width={'100%'}
-									height={'100%'}
-									href={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.img}}
-									/>
-							</Svg>
+							<base.Form style={{width: '100%'}}>
+								<Svg width={'100%'} height={250}>
+									<Image
+										width={'100%'}
+										height={'100%'}
+										href={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.img}}
+										/>
+								</Svg>
+							</base.Form>
 						</base.CardItem>
 					</base.Card>
 						<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>

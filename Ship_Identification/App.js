@@ -19,6 +19,7 @@ import Search from './src/main/search';
 import SearchResult from './src/main/searchResult';
 import SearchMap from './src/main/searchMap';
 import SearchAI from './src/main/searchAI';
+import PlusDetailCommonShip from './src/main/plusDetailCommonShip';
 import ListCommonShip from './src/main/listCommonShip';
 import ListWastedShip from './src/main/listWastedShip';
 import DetailWastedShip from './src/main/detailWastedShip';
@@ -39,6 +40,7 @@ const homeStackNav = createStackNavigator(
 		SearchResult: {screen: SearchResult, navigationOptions: { headerShown: false }},
 		SearchMap: {screen: SearchMap, navigationOptions: { headerShown: false }},
 		SearchAI: {screen: SearchAI, navigationOptions: { headerShown: false }},
+		PlusDetailCommonShip: {screen: PlusDetailCommonShip, navigationOptions: { headerShown: false }},
 		ListCommonShip: {screen: ListCommonShip, navigationOptions: { headerShown: false }},
 		ListWastedShip: {screen: ListWastedShip, navigationOptions: { headerShown: false }},
 		DetailCommonShip: {screen: DetailCommonShip, navigationOptions: { headerShown: false }},

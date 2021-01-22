@@ -226,7 +226,7 @@ export default class SearchAI extends Component{
 			<base.Root>
 				<base.Container>
 						<base.Header style={{backgroundColor: '#006eee'}}>
-						<base.Left>
+							<base.Left>
 							<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 								<base.Icon name='arrow-back'/>
 							</base.Button>
@@ -237,29 +237,31 @@ export default class SearchAI extends Component{
 					</base.Header>
 					<base.Content padder>
 						<base.Card>
-							<base.CardItem bordered>
-								<base.Text style={{fontFamily:'Nanum',}}>검색 사진 등록</base.Text>
-							</base.CardItem>
-							<Image source={{uri:this.state.img}} style={{height: 250, width: '100%', flex: 1}}/>
-							<base.Button transparent style={{position: 'absolute', right: 0, bottom: '5%',}}  
-								onPress={() =>
-									base.ActionSheet.show(
-									{
-									options: BUTTONS,
-									cancelButtonIndex: CANCEL_INDEX,
-									destructiveButtonIndex: DESTRUCTIVE_INDEX,
-									title: "사진등록유형"
-									},
-									buttonIndex => {
-										{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
-									}
-								)}>
-								<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
+							<base.Form>
+								<base.CardItem bordered>
+									<base.Text style={{fontFamily:'Nanum',}}>검색 사진 등록</base.Text>
+								</base.CardItem>
+								<Image source={{uri:this.state.img}} style={{height: 250, width: '100%', flex: 1}}/>
+								<base.Button transparent style={{position: 'absolute', right: 0, bottom: '5%',}}  
+									onPress={() =>
+										base.ActionSheet.show(
+										{
+										options: BUTTONS,
+										cancelButtonIndex: CANCEL_INDEX,
+										destructiveButtonIndex: DESTRUCTIVE_INDEX,
+										title: "사진등록유형"
+										},
+										buttonIndex => {
+											{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
+										}
+									)}>
+									<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
+								</base.Button>
+							</base.Form>
+							<base.Button block onPress={this.getAIResult} style={{backgroundColor: '#006eee', margin: 10}}>
+								<base.Text style={{fontFamily:'Nanum',}}>AI선박검색</base.Text>
 							</base.Button>
 						</base.Card>
-						<base.Button block onPress={this.getAIResult} style={{backgroundColor: '#006eee'}}>
-							<base.Text style={{fontFamily:'Nanum',}}>AI선박검색</base.Text>
-						</base.Button>
 							{AIResult}					
 					</base.Content>
 				</base.Container>

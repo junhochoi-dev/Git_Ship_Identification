@@ -24,10 +24,10 @@ export default class Lost extends Component{
 						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>비밀번호찾기</base.Title>
 					</base.Right>
 				</base.Header>
-				<base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent: 'center', flex: 1,}}>
+				<base.Content padder contentContainerStyle={{alignItems: 'center', flex: 1,}}>
 					<base.Form style={{margin: 5,}}>
 						<base.Text style={{fontFamily:'Nanum', fontSize: 40, color: '#006eee', margin: 5}}>비밀번호를 잊어버리셨나요?</base.Text>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 5}}>비밀번호를 잊어버린 아이디와 이메일을 입력하시면 초기화된 비밀번호가 전송됩니다</base.Text>
+						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 5}}>비밀번호를 잊어버린 아이디와 이메일을 입력하시면 해당 이메일로 초기화된 비밀번호가 전송됩니다</base.Text>
 					</base.Form>
 					
 					<base.Form style={{width: '100%',}}>
