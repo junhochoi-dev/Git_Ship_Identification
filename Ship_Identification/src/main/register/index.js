@@ -50,12 +50,11 @@ export default class Register extends Component{
 			aspect: [1, 1],
 			quality: 1,
 		}).then((result) => {
-			this.setState({img: result.uri})
 			ImageManipulator.manipulateAsync(
 				result.uri,
-				[{resize: {width: 50, height: 50}}],
+				[{resize: {width: 100, height: 100}}],
 				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
-			).then((result) => {this.setState({base64: result.base64})})
+			).then((result) => this.setState({img: result.uri, base64: result.base64}))
 		})
 	}
 	
@@ -66,7 +65,13 @@ export default class Register extends Component{
 			allowsEditing: true,
 			aspect: [1, 1],
 			quality: 1,
-		}).then((result) => this.setState({img: result.uri, base64: result.base64}))
+		}).then((result) => {
+			ImageManipulator.manipulateAsync(
+				result.uri,
+				[{resize: {width: 100, height: 100}}],
+				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
+			).then((result) => this.setState({img: result.uri, base64: result.base64}))
+		})
 	}
 	
 	normalInput = () => {
@@ -177,7 +182,7 @@ export default class Register extends Component{
 							<base.Form style={{margin: 10,}}>
 								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박사진등록</base.Text>
 								<base.Item regular style={{width:'100%', height: 300, borderRadius: 10, flexDirection: 'column'}}>
-									<Image source={{uri:this.state.img}} style={{height: 250, width: null, flex: 1}}/>
+									<Image source={{uri:this.state.img}} style={{height: 250, width: '100%', flex: 1}}/>
 									<base.Button transparent style={{position: 'absolute', right: 0, bottom: '5%',}}  
 										onPress={() =>
 											base.ActionSheet.show(

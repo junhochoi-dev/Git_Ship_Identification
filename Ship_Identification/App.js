@@ -13,7 +13,6 @@ import Signup2 from './src/accounts/signup2';
 
 import Home from './src/main/home';
 import Register from './src/main/register';
-import RegisterOption from './src/main/registerOption';
 import RegisterPlus from './src/main/registerPlus';
 import Search from './src/main/search';
 import SearchResult from './src/main/searchResult';
@@ -23,6 +22,7 @@ import ListCommonShip from './src/main/listCommonShip';
 import ListWastedShip from './src/main/listWastedShip';
 import DetailWastedShip from './src/main/detailWastedShip';
 import DetailCommonShip from './src/main/detailCommonShip';
+import PlusInfoCommonShip from './src/main/plusInfoCommonShip';
 
 import OptionHome from './src/option/optionHome';
 import ErrorReport from './src/option/errorReport';
@@ -33,7 +33,6 @@ const homeStackNav = createStackNavigator(
 		Home: {screen: Home, navigationOptions: { headerShown: false }},
 		
 		Register: {screen: Register, navigationOptions: { headerShown: false }},
-		RegisterOption: {screen: RegisterOption, navigationOptions: { headerShown: false }},
 		RegisterPlus: {screen: RegisterPlus, navigationOptions: { headerShown: false }},
 		Search: {screen: Search, navigationOptions: { headerShown: false }},
 		SearchResult: {screen: SearchResult, navigationOptions: { headerShown: false }},
@@ -43,6 +42,7 @@ const homeStackNav = createStackNavigator(
 		ListWastedShip: {screen: ListWastedShip, navigationOptions: { headerShown: false }},
 		DetailCommonShip: {screen: DetailCommonShip, navigationOptions: { headerShown: false }},
 		DetailWastedShip: {screen: DetailWastedShip, navigationOptions: { headerShown: false }},
+		PlusInfoCommonShip: {screen: PlusInfoCommonShip, navigationOptions: { headerShown: false }},
 	},	{
 		initialRouteName: 'Home'
 	}

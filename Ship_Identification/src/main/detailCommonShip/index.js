@@ -66,7 +66,7 @@ export default class DetailCommonShip extends Component{
         }
 		let plusDetail
 		if(!this.state.data.length){ plusDetail = 
-			<base.Button block onPress={()=>this.props.navigation.navigate('RegisterPlus')} style={{backgroundColor: '#006eee', margin: 10}}>
+			<base.Button block onPress={()=>this.props.navigation.navigate('RegisterPlus', {id: this.state.id, name: this.state.name})} style={{backgroundColor: '#006eee', margin: 10}}>
 				<base.Text style={{fontFamily: 'Nanum'}}>추가 정보 등록하기</base.Text>
 			</base.Button>}
 		else { plusDetail = 
@@ -74,9 +74,12 @@ export default class DetailCommonShip extends Component{
 									sytle={{flex:1, height: 180}}
 									data={this.state.data}
 									horizontal={true}
-									renderItem={({item}) => <ShowPlusDetail ship={item}/>}
+									renderItem={({item}) => <ShowPlusDetail ship={item} onPress={()=>this.props.navigation.navigate('PlusInfoCommonShip',{
+										name: this.state.name,
+										id: item.id,
+									})}/>}
 									ListFooterComponent={
-										<TouchableHighlight style={{flex: 1,}} onPress={()=>this.props.navigation.navigate('RegisterPlus')}>
+										<TouchableHighlight style={{flex: 1,}} onPress={()=>this.props.navigation.navigate('RegisterPlus', {id: this.state.id, name: this.state.name})}>
 											<base.Card style={{width: 180, height: 180, alignItems: 'center', justifyContent: 'center'}}>
 												<base.Icon name='ios-add-circle' style={{color: '#006eee', fontSize: 60}}/>
 											</base.Card>

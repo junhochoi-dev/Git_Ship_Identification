@@ -19,6 +19,20 @@ export const registerCommonShip = (token, flag, base64, name, imo, calsign, mmsi
             'Content-Type': 'application/json',
 }})
 
+export const registerCommonShipDetail = (token, id, base64, latitude, longitude, detail) => 
+    request.post('/Boats/boat/addImage/', {
+			id: id,
+			image_data: base64,
+			lat: latitude,
+			lon: longitude,
+			point: detail,
+		}, {
+        headers: {
+            'AUTHORIZATION': 'jwt ' + token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+}})
+
 export const registerWastedShip = (token, flag, base64, title, latitude, longitude, detail) => 
     request.post('/Boats/boat/regist/', {
 			flag: flag,
@@ -91,7 +105,7 @@ export const requestCommonShipPlusDetail = (token, id) =>
             'Content-Type': 'application/json',
 }})
 
-export const requestCommonShipPlusDetailDetail = (token, id) => 
+export const requestCommonShipPlusInfoDetail = (token, id) => 
     request.post('/Boats/boat/imagedetail/', {
 			id: id,
 		}, {
