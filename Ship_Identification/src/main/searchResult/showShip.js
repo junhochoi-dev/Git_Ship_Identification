@@ -22,17 +22,18 @@ export default class ShowShip extends Component{
 	}
 	detailCommon = () => {
 		return(
-			<base.Form>
-				<base.Item regular style={{justifyContent: 'center', margin: 5, width: 180}}><base.Text style={{fontFamily:'Nanum', fontSize: 15}}>{this.props.boat.name}</base.Text></base.Item>
+			<base.Form style={{width: '100%'}}>
+				<base.Card style={{alignItems:'center'}}><base.Text style={{fontFamily:'Nanum_Title', fontSize: 20}}>{this.props.boat.name}</base.Text></base.Card>
 				<base.Text style={{fontFamily:'Nanum',}}> IMO : {this.props.boat.imo} </base.Text>
 				<base.Text style={{fontFamily:'Nanum',}}> MMSI : {this.props.boat.mmsi} </base.Text>
+				<base.Text style={{fontFamily:'Nanum',}}> CALLSIGN : {this.props.boat.calsign} </base.Text>
 			</base.Form>
 		)
 	}
 	detailWasted = () =>{
 		return(
-			<base.Form>
-				<base.Card style={{alignItems:'center'}}><base.Text style={{fontFamily:'Nanum'}}>{this.props.boat.title}</base.Text></base.Card>
+			<base.Form style={{width: '100%'}}>
+				<base.Card style={{alignItems:'center'}}><base.Text style={{fontFamily:'Nanum_Title', fontSize: 20}}>{this.props.boat.title}</base.Text></base.Card>
 				<base.Text style={{fontFamily:'Nanum',}}> 위도 : {this.props.boat.latitude} </base.Text>
 				<base.Text style={{fontFamily:'Nanum',}}> 경도 : {this.props.boat.longitude} </base.Text>
 			</base.Form>
@@ -47,7 +48,7 @@ export default class ShowShip extends Component{
 			<TouchableHighlight onPress={this.props.onPress}>
 				<base.Card>
 					<base.CardItem cardBody>
-						<base.Left>
+						<base.Left style={{alignItems: 'center'}}>
 							<Image resizeMode='contain' source={{uri: img,}} style={{width: 150, height: 100,}}/>
 						</base.Left>
 						<base.Body>

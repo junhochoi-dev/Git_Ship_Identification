@@ -21,7 +21,6 @@ export default class PlusInfoCommonShip extends Component{
 		getToken().then((token) => {
 			requestCommonShipPlusInfoDetail(token, this.props.navigation.getParam('id')).then((response) => {
 				if(response.status == 200){
-					console.log(response.data.data)
 					this.setState({
 						img: response.data.data.img,
 						latitude: response.data.data.lat,

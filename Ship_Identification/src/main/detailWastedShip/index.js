@@ -59,11 +59,6 @@ export default class DetailWastedShip extends Component{
 						<base.CardItem bordered>
 							<base.Text style={{fontFamily:'Nanum_Title', fontSize: 40,}}> {this.state.imo} </base.Text>
 						</base.CardItem>
-					</base.Card>
-					<base.Card>
-						<base.CardItem bordered>
-							<base.Text style={{fontFamily:'Nanum_Title'}}>선박사진</base.Text>
-						</base.CardItem>
 						<base.CardItem bordered>
 							<base.Form style={{width: '100%'}}>
 								<Svg width={'100%'} height={250}>

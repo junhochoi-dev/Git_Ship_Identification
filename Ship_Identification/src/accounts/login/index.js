@@ -43,6 +43,7 @@ export default class Login extends Component{
 		}})
 	}
 	render(){
+		
 		if(!this.state.isReady){
             return(
                 <View style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
