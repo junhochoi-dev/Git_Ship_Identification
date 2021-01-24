@@ -71,7 +71,7 @@ export default class DetailCommonShip extends Component{
 			</base.Button>}
 		else { plusDetail = 
 								<FlatList
-									sytle={{flex:1, height: 180}}
+									sytle={{flex:1, height: 150}}
 									data={this.state.data}
 									horizontal={true}
 									renderItem={({item}) => <ShowPlusDetail ship={item} onPress={()=>this.props.navigation.navigate('PlusInfoCommonShip',{
@@ -80,7 +80,7 @@ export default class DetailCommonShip extends Component{
 									})}/>}
 									ListFooterComponent={
 										<TouchableHighlight style={{flex: 1,}} onPress={()=>this.props.navigation.navigate('RegisterPlus', {id: this.state.id, name: this.state.name})}>
-											<base.Card style={{width: 180, height: 180, alignItems: 'center', justifyContent: 'center'}}>
+											<base.Card style={{width: 180, height: 150, alignItems: 'center', justifyContent: 'center'}}>
 												<base.Icon name='ios-add-circle' style={{color: '#006eee', fontSize: 60}}/>
 											</base.Card>
 										</TouchableHighlight>	

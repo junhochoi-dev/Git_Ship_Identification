@@ -18,14 +18,18 @@ const styles = StyleSheet.create({
 	},
 	btn_login: {
 		width: '100%',
+		height: 50,
 		alignItems: 'center',
 		justifyContent: 'center',
+		borderColor: 'white',
 	},
 	btn_others: {
 		margin: 10,
+		height: 50,
 		alignItems: 'center',
 		justifyContent: 'center',
 		width: '50%',
+		borderColor: 'white',
 	},
 });
 

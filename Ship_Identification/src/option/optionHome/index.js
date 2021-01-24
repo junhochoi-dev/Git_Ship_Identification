@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Alert } from 'react-native';
 import * as base from 'native-base';
 import { requestLogout } from '../../../utils/userInfoRequest';
 import { getToken } from '../../../utils/getToken';
@@ -38,7 +38,12 @@ export default class OptionHome extends Component{
 						<base.Icon name='ios-person'/>
 						<base.Text>내정보</base.Text>
 					</base.Button>
-					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}}>
+					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}} onPress={()=>
+							Alert.alert(
+								'선박확인체계 알림',
+								'개발 중인 기능입니다',
+							)	
+						}>
 						<base.Icon name='ios-create'/>
 						<base.Text>회원정보 수정</base.Text>
 					</base.Button>
@@ -50,7 +55,12 @@ export default class OptionHome extends Component{
 						<base.Icon name='ios-exit'/>
 						<base.Text>로그아웃</base.Text>
 					</base.Button>
-					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}}>
+					<base.Button style={{width:'100%', marginBottom: 10, backgroundColor: '#006eee', borderRadius: 20, height: 50}} onPress={()=>
+							Alert.alert(
+								'선박확인체계 알림',
+								'개발 중인 기능입니다',
+							)	
+						}>
 						<base.Icon name='ios-information-circle'/>
 						<base.Text>개발자정보</base.Text>
 					</base.Button>

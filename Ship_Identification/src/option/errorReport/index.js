@@ -10,19 +10,19 @@ export default class ErrorReport extends Component{
 	render(){		
 		return(
 			<base.Container>
-				<base.Header>
+				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Left>
 						<base.Button transparent onPress={()=>this.props.navigation.goBack()}>
 							<base.Icon name='arrow-back'/>
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title>오류보고</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>오류보고</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder>
 					<base.Card>
-						<base.Label style={{fontSize:30}}>오류보고 목록</base.Label>
+						<base.Label style={{fontFamily:'Nanum_Title', fontSize: 30}} >오류보고 목록</base.Label>
 						<base.Card>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center'}}>
 								<base.Button block danger style={{width: 85}}>

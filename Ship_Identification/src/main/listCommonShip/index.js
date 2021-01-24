@@ -12,6 +12,7 @@ export default class ListCommonShip extends Component{
 		this.state = {
 			flag: 'Normal',
 			data: [],
+			len: 0,
 		};
 		this.showCommonShipList = this.showCommonShipList(this);
 	}
@@ -20,7 +21,10 @@ export default class ListCommonShip extends Component{
 			let title = ''
 			searchCommonShip(token, title).then((response) => {
 			if(response.status == 200){
-				this.setState({ data: this.state.data.concat(response.data.data) })
+				this.setState({
+					data: this.state.data.concat(response.data.data),
+					len: response.data.data.length,
+				})
 			}
 			else{
 				console.log('fail')
@@ -51,6 +55,7 @@ export default class ListCommonShip extends Component{
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{ flex: 1 }}>
+					<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum_Title', fontSize: 20, color: '#006eee',}}>일반선박 총 {this.state.len}척</base.Text></base.CardItem></base.Card>
 					<FlatList
 						sytle={{flex:1}}
 						data={this.state.data}

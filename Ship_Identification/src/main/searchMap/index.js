@@ -132,12 +132,6 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 							}}
 							showsUserLocation={true}
 							showsMyLocationButton={true}
-							onRegionChangeComplete={region => {
-							this.setState({
-								latitude: region.latitude,
-								longitude: region.longitude,
-								});
-							}}
 							>
 							{ requestMarker(this.state.data) }
 						</MapView>
@@ -166,8 +160,6 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 							<base.Icon name='ios-search'/>
 						</base.Button>
 					</base.Form>
-					
-					<base.Text style={{position:'absolute', top: '20%' }}>{this.state.latitude} + {this.state.longitude}</base.Text>
 				</base.Content>
 			</base.Container>
 		);

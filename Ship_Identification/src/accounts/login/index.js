@@ -79,20 +79,17 @@ export default class Login extends Component{
 
 						<base.Form style={{alignItems: 'center',}}>
 							<base.Button light style={styles.btn_login} bordered onPress={this.executeLogin}>
-								<base.Text style={{ fontFamily:'Nanum' }}>로그인</base.Text>
+								<base.Text style={{ fontFamily:'Nanum', color: 'white' }}>로그인</base.Text>
 							</base.Button>
 							<base.Form style={{margin: 10, flex: 1, flexDirection: 'row', }}>
 								<base.Button light style={styles.btn_others} bordered onPress={()=>this.props.navigation.navigate('AccessRights')}>
-									<base.Text style={{ fontFamily:'Nanum' }}>회원가입</base.Text>
+									<base.Text style={{ fontFamily:'Nanum', color: 'white' }}>회원가입</base.Text>
 								</base.Button>
 								<base.Button light style={styles.btn_others} bordered
 									onPress={()=>this.props.navigation.navigate('Lost')}>
-									<base.Text style={{ fontFamily:'Nanum' }}>비밀번호찾기</base.Text>
+									<base.Text style={{ fontFamily:'Nanum', color: 'white' }}>비밀번호찾기</base.Text>
 								</base.Button>
 							</base.Form>
-							<base.Button light style={styles.btn_login} bordered onPress={()=>this.props.navigation.navigate('Home')}>
-								<base.Text style={{ fontFamily:'Nanum' }}>TEST</base.Text>
-							</base.Button>
 						</base.Form>
 					</base.Content>
 					<StatusBar hidden/>

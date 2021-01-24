@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 import styles from './styles';
 import * as base from 'native-base';
-import { Linking, Image } from 'react-native';
+import { Linking, Image, Alert } from 'react-native';
 import * as Font from 'expo-font';
 export default class Home extends Component{
 	render(){
@@ -90,7 +90,12 @@ export default class Home extends Component{
 								</base.Form>
 								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>기상정보</base.Text>
 							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground}>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>
+									Alert.alert(
+										'선박확인체계 알림',
+										'개발 중인 기능입니다',
+									)	
+								}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-boat' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>

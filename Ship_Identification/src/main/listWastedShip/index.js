@@ -12,6 +12,7 @@ export default class ListWastedShip extends Component{
 		this.state = {
 			flag: 'Wasted',
 			data: [],
+			len: 0,
 		};
 		this.showWastedShipList = this.showWastedShipList(this);
 	}
@@ -20,7 +21,10 @@ export default class ListWastedShip extends Component{
 			let title = ''
 			searchWastedShip(token, title).then((response) => {
 			if(response.status == 200){
-				this.setState({ data: this.state.data.concat(response.data.data) })
+				this.setState({
+					data: this.state.data.concat(response.data.data),
+					len: response.data.data.length,
+				})
 			}
 			else{
 				console.log('fail')
@@ -47,10 +51,11 @@ export default class ListWastedShip extends Component{
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>유기,폐선박 전체목록</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>유기선박 및 폐선박 전체목록</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{ flex: 1 }}>
+					<base.Card><base.CardItem><base.Text style={{fontFamily:'Nanum_Title', fontSize: 20, color: '#006eee',}}>유기선박 및 폐선박 총 {this.state.len}척</base.Text></base.CardItem></base.Card>
 					<FlatList
 						sytle={{flex:1}}
 						data={this.state.data}
