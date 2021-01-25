@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableHighlight } from 'react-native';
 import * as base from 'native-base';
 import * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
@@ -81,9 +81,14 @@ export default class SearchAI extends Component{
 			alert('검색할 사진을 등록하세요')
 		}
 		else {
-			this.setState({functionOn: true})
+			this.setState({
+				functionOn: true,
+				percentage: [],
+				data: [],
+			})
 			getToken().then((token) =>{
 				requestAIResult(token, this.state.base64).then((response) => {
+					console.log(response.data.data.result)
 					this.setState({ percentage: this.state.data.concat(response.data.data.percent),})
 					this.setState({ data: this.state.data.concat(response.data.data.result),})
 				}) 
@@ -93,7 +98,8 @@ export default class SearchAI extends Component{
 	
 	showAIResult = () => {
 		return(
-			<base.Card>
+			<base.Form>
+			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[0].id})}>
 				<base.Card>
 					<base.CardItem>
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
@@ -124,70 +130,77 @@ export default class SearchAI extends Component{
 							</base.Form>
 						</base.Form>
 					</base.CardItem>
-				</base.Card>		
-				<base.Card>
-					<base.CardItem>
-						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<base.Form style={{flex: 1,}}>
-									<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[1].main_img}} style={{width: 150, height: 100,}}/>
-								</base.Form>
-								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[1].name}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[1].imo}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[1].calsign}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[1].mmsi}</base.Text>
-								</base.Form>
+				</base.Card>	
+			</TouchableHighlight>
+			
+			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[1].id})}>
+			<base.Card>
+				<base.CardItem>
+					<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
+							<base.Form style={{flex: 1,}}>
+								<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[1].main_img}} style={{width: 150, height: 100,}}/>
 							</base.Form>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
-								<base.Card style={{width: '100%', padding: 10, flexDirection: 'row', alignItems: 'center', height: '80%'}}>
-									<StackedBarChart
-										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
-										keys={keys}
-										colors={colors}
-										data={[{value: parseFloat(this.state.percentage[1]), remainder: 100 - parseFloat(this.state.percentage[1])}]}
-										showGrid={true}
-										contentInset={{ top: 30, bottom: 30 }}
-										horizontal={true}
-									/>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>{this.state.percentage[1]}</base.Text>
-								</base.Card>
+							<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[1].name}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[1].imo}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[1].calsign}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[1].mmsi}</base.Text>
 							</base.Form>
 						</base.Form>
-					</base.CardItem>
-				</base.Card>
-				<base.Card>
-					<base.CardItem>
-						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
-								<base.Form style={{flex: 1,}}>
-									<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[2].main_img}} style={{width: 150, height: 100,}}/>
-								</base.Form>
-								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[2].name}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[2].imo}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[2].calsign}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[2].mmsi}</base.Text>
-								</base.Form>
-							</base.Form>
-							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
-								<base.Card style={{width: '100%', padding: 10, flexDirection: 'row', alignItems: 'center', height: '80%'}}>
-									<StackedBarChart
-										style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
-										keys={keys}
-										colors={colors}
-										data={[{value: parseFloat(this.state.percentage[2]), remainder: 100 - parseFloat(this.state.percentage[2])}]}
-										showGrid={true}
-										contentInset={{ top: 30, bottom: 30 }}
-										horizontal={true}
-									/>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>{this.state.percentage[2]}</base.Text>
-								</base.Card>
-							</base.Form>
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
+							<base.Card style={{width: '100%', padding: 10, flexDirection: 'row', alignItems: 'center', height: '80%'}}>
+								<StackedBarChart
+									style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
+									keys={keys}
+									colors={colors}
+									data={[{value: parseFloat(this.state.percentage[1]), remainder: 100 - parseFloat(this.state.percentage[1])}]}
+									showGrid={true}
+									contentInset={{ top: 30, bottom: 30 }}
+									horizontal={true}
+								/>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>{this.state.percentage[1]}</base.Text>
+							</base.Card>
 						</base.Form>
-					</base.CardItem>
-				</base.Card>
+					</base.Form>
+				</base.CardItem>
 			</base.Card>
+			</TouchableHighlight>
+			
+			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[2].id})}>			
+			<base.Card>
+				<base.CardItem>
+					<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
+							<base.Form style={{flex: 1,}}>
+								<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[2].main_img}} style={{width: 150, height: 100,}}/>
+							</base.Form>
+							<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[2].name}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[2].imo}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[2].calsign}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[2].mmsi}</base.Text>
+							</base.Form>
+						</base.Form>
+						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
+							<base.Card style={{width: '100%', padding: 10, flexDirection: 'row', alignItems: 'center', height: '80%'}}>
+								<StackedBarChart
+									style={{ height: 90, width: '100%', flex: 1, backgroundColor: 'white',}}
+									keys={keys}
+									colors={colors}
+									data={[{value: parseFloat(this.state.percentage[2]), remainder: 100 - parseFloat(this.state.percentage[2])}]}
+									showGrid={true}
+									contentInset={{ top: 30, bottom: 30 }}
+									horizontal={true}
+								/>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, color: 'red', marginLeft: 10}}>{this.state.percentage[2]}</base.Text>
+							</base.Card>
+						</base.Form>
+					</base.Form>
+				</base.CardItem>
+			</base.Card>
+			</TouchableHighlight>
+			</base.Form>
 		)
 	}
 	waiting = () => {
