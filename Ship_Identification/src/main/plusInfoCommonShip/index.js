@@ -48,7 +48,7 @@ export default class PlusInfoCommonShip extends Component{
 				<base.Content padder>
 					<base.Card>
 						<base.Form style={{alignItems: 'center', justifyContent: 'center', margin: 10,}}>
-							<Image resizeMode='contain' source={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.img}} style={{width: 200, height: 200,}}/>
+							<Image resizeMode='contain' source={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.img}} style={{width: 380, height: 380,}}/>
 							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
 								<base.Text style={{fontFamily:'Nanum'}}> 등록날짜 : {this.state.date} </base.Text>
 							</base.Item>

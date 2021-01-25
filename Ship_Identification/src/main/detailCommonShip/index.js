@@ -69,23 +69,29 @@ export default class DetailCommonShip extends Component{
 			<base.Button block onPress={()=>this.props.navigation.navigate('RegisterPlus', {id: this.state.id, name: this.state.name})} style={{backgroundColor: '#006eee', margin: 10}}>
 				<base.Text style={{fontFamily: 'Nanum'}}>추가 정보 등록하기</base.Text>
 			</base.Button>}
-		else { plusDetail = 
-								<FlatList
-									sytle={{flex:1, height: 150}}
-									data={this.state.data}
-									horizontal={true}
-									renderItem={({item}) => <ShowPlusDetail ship={item} onPress={()=>this.props.navigation.navigate('PlusInfoCommonShip',{
-										name: this.state.name,
-										id: item.id,
-									})}/>}
-									ListFooterComponent={
-										<TouchableHighlight style={{flex: 1,}} onPress={()=>this.props.navigation.navigate('RegisterPlus', {id: this.state.id, name: this.state.name})}>
-											<base.Card style={{width: 180, height: 150, alignItems: 'center', justifyContent: 'center'}}>
-												<base.Icon name='ios-add-circle' style={{color: '#006eee', fontSize: 60}}/>
-											</base.Card>
-										</TouchableHighlight>	
-									}
-								/>}
+		else { plusDetail =
+			<base.Form>
+				<FlatList
+					sytle={{flex:1, height: 150}}
+					data={this.state.data}
+					horizontal={true}
+					renderItem={({item}) => <ShowPlusDetail ship={item} onPress={()=>this.props.navigation.navigate('PlusInfoCommonShip',{
+						name: this.state.name,
+						id: item.id,
+					})}/>}
+					ListFooterComponent={
+						<TouchableHighlight style={{flex: 1,}} onPress={()=>this.props.navigation.navigate('RegisterPlus', {id: this.state.id, name: this.state.name})}>
+							<base.Card style={{width: 180, height: 150, alignItems: 'center', justifyContent: 'center'}}>
+								<base.Icon name='ios-add-circle' style={{color: '#006eee', fontSize: 60}}/>
+							</base.Card>
+						</TouchableHighlight>	
+					}
+				/>
+				<base.Button block style={{backgroundColor: '#006eee', margin: 10}} onPress={()=>this.props.navigation.navigate('PlusInfoGallery', {id: this.state.id})}>
+					<base.Text style={{fontFamily: 'Nanum'}}>추가 정보 전체 보기</base.Text>
+				</base.Button>
+			</base.Form>
+			 }
 		return(
 			<base.Container>
 				<base.Header style={{backgroundColor: '#006eee'}}>
@@ -112,9 +118,6 @@ export default class DetailCommonShip extends Component{
 										/>
 								</Svg>
 							</base.Form>
-							<base.Form>
-								{plusDetail}
-							</base.Form>
 						<base.Form style={{justifyContent: 'center', margin: 10,}}>
 							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
 								<base.Text style={{fontFamily:'Nanum'}}> 선박명 : {this.state.name} </base.Text>
@@ -134,6 +137,9 @@ export default class DetailCommonShip extends Component{
 							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
 								<base.Text style={{fontFamily:'Nanum'}}> 정착항 : {this.state.home_port} </base.Text>
 							</base.Item>
+						</base.Form>
+						<base.Form>
+							{plusDetail}
 						</base.Form>
 					</base.Card>
 				</base.Content>				
