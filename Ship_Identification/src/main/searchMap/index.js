@@ -146,20 +146,6 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 						onPress={this.moveCurrentLocation}>
 						<base.Icon name='ios-locate'/>
 					</base.Button>
-					
-					<base.Form style={{	position: 'absolute', bottom: '5%', right:'10%', flexDirection: 'row', alignItems:'center'}}>
-						<base.Item rounded style={{backgroundColor:'white', width:250, height: 50}}>
-							<base.Input placeholder='검색할 IMO값을 입력하세요' keyboardType="number-pad" onChangeText={(searchIMO) => this.setState({searchIMO})}/></base.Item>
-						<base.Button rounded
-							style={{
-								backgroundColor: '#006eee',
-								height: 55, width: 55,
-								alignItems:'center', justifyContent:'center'}}
-							onPress={this.moveLocation}
-							>
-							<base.Icon name='ios-search'/>
-						</base.Button>
-					</base.Form>
 				</base.Content>
 			</base.Container>
 		);
