@@ -123,6 +123,7 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 					<base.Form style={{flex: 1,}}>
 						<MapView
 							ref = {(ref) => this.mapView=ref}
+							provider={PROVIDER_GOOGLE}
 							style={{flex: 1}}
 							initialRegion={{
 								latitude: parseFloat(this.state.latitude),

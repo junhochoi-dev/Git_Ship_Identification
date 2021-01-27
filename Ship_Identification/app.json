@@ -2,7 +2,7 @@
   "expo": {
     "name": "Ship_Identification",
     "slug": "Ship_Identification",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -20,16 +20,23 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.ship_identification.ship_identification",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyD_uVclhpTJzL7IahitPMgWneBoYGXss3g"
+        }
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "packagerOpts": {
-      "port": 51019
+      "port": 56259
     }
   }
 }

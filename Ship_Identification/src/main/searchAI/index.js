@@ -89,8 +89,9 @@ export default class SearchAI extends Component{
 			getToken().then((token) =>{
 				requestAIResult(token, this.state.base64).then((response) => {
 					console.log(response.data.data.result)
-					this.setState({ percentage: this.state.data.concat(response.data.data.percent),})
-					this.setState({ data: this.state.data.concat(response.data.data.result),})
+					
+					this.setState({ percentage: response.data.data.percent,})
+					this.setState({ data: response.data.data.result,})
 				}) 
 			})
 		}

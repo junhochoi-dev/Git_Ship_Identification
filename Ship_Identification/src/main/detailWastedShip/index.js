@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import * as base from 'native-base';
 import * as Location from 'expo-location';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { Svg, Image } from 'react-native-svg';
 import { getToken } from '../../../utils/getToken';
 import { requestWastedShipDetail } from '../../../utils/shipInfoRequest';
@@ -81,6 +81,7 @@ export default class DetailWastedShip extends Component{
 							<base.Text style={{fontFamily:'Nanum'}}> 경도 : {this.state.longitude} </base.Text>
 						</base.Item>
 					<MapView
+						provider={PROVIDER_GOOGLE}
 						style={{flex: 1, marginTop: 10}}
 						initialRegion={{
 							latitude: parseFloat(this.state.latitude),

@@ -5,6 +5,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 
+import Intro from './src/accounts/intro';
 import Login from './src/accounts/login';
 import Lost from './src/accounts/lost';
 import AccessRights from './src/accounts/accessRights'; 
@@ -46,7 +47,7 @@ const homeStackNav = createStackNavigator(
 		PlusInfoCommonShip: {screen: PlusInfoCommonShip, navigationOptions: { headerShown: false }},
 		PlusInfoGallery: {screen: PlusInfoGallery, navigationOptions: { headerShown: false }},
 		
-	},	{
+	},{
 		initialRouteName: 'Home'
 	}
 );
@@ -56,8 +57,7 @@ const Drawer = createDrawerNavigator(
 		homeStackNav: homeStackNav,
 		ErrorReport: {screen: ErrorReport, navigationOptions: { headerShown: false }},
 		MyAccount: {screen: MyAccount, navigationOptions: { headerShown: false }},
-	},
-	{
+	},{
 		drawerPosition: 'left',
   		contentComponent: OptionHome,
 		defaultNavigationOptions: { drawerLockMode: "locked-closed", }
@@ -66,14 +66,14 @@ const Drawer = createDrawerNavigator(
 
 const loginStackNav = createStackNavigator(
 	{
+		Intro: {screen: Intro, navigationOptions: {headerShown: false}},
 		Login: {screen: Login, navigationOptions: { headerShown: false }},
 		Lost: {screen: Lost, navigationOptions: { headerShown: false }},
 		AccessRights: {screen: AccessRights, navigationOptions: { headerShown: false }},
 		Signup1: {screen: Signup1, navigationOptions: { headerShown: false }},
 		Signup2: {screen: Signup2, navigationOptions: { headerShown: false }},
-	},
-	{
-		initialRouteName: 'Login'
+	},{
+		initialRouteName: 'Intro'
 	}
 	
 );
