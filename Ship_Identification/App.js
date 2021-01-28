@@ -5,7 +5,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 
-import Intro from './src/accounts/intro';
+import Intro from './src/intro';
 import Login from './src/accounts/login';
 import Lost from './src/accounts/lost';
 import AccessRights from './src/accounts/accessRights'; 
@@ -66,20 +66,20 @@ const Drawer = createDrawerNavigator(
 
 const loginStackNav = createStackNavigator(
 	{
-		Intro: {screen: Intro, navigationOptions: {headerShown: false}},
 		Login: {screen: Login, navigationOptions: { headerShown: false }},
 		Lost: {screen: Lost, navigationOptions: { headerShown: false }},
 		AccessRights: {screen: AccessRights, navigationOptions: { headerShown: false }},
 		Signup1: {screen: Signup1, navigationOptions: { headerShown: false }},
 		Signup2: {screen: Signup2, navigationOptions: { headerShown: false }},
 	},{
-		initialRouteName: 'Intro'
+		initialRouteName: 'Login'
 	}
 	
 );
 
 const Root = createSwitchNavigator(
 	{
+		Intro: {screen: Intro, navigationOptions: {headerShown: false}},
 		loginStackNav,
 		Drawer,
 	}

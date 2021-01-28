@@ -4,15 +4,12 @@ import { AsyncStorage, Image, ImageBackground, View, Text, Alert } from 'react-n
 import styles from './styles';
 import * as base from 'native-base'
 import Constants from 'expo-constants';
-import * as Font from 'expo-font';
 import { requestLogin } from '../../../utils/userInfoRequest/'
 
 export default class Login extends Component{
 	constructor(props){
 		super(props)
 		this.state={
-			isReady: false,
-			
 			serviceNum: '',
 			password: '',
 			device_id: '',
@@ -20,14 +17,7 @@ export default class Login extends Component{
 		this.executeLogin = this.executeLogin.bind(this)
 	}
 	componentWillMount(){}
-	async componentDidMount(){
-		await Font.loadAsync({
-			Nanum: require('../../../assets/font/Nanum.ttf'),
-			Nanum_Title: require('../../../assets/font/Nanum_Title.ttf'),
-		})
-		this.setState({isReady: true})
-		this.setState({device_id: Constants.deviceId})
-	}
+	componentDidMount(){this.setState({device_id: Constants.deviceId})}
 	executeLogin(){
 		requestLogin(this.state.serviceNum, this.state.password, this.state.device_id).then((response) => {
 		if(response.status == 200){
@@ -43,15 +33,6 @@ export default class Login extends Component{
 		}})
 	}
 	render(){
-		
-		if(!this.state.isReady){
-            return(
-                <View style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
-				    <Text style ={{fontSize: 30}}>데이터 가져오는 중</Text>
-				    <base.Spinner color='blue' />
-                </View>
-            )
-        }
 		return(
 			<base.Container>
 				<ImageBackground source={require('/workspace/Ship_Identification/assets/img/login.jpeg')} style={{flex: 1, resizeMode: 'cover',}}>
