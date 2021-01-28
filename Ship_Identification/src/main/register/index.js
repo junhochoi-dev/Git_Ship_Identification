@@ -13,8 +13,8 @@ var BUTTONS = [
   { text: "갤러리에서 등록하기", icon: "ios-images", iconColor: "#f42ced" },
   { text: "취소", icon: "close", iconColor: "#25de5b" }
 ];
-var DESTRUCTIVE_INDEX = 3;
-var CANCEL_INDEX = 4;
+var DESTRUCTIVE_INDEX = 2;
+var CANCEL_INDEX = 2;
 
 export default class Register extends Component{
 	constructor(props) {
@@ -169,13 +169,11 @@ export default class Register extends Component{
 								<base.Item regular style={{width:'100%', height: 40, borderRadius: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
 									<base.Picker
 										mode='dropdown'
-										style={{ width: '100%',}}
-										selectedValue={this.state.flag}
-										itemTextStyle={{fontFamily:'Nanum',}}
+										style={{flex: 1, width: '100%', fontFamily: 'Nanum_Title'}}
 										onValueChange={this.onValueChange.bind(this)}
 										>
-										<base.Picker.Item label='일반선박' value='Normal'/>
-										<base.Picker.Item label='유기,폐선박' value='Wasted'/>
+										<base.Picker.Item label='일반선박' value='Normal' labelStyle={{color:'red'}}/>
+										<base.Picker.Item label='유기선박 및 폐선박' value='Wasted'/>
 									</base.Picker>
 								</base.Item>
 							</base.Form>
