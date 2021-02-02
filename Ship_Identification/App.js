@@ -30,6 +30,9 @@ import OptionHome from './src/option/optionHome';
 import ErrorReport from './src/option/errorReport';
 import MyAccount from './src/option/myAccount';
 
+import TEST1 from './src/test/test1';
+import TEST2 from './src/test/test2';
+
 const homeStackNav = createStackNavigator(
 	{
 		Home: {screen: Home, navigationOptions: { headerShown: false }},
@@ -46,6 +49,9 @@ const homeStackNav = createStackNavigator(
 		DetailWastedShip: {screen: DetailWastedShip, navigationOptions: { headerShown: false }},
 		PlusInfoCommonShip: {screen: PlusInfoCommonShip, navigationOptions: { headerShown: false }},
 		PlusInfoGallery: {screen: PlusInfoGallery, navigationOptions: { headerShown: false }},
+		
+		TEST1: {screen: TEST1, navigationOptions: {headerShown: false}},
+		TEST2: {screen: TEST2, navigationOptions: {headerShown: false}},
 		
 	},{
 		initialRouteName: 'Home'

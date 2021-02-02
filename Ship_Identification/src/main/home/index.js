@@ -18,7 +18,7 @@ export default class Home extends Component{
 						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20,}}>선박확인체계</base.Title>
 					</base.Right>
 				</base.Header>
-				<base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent:'center', flex: 1,}}>
+				<base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent:'center',}}>
 					<base.Form style={{width: '100%', flex: 1,}}>
 						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 10}}>일반검색</base.Text>
 						<base.Card style={{
@@ -106,6 +106,67 @@ export default class Home extends Component{
 									<base.Icon name='ios-podium' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
 								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>수치조류도</base.Text>
+							</base.CardItem>
+						</base.Card>
+					</base.Form>
+					<base.Form style={{width: '100%', flex: 1,}}>
+						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 10}}>TEST 기능 1</base.Text>
+						<base.Card style={{
+								flexDirection: 'row', 
+								alignItems: 'center',
+								justifyContent: 'center',
+								height: 170,
+							}}>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST1')}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>카메라</base.Text>
+							</base.CardItem>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST2')}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: 14}}>트레킹</base.Text>
+							</base.CardItem>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.khoa.go.kr/')}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>test</base.Text>
+							</base.CardItem>
+						</base.Card>
+					</base.Form>
+					<base.Form style={{width: '100%', flex: 1,}}>
+						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 10}}>TEST 기능 2</base.Text>
+						<base.Card style={{
+								flexDirection: 'row', 
+								alignItems: 'center',
+								justifyContent: 'center',
+								height: 170,
+							}}>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.kma.go.kr')}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>test</base.Text>
+							</base.CardItem>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>
+									Alert.alert(
+										'선박확인체계 알림',
+										'개발 중인 기능입니다',
+									)	
+								}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: 14}}>test</base.Text>
+							</base.CardItem>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.khoa.go.kr/')}>
+								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
+									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
+								</base.Form>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>test</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>

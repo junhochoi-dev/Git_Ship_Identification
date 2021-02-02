@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { View, Text, ImageBackground } from 'react-native';
 import * as base from 'native-base';
 import * as Font from 'expo-font';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Entypo } from '@expo/vector-icons';
+
 export default class Intro extends Component{
 	constructor(props){
 		super(props)
