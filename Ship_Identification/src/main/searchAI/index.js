@@ -13,8 +13,8 @@ var BUTTONS = [
   { text: "갤러리에서 등록하기", icon: "ios-images", iconColor: "#f42ced" },
   { text: "취소", icon: "close", iconColor: "#25de5b" }
 ];
-var DESTRUCTIVE_INDEX = 3;
-var CANCEL_INDEX = 4;
+var DESTRUCTIVE_INDEX = 2;
+var CANCEL_INDEX = 2;
 
 const colors = ['#006eee', '#81d4fa']
 const keys = [ 'value', 'remainder',]
@@ -53,6 +53,7 @@ export default class SearchAI extends Component{
 				[{resize: {width: 50, height: 50}}],
 				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
 			).then((result) => {this.setState({base64: result.base64})})
+	
 		})
 	}
 	
@@ -89,14 +90,14 @@ export default class SearchAI extends Component{
 			getToken().then((token) =>{
 				requestAIResult(token, this.state.base64).then((response) => {
 					console.log(response.data.data.result)
-					
-					this.setState({ percentage: response.data.data.percent,})
-					this.setState({ data: response.data.data.result,})
+					this.setState({
+						percentage: response.data.data.percent,
+						data: response.data.data.result,
+					})
 				}) 
 			})
 		}
 	}
-	
 	showAIResult = () => {
 		return(
 			<base.Form>

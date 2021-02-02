@@ -16,7 +16,6 @@ export default class Login extends Component{
 		}
 		this.executeLogin = this.executeLogin.bind(this)
 	}
-	componentWillMount(){}
 	componentDidMount(){this.setState({device_id: Constants.deviceId})}
 	executeLogin(){
 		requestLogin(this.state.serviceNum, this.state.password, this.state.device_id).then((response) => {
