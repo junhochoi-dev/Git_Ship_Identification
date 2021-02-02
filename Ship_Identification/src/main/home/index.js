@@ -127,13 +127,13 @@ export default class Home extends Component{
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: 14}}>트레킹</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>트레킹</base.Text>
 							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.khoa.go.kr/')}>
+							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST3')}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>test</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>히트맵</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>

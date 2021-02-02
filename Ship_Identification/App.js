@@ -32,6 +32,7 @@ import MyAccount from './src/option/myAccount';
 
 import TEST1 from './src/test/test1';
 import TEST2 from './src/test/test2';
+import TEST3 from './src/test/test3';
 
 const homeStackNav = createStackNavigator(
 	{
@@ -52,6 +53,7 @@ const homeStackNav = createStackNavigator(
 		
 		TEST1: {screen: TEST1, navigationOptions: {headerShown: false}},
 		TEST2: {screen: TEST2, navigationOptions: {headerShown: false}},
+		TEST3: {screen: TEST3, navigationOptions: {headerShown: false}},
 		
 	},{
 		initialRouteName: 'Home'
