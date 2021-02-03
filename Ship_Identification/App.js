@@ -33,6 +33,9 @@ import MyAccount from './src/option/myAccount';
 import TEST1 from './src/test/test1';
 import TEST2 from './src/test/test2';
 import TEST3 from './src/test/test3';
+import TEST4 from './src/test/test4';
+import TEST5 from './src/test/test5';
+import TEST6 from './src/test/test6';
 
 const homeStackNav = createStackNavigator(
 	{
@@ -54,6 +57,9 @@ const homeStackNav = createStackNavigator(
 		TEST1: {screen: TEST1, navigationOptions: {headerShown: false}},
 		TEST2: {screen: TEST2, navigationOptions: {headerShown: false}},
 		TEST3: {screen: TEST3, navigationOptions: {headerShown: false}},
+		TEST4: {screen: TEST4, navigationOptions: {headerShown: false}},
+		TEST5: {screen: TEST5, navigationOptions: {headerShown: false}},
+		TEST6: {screen: TEST6, navigationOptions: {headerShown: false}},
 		
 	},{
 		initialRouteName: 'Home'
