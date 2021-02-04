@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { View, Text, FlatList, TouchableHighlight } from 'react-native';
 import * as base from 'native-base';
 
-import { RNCamera } from 'react-native-camera';
 
 export default class TEST1 extends Component{
 	constructor(props) {
@@ -24,30 +23,11 @@ export default class TEST1 extends Component{
 						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>TEST 페이지1</base.Title>
 					</base.Right>
 				</base.Header>
-				<base.Content padder>
-					<RNCamera
-						ref={ref => { this.camera = ref; }}
-						style={{
-							flex: 1,
-							justifyContent: 'flex-end',
-							alignItems: 'center',
-						}}
-						type={RNCamera.Constants.Type.back}
-						flashMode={RNCamera.Constants.FlashMode.on}
-						androidCameraPermissionOptions={{
-							title: 'Permission to use camera',
-							message: 'We need your permission to use your camera',
-							buttonPositive: 'Ok',
-							buttonNegative: 'Cancel',
-						}}
-						androidRecordAudioPermissionOptions={{
-							title: 'Permission to use audio recording',
-							message: 'We need your permission to use your audio',
-							buttonPositive: 'Ok',
-							buttonNegative: 'Cancel',
-						}}	
-						onGoogleVisionBarcodesDetected={({ barcodes }) => { console.log(barcodes); }}
-					/>
+				<base.Content contentContainerStyle={{ flex: 1 }}>
+					<base.Form style={{ flex: 1, flexDirection: 'column', backgroundColor: 'black', height: '100%'}}>
+						<base.Text style={{color: 'white'}}>Welcome to React Native QRScanner!</base.Text>
+						
+					</base.Form>
 				</base.Content>				
 			</base.Container>
 		);

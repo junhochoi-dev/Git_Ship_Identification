@@ -101,19 +101,19 @@ export default class SearchAI extends Component{
 	showAIResult = () => {
 		return(
 			<base.Form>
-			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[0].id})}>
+			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[0][0].id})}>
 				<base.Card>
 					<base.CardItem>
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
 								<base.Form style={{flex: 1,}}>
-									<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[0].main_img}} style={{width: 150, height: 100,}}/>
+									<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[0][0].main_img}} style={{width: 150, height: 100,}}/>
 								</base.Form>
 								<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[0].name}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[0].imo}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[0].calsign}</base.Text>
-									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[0].mmsi}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[0][0].name}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[0][0].imo}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[0][0].calsign}</base.Text>
+									<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[0][0].mmsi}</base.Text>
 								</base.Form>
 							</base.Form>
 							<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
@@ -135,19 +135,19 @@ export default class SearchAI extends Component{
 				</base.Card>	
 			</TouchableHighlight>
 			
-			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[1].id})}>
+			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[1][0].id})}>
 			<base.Card>
 				<base.CardItem>
 					<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
 							<base.Form style={{flex: 1,}}>
-								<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[1].main_img}} style={{width: 150, height: 100,}}/>
+								<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[1][0].main_img}} style={{width: 150, height: 100,}}/>
 							</base.Form>
 							<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[1].name}</base.Text>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[1].imo}</base.Text>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[1].calsign}</base.Text>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[1].mmsi}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[1][0].name}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[1][0].imo}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[1][0].calsign}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[1][0].mmsi}</base.Text>
 							</base.Form>
 						</base.Form>
 						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>
@@ -169,19 +169,19 @@ export default class SearchAI extends Component{
 			</base.Card>
 			</TouchableHighlight>
 			
-			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[2].id})}>			
+			<TouchableHighlight onPress={()=>this.props.navigation.navigate('DetailCommonShip',{id: this.state.data[2][0].id})}>			
 			<base.Card>
 				<base.CardItem>
 					<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
 						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1}}>
 							<base.Form style={{flex: 1,}}>
-								<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[2].main_img}} style={{width: 150, height: 100,}}/>
+								<Image source={{uri: 'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.data[2][0].main_img}} style={{width: 150, height: 100,}}/>
 							</base.Form>
 							<base.Form style={{flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: '100%', flex: 1}}>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[2].name}</base.Text>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[2].imo}</base.Text>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[2].calsign}</base.Text>
-								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[2].mmsi}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 30, flex: 1,}}>{this.state.data[2][0].name}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>IMO : {this.state.data[2][0].imo}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>CALLSIGN : {this.state.data[2][0].calsign}</base.Text>
+								<base.Text style={{fontFamily: 'Nanum', fontSize: 10, flex: 1,}}>MMSI : {this.state.data[2][0].mmsi}</base.Text>
 							</base.Form>
 						</base.Form>
 						<base.Form style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flex: 1, width: '105%'}}>

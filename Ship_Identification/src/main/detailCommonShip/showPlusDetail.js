@@ -8,14 +8,12 @@ export default class ShowPlusDetail extends Component{
 		this.state = {};
 	}
 	render() {
-		const address = this.props.ship.img
-		const img = 'https://shipcheck-server-vrxqx.run.goorm.io' + address
 		return(
 			<TouchableHighlight style={{flex: 1,}} onPress={this.props.onPress}>
 				<base.Card style={{width: 150, height: 150}}>
 					<base.CardItem>
 						<base.Form style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-							<Image resizeMode='contain' source={{uri:img}} style={{width: 150, height: 100,}}/>
+							<Image resizeMode='contain' source={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.props.ship.img}} style={{width: 150, height: 100,}}/>
 							<base.Form style={{flexDirection: 'column', width: '130%'}}>
 								<base.Text style={{fontFamily:'Nanum'}}>등록사진번호 : {this.props.ship.id}</base.Text>
 								<base.Text style={{fontFamily:'Nanum'}}>등록날짜 : {this.props.ship.add_date}</base.Text>

@@ -5,6 +5,7 @@ import * as base from 'native-base';
 import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
 import { getToken } from '../../../utils/getToken';
 import { requestCommonShipPlusInfoDetail } from '../../../utils/shipInfoRequest';
+
 export default class PlusInfoCommonShip extends Component{
 	constructor(props) {
 		super(props);
@@ -22,7 +23,7 @@ export default class PlusInfoCommonShip extends Component{
 			requestCommonShipPlusInfoDetail(token, this.props.navigation.getParam('id')).then((response) => {
 				if(response.status == 200){
 					this.setState({
-						img: response.data.data.img,
+						img: 'https://shipcheck-server-vrxqx.run.goorm.io' + response.data.data.img,
 						latitude: response.data.data.lat,
 						longitude: response.data.data.lon,
 						detail: response.data.data.point,
@@ -48,7 +49,7 @@ export default class PlusInfoCommonShip extends Component{
 				<base.Content padder>
 					<base.Card>
 						<base.Form style={{alignItems: 'center', justifyContent: 'center', margin: 10,}}>
-							<Image resizeMode='contain' source={{uri:'https://shipcheck-server-vrxqx.run.goorm.io' + this.state.img}} style={{width: 380, height: 380,}}/>
+							<Image resizeMode='contain' source={{uri:this.state.img}} style={{width: 380, height: 380,}}/>
 							<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50, marginTop: 10}}>
 								<base.Text style={{fontFamily:'Nanum'}}> 등록날짜 : {this.state.date} </base.Text>
 							</base.Item>
