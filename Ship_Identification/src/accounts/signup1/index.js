@@ -5,11 +5,9 @@ import * as base from 'native-base'
 import * as Font from 'expo-font';
 import styles from './styles';
 
-const SIZE_TITLE = Dimensions.get('screen').width * 0.125
-const SIZE_FONT = Dimensions.get('screen').width * 0.04
-const SIZE_WARNING = Dimensions.get('screen').width * 0.0425
-const SIZE_ICON = Dimensions.get('screen').width * 0.6
-const SIZE_MARGIN = Dimensions.get('screen').height * 0.025
+const SIZE_TITLE = Dimensions.get('screen').height * 0.04
+const SIZE_SUBTITLE = Dimensions.get('screen').height * 0.02
+const SIZE_FONT = Dimensions.get('screen').height * 0.02
 
 const alertMessage =
 	  ' 1. 숫자, 문자, 특수문자를 혼합하여 9자리 이상으로 조합\n' +
@@ -51,14 +49,14 @@ export default class Signup1 extends Component{
 			<base.Container>
 				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Body>
-						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>회원가입</base.Title>
-						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 10, marginTop: 5}}>아이디 비밀번호 생성</base.Subtitle>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20, color: 'white'}}>회원가입</base.Title>
+						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 13, marginTop: 5, color: 'white'}}>아이디 비밀번호 생성</base.Subtitle>
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
 					<base.Form style={{margin: 5,}}>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 40, color: '#006eee', margin: 5}}>환영합니다</base.Text>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 5}}>아래의 정보를 입력해주세요</base.Text>
+						<base.Text style={{fontFamily:'Nanum', fontSize: SIZE_TITLE, color: '#006eee', margin: 5}}>환영합니다</base.Text>
+						<base.Text style={{fontFamily:'Nanum', fontSize: SIZE_SUBTITLE, margin: 5}}>아래의 정보를 입력해주세요</base.Text>
 					</base.Form>
 					<base.Card>
 						<base.Form style={{alignItems:'center', justifyContent: 'center', margin: 10}}>
@@ -73,10 +71,10 @@ export default class Signup1 extends Component{
 								</base.Item>
 							</base.Form>
 							<base.Form style={{width: '100%', margin: 10,}}>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 개인신상 및 부서명칭 등과 관련 내용 미기입</base.Text>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 일반 사전에 등록된 단어 미기입</base.Text>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 동일문자 3회 이상 반복 미사용</base.Text>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 연속적인 오름차순, 내림차순 미사용</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 개인신상 및 부서명칭 등과 관련 내용 미기입</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 일반 사전에 등록된 단어 미기입</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 동일문자 3회 이상 반복 미사용</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 연속적인 오름차순, 내림차순 미사용</base.Text>
 							</base.Form>
 							<base.Form style={{width: '100%',}}>
 								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10}}>
@@ -101,12 +99,12 @@ export default class Signup1 extends Component{
 								</base.Item>
 							</base.Form>
 							<base.Form style={{width: '100%', margin: 10,}}>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 개인신상 및 부서명칭 등과 관련 내용 미기입</base.Text>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 일반 사전에 등록된 단어 미기입</base.Text>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 숫자, 문자, 특수문자를 혼합하여 9자리 이상으로 조합</base.Text>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 사용자 아이디와 미일치</base.Text>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 동일문자 3회 이상 반복 미사용</base.Text>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>- 연속적인 오름차순, 내림차순 미사용</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 개인신상 및 부서명칭 등과 관련 내용 미기입</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 일반 사전에 등록된 단어 미기입</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 숫자, 문자, 특수문자를 혼합하여 9자리 이상으로 조합</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 사용자 아이디와 미일치</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 동일문자 3회 이상 반복 미사용</base.Text>
+								<base.Text style={{fontFamily:'Nanum', margin: 5, fontSize: SIZE_FONT}}>- 연속적인 오름차순, 내림차순 미사용</base.Text>
 							</base.Form>
 							<base.Form style={{flexDirection: 'row', alignItems:'center', marginTop: 10, marginBottom: 10,}}>
 								<base.Button bordered style={{ flex: 1, width: '100%', marginRight: 5, borderRadius: 10}} onPress={()=>this.props.navigation.popToTop()}>

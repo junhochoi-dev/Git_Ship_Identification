@@ -1,25 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { Alert } from 'react-native';
+import { Alert, Dimensions } from 'react-native';
 import * as base from 'native-base'
 import Constants from 'expo-constants';
 
 import { requestSignup } from '../../../utils/userInfoRequest/'
+
+const SIZE_TITLE = Dimensions.get('screen').width * 0.125
+const SIZE_FONT = Dimensions.get('screen').width * 0.04
+const SIZE_WARNING = Dimensions.get('screen').width * 0.0425
+const SIZE_ICON = Dimensions.get('screen').width * 0.6
+const SIZE_MARGIN = Dimensions.get('screen').height * 0.025
 export default class Signup2 extends Component{
 	constructor(props){
 		super(props)
 		this.state = {
-            serviceNum : '',
-            password : '',
-            name : '',
-			rank : '',
-			position : '',
-			belong : '',
-			phone : '',
+            serviceNum : '', password : '',
+            name : '', rank : '', position : '',
+			belong : '', phone : '',
 			
-			year: '',
-			month: '',
-			day: '',
+			year: '', month: '',day: '',
 			
 			device_id : '',
 			
@@ -55,7 +55,7 @@ export default class Signup2 extends Component{
 				<base.Header style={{backgroundColor: '#006eee'}}>
 					<base.Body>
 						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>회원가입</base.Title>
-						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 10, marginTop: 5}}>개인정보 입력</base.Subtitle>
+						<base.Subtitle style={{fontFamily:'Nanum_Title', fontSize: 13, marginTop: 5}}>개인정보 입력</base.Subtitle>
 					</base.Body>
 				</base.Header>
 				<base.Content padder>
