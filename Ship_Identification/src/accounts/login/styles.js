@@ -5,16 +5,23 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'column',
-		marginTop: 20,
-		marginBottom: 60,
+		flex: 3,
+	},
+	buttonContainer:{
+		alignItems: 'center',
+		flex: 1,
+	},
+	inputContainer:{
+		justifyContent: 'center',
+		alignItems: 'center',
+		flexDirection: 'column',
+		flex: 1,
 	},
 	input_layout: {
-		margin: 10,
-	},
-	input: {
-		marginTop: 20,
-		marginBottom: 20,
-		color: 'black',
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginTop: 10,
+		marginBottom: 10,
 	},
 	btn_login: {
 		width: '100%',

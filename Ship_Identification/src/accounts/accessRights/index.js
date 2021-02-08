@@ -1,6 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
+import { Dimensions } from 'react-native';
 import React, { Component } from 'react';
 import * as base from 'native-base';
+
+const SIZE_MAIN = Dimensions.get('screen').width * 0.03
+const SIZE_TITLE = Dimensions.get('screen').width * 0.08
+
 export default class AccessRights extends Component{
 	render(){
 		return(
@@ -13,7 +18,7 @@ export default class AccessRights extends Component{
 				<base.Content padder>
 					<base.Form style={{width: '100%', flex: 1,  justifyContent:'center'}}>
 						<base.Form style={{alignItems: 'center', margin: 10,}}>
-							<base.Text style={{ fontFamily:'Nanum_Title', fontSize: 45, color: '#006eee' }}>
+							<base.Text style={{ fontFamily:'Nanum_Title', fontSize: SIZE_TITLE, color: '#006eee' }}>
 								앱 접근 권한 동의 안내
 							</base.Text>
 							<base.Text style={{ fontFamily:'Nanum', marginTop: 10, }}>
@@ -71,11 +76,11 @@ export default class AccessRights extends Component{
 							</base.Text>
 						</base.Form>
 						<base.Form style={{flexDirection: 'row', alignItems:'center', marginTop: 10, marginBottom: 10,}}>
-							<base.Button bordered style={{ flex: 1, width: '100%', marginRight: 5, borderRadius: 10}} onPress={()=>this.props.navigation.popToTop()}>
+							<base.Button bordered style={{ flex: 1, width: '100%', marginRight: 5, borderRadius: 10, justifyContent: 'center'}} onPress={()=>this.props.navigation.popToTop()}>
 								<base.Text style={{fontFamily:'Nanum'}}>취소</base.Text>
 							</base.Button>
-							<base.Button bordered style={{ flex: 1,width: '100%', marginLeft: 5, borderRadius: 10}} onPress={()=>this.props.navigation.navigate('Signup1')}>
-								<base.Text style={{fontFamily:'Nanum'}}>위 내용에 대해 모두 동의합니다</base.Text>
+							<base.Button bordered style={{ flex: 1,width: '100%', marginLeft: 5, borderRadius: 10,  justifyContent: 'center'}} onPress={()=>this.props.navigation.navigate('Signup1')}>
+								<base.Text style={{fontFamily:'Nanum'}}>동의합니다</base.Text>
 							</base.Button>
 						</base.Form>
 					</base.Form>

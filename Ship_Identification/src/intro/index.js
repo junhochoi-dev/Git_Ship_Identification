@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { View, Text, ImageBackground } from 'react-native';
+import { View, Text, ImageBackground, Dimensions } from 'react-native';
 import * as base from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons, Entypo } from '@expo/vector-icons';
+
+const SIZE_MAIN = Dimensions.get('screen').width * 0.03
+const SIZE_TITLE = Dimensions.get('screen').width * 0.03
 
 export default class Intro extends Component{
 	constructor(props){

@@ -1,0 +1,8 @@
+if(!this.state.isReady){
+	return(
+		<View style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
+			<Text style ={{fontSize: 30}}>데이터 가져오는 중</Text>
+			<base.Spinner color='blue' />
+		</View>
+	)
+}

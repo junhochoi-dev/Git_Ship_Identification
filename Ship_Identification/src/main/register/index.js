@@ -139,6 +139,7 @@ export default class Register extends Component{
 								   this.state.vessel_type, this.state.build_year, this.state.current_flag, this.state.home_port)
 			else if (this.state.flag == 'Wasted') registerWastedShip(token, this.state.flag, this.state.base64, this.state.title, this.state.latitude, this.state.longitude, this.state.detail)
 		})
+		this.props.navigation.popToTop()
 	}
 	
 	render(){

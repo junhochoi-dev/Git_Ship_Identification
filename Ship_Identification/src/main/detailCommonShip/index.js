@@ -142,7 +142,7 @@ export default class DetailCommonShip extends Component{
 							{plusDetail}
 						</base.Form>
 					</base.Card>
-				</base.Content>				
+				</base.Content>			
 			</base.Container>
 		);
 	}

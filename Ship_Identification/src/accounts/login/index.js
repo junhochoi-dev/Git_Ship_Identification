@@ -35,10 +35,14 @@ export default class Login extends Component{
 		return(
 			<base.Container>
 				<ImageBackground source={require('/workspace/Ship_Identification/assets/img/login.jpeg')} style={{flex: 1, resizeMode: 'cover',}}>
-					<base.Content padder>
+					<base.Content padder contentContainerStyle={{flex: 1, height: '100%'}}>
+						
 						<base.Form style={styles.container}>
 							<base.Icon name='ios-boat' style={{marginTop: 60, color: 'white', fontSize: 160}}/>
 							<base.Text style={{fontSize: 50, marginTop: 20, marginBottom: 80, fontFamily:'Nanum_Title', color: 'white'}}>선박확인체계</base.Text>
+						</base.Form>
+						
+						<base.Form style={styles.inputContainer}>
 							<base.Item floatingLabel style={styles.input_layout}>
 								<base.Label style={{color: 'white', fontFamily:'Nanum',}}>아이디</base.Label>
 								<base.Icon name='ios-person' style={{color: 'white'}}/>
@@ -57,7 +61,7 @@ export default class Login extends Component{
 							</base.Item>
 						</base.Form>
 
-						<base.Form style={{alignItems: 'center',}}>
+						<base.Form style={styles.buttonContainer}>
 							<base.Button light style={styles.btn_login} bordered onPress={this.executeLogin}>
 								<base.Text style={{ fontFamily:'Nanum', color: 'white' }}>로그인</base.Text>
 							</base.Button>
@@ -71,6 +75,7 @@ export default class Login extends Component{
 								</base.Button>
 							</base.Form>
 						</base.Form>
+						
 					</base.Content>
 					<StatusBar hidden/>
 				</ImageBackground>
