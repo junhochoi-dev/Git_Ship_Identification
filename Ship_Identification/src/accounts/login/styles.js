@@ -1,27 +1,36 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+	contentContainer:{
+		flex: 1,
+		alignItems: 'center', 
+		justifyContent:'center',
+	},
 	container:{
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'column',
-		flex: 3,
+		flex: 2,
 	},
 	buttonContainer:{
+		justifyContent: 'center',
 		alignItems: 'center',
 		flex: 1,
+		width: '100%'
 	},
 	inputContainer:{
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'column',
+		width: '100%',
 		flex: 1,
+		margin: 10,
 	},
 	input_layout: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		marginTop: 10,
-		marginBottom: 10,
+		width: '100%',
+		margin: 15
 	},
 	btn_login: {
 		width: '100%',

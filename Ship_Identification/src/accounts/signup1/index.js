@@ -1,7 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
+import { Dimensions } from 'react-native';
 import * as base from 'native-base'
 import * as Font from 'expo-font';
+import styles from './styles';
+
+const SIZE_TITLE = Dimensions.get('screen').width * 0.125
+const SIZE_FONT = Dimensions.get('screen').width * 0.04
+const SIZE_WARNING = Dimensions.get('screen').width * 0.0425
+const SIZE_ICON = Dimensions.get('screen').width * 0.6
+const SIZE_MARGIN = Dimensions.get('screen').height * 0.025
 
 const alertMessage =
 	  ' 1. 숫자, 문자, 특수문자를 혼합하여 9자리 이상으로 조합\n' +

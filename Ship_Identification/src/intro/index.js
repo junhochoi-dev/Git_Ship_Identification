@@ -7,12 +7,11 @@ import { Ionicons, Entypo } from '@expo/vector-icons';
 
 import styles from './styles';
 
-const SIZE_TITLE = Dimensions.get('screen').width * 0.1
+const SIZE_TITLE = Dimensions.get('screen').width * 0.125
 const SIZE_FONT = Dimensions.get('screen').width * 0.04
 const SIZE_WARNING = Dimensions.get('screen').width * 0.0425
-const SIZE_ICON = Dimensions.get('screen').width * 0.8
-
-const SIZE_MARGIN = Dimensions.get('screen').height * 0.005
+const SIZE_ICON = Dimensions.get('screen').width * 0.6
+const SIZE_MARGIN = Dimensions.get('screen').height * 0.025
 
 export default class Intro extends Component{
 	constructor(props){
@@ -36,11 +35,11 @@ export default class Intro extends Component{
 			<base.Container>
 			<ImageBackground source={require('/workspace/Ship_Identification/assets/img/login.jpeg')} style={{flex: 1, resizeMode: 'cover',}}>
 				<base.Content padder contentContainerStyle={styles.contentContainer}>
-					<base.Form style={{alignItems: 'center', justifyContent: 'center', margin: SIZE_MARGIN}}>
+					<base.Form style={{alignItems: 'center', justifyContent: 'center',}}>
 						<base.Text style={{fontFamily: 'Nanum_Title', fontSize: SIZE_TITLE, color: 'white',}}>앱 접근 제한 경고</base.Text>
 						<base.Icon name='ios-warning' style={{color: 'red', fontSize: SIZE_ICON,}}/>
-						<base.Form style={{margin: 10,}}>
-							<base.Text style={{fontFamily:'Nanum', color: 'white', fontSize: SIZE_FONT}}>
+						<base.Form>
+							<base.Text style={{fontFamily:'Nanum', color: 'white', marginTop: SIZE_MARGIN, fontSize: SIZE_FONT,}} >
 								앱 선박확인체계는 허가받은 사용자만 사용할 수 있습니다. 부당한 방법으로 해당 앱에 접근하거나 앱 내의 정보를
 								삭제, 변경, 유출하는 사용자는 관련법령에 따라 처벌받게 됩니다. 모든 접속 시도는 로그서버에 기록되며 불법적인 접근 시도는 법적 제재를 받을 수 있습니다.
 							</base.Text>
@@ -53,7 +52,7 @@ export default class Intro extends Component{
 								따라서 홈페이지에서 제공하는 자료에 대해 무단복제 및 배포를 원칙적으로 금합니다.
 							</base.Text>
 						</base.Form>
-						<base.Form style={{alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+						<base.Form style={{alignItems: 'center', justifyContent: 'center'}}>
 							<base.Text style={{fontFamily:'Nanum_Title', color: 'white', marginTop: SIZE_MARGIN, fontSize: SIZE_WARNING, color: 'red'}}>
 								허가받지 않은 사용자는 즉시 이 앱을 종료 및 삭제하십시오
 							</base.Text>

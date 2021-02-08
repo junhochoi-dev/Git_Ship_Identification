@@ -49,11 +49,16 @@ export default class TEST1 extends Component{
 				<base.Content contentContainerStyle={{ flex: 1 }}>
 					<Camera style={{flex: 1,width:"100%", height: '100%'}} ref={(r) => { camera = r }}>
 						<View style={{position: 'absolute', justifyContent: 'center', alignItems: 'center', flexDirection:'column', height: '100%', width: '100%'}}>
-							<Entypo name="document-landscape" size={250} color="red" />
 							<base.Text style={{color: 'white', fontFamily: 'Nanum', fontSize: 20}}> 해당 레이아웃에 맞춰 선박을 촬영하세요 </base.Text>
 						</View>
+						<View style={{position: 'absolute', justifyContent: 'flex-end', alignItems: 'flex-start', flexDirection:'column', height: '95%', right: '80%'}}>
+							<base.Icon name='ios-refresh' style={{fontSize:60, color: 'white'}}/>
+						</View>
 						<View style={{position: 'absolute', justifyContent: 'flex-end', alignItems: 'center', flexDirection:'column', height: '95%', width: '100%'}}>
-							<AntDesign name="camerao" size={50} color="white" />
+							<base.Icon name='ios-radio-button-on' style={{fontSize:60, color: 'white'}}/>
+						</View>
+						<View style={{position: 'absolute', justifyContent: 'flex-end', alignItems: 'flex-end', flexDirection:'column', height: '95%', left: '80%'}}>
+							<base.Icon name='ios-add' style={{fontSize:60, color: 'white'}}/>
 						</View>
 						
 					</Camera>
