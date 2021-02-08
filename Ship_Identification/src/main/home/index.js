@@ -109,67 +109,6 @@ export default class Home extends Component{
 							</base.CardItem>
 						</base.Card>
 					</base.Form>
-					<base.Form style={{width: '100%', flex: 1,}}>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 10}}>TEST 기능 1</base.Text>
-						<base.Card style={{
-								flexDirection: 'row', 
-								alignItems: 'center',
-								justifyContent: 'center',
-								height: 170,
-							}}>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST1')}>
-								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
-								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>카메라</base.Text>
-							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST2')}>
-								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
-								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>트레킹</base.Text>
-							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('TEST3')}>
-								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
-								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>히트맵</base.Text>
-							</base.CardItem>
-						</base.Card>
-					</base.Form>
-					<base.Form style={{width: '100%', flex: 1,}}>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 10}}>TEST 기능 2</base.Text>
-						<base.Card style={{
-								flexDirection: 'row', 
-								alignItems: 'center',
-								justifyContent: 'center',
-								height: 170,
-							}}>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.kma.go.kr')}>
-								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
-								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>test</base.Text>
-							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>
-									Alert.alert(
-										'선박확인체계 알림',
-										'개발 중인 기능입니다',
-									)	
-								}>
-								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
-								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: 14}}>test</base.Text>
-							</base.CardItem>
-							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.khoa.go.kr/')}>
-								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
-									<base.Icon name='ios-compass' style={{fontSize:35, color: '#006eee'}}/>
-								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>test</base.Text>
-							</base.CardItem>
-						</base.Card>
-					</base.Form>
 				</base.Content>
 			<StatusBar hidden/>
 			</base.Container>

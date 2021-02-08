@@ -133,7 +133,7 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 							}}
 							showsUserLocation={true}
 							showsMyLocationButton={true}
-							mapType={'satellite'}
+							mapType={'standard'}
 							>
 							{ requestMarker(this.state.data) }
 						</MapView>

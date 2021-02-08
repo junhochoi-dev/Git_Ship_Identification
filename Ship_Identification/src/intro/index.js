@@ -23,14 +23,6 @@ export default class Intro extends Component{
 		this.setState({isReady: true})
 	}
 	render(){
-		if(!this.state.isReady){
-            return(
-                <View style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
-				    <Text style ={{fontSize: 30}}>데이터 가져오는 중</Text>
-				    <base.Spinner color='blue' />
-                </View>
-            )
-        }
 		return(
 			<base.Container>
 			<ImageBackground source={require('/workspace/Ship_Identification/assets/img/login.jpeg')} style={{flex: 1, resizeMode: 'cover',}}>

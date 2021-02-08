@@ -7,7 +7,9 @@ import { Camera } from 'expo-camera';
 	
 import { Ionicons, Entypo } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons'; 
-import { Feather } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons'; 
+
 export default class TEST1 extends Component{
 	constructor(props) {
 		super(props);
@@ -16,6 +18,22 @@ export default class TEST1 extends Component{
 	}
 	render(){
 		let camera: Camera
+		const __startCamera = async () => {
+			const {status} = await Camera.requestPermissionsAsync()
+			if (status === 'granted') {
+				// start the camera
+				setStartCamera(true)
+			} else {
+				Alert.alert('Access denied')
+			}
+		}
+		const __takePicture = async () => {
+			if (!camera) return
+			const photo = await camera.takePictureAsync()
+			console.log(photo)
+			setPreviewVisible(true)
+			setCapturedImage(photo)
+		}
 		return(
 			<base.Container>
 				<base.Header style={{backgroundColor: '#006eee'}}>
@@ -30,14 +48,19 @@ export default class TEST1 extends Component{
 				</base.Header>
 				<base.Content contentContainerStyle={{ flex: 1 }}>
 					<Camera style={{flex: 1,width:"100%", height: '100%'}} ref={(r) => { camera = r }}>
-						<View style={{position: 'absolute', justifyContent: 'center', alignItems: 'center', 
-    flexDirection:'column', height: '100%', width: '100%'}}>
-							<Feather name="maximize" size={400} color="white" />
+						<View style={{position: 'absolute', justifyContent: 'center', alignItems: 'center', flexDirection:'column', height: '100%', width: '100%'}}>
+							<Entypo name="document-landscape" size={250} color="red" />
 							<base.Text style={{color: 'white', fontFamily: 'Nanum', fontSize: 20}}> 해당 레이아웃에 맞춰 선박을 촬영하세요 </base.Text>
 						</View>
+						<View style={{position: 'absolute', justifyContent: 'flex-end', alignItems: 'center', flexDirection:'column', height: '95%', width: '100%'}}>
+							<AntDesign name="camerao" size={50} color="white" />
+						</View>
+						
 					</Camera>
 				</base.Content>				
 			</base.Container>
 		);
 	}
 }
+
+//https://www.freecodecamp.org/news/how-to-create-a-camera-app-with-expo-and-react-native/
