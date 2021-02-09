@@ -28,6 +28,8 @@ export default class SearchAI extends Component{
 			data: [],
 			percentage: [],
 			functionOn: false,
+			
+			clicked: '',
 		};
 		this.pickPhoto = this.pickPhoto.bind(this);
 		this.pickImage = this.pickImage.bind(this);
@@ -226,6 +228,22 @@ export default class SearchAI extends Component{
 		)
 	}
 	render(){
+		switch(this.state.clicked){
+			case 0:{
+				this.pickPhoto();
+				this.setState({clicked: null});
+				break;
+			}
+			case 1:{
+				this.pickImage();
+				this.setState({clicked: null});
+				break;
+			}
+			case 2:{
+				this.setState({clicked: null, img: ''});
+				break;
+			}
+		}
 		let AIResult
 		if(this.state.data.length) { AIResult = this.showAIResult() }
 		else if(this.state.functionOn) { AIResult = this.loading() }
@@ -251,20 +269,16 @@ export default class SearchAI extends Component{
 								</base.CardItem>
 								<Image source={{uri:this.state.img}} style={{height: 250, width: '100%', flex: 1}}/>
 								<base.Button transparent style={{position: 'absolute', right: 0, bottom: '5%',}}  
-									onPress={() =>
-										{
-											this.setState({data: [], functionOn: false})
-											base.ActionSheet.show({
-												options: BUTTONS,
-												cancelButtonIndex: CANCEL_INDEX,
-												destructiveButtonIndex: DESTRUCTIVE_INDEX,
-												title: "사진등록유형"
+										onPress={() =>
+											base.ActionSheet.show(
+											{
+											options: BUTTONS,
+											cancelButtonIndex: CANCEL_INDEX,
+											destructiveButtonIndex: DESTRUCTIVE_INDEX,
+											title: "Testing ActionSheet"
 											},
-											buttonIndex => {
-												{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
-											})
-										}
-									}>
+											buttonIndex => {this.setState({ clicked: buttonIndex });}
+									)}>
 									<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
 								</base.Button>
 							</base.Form>

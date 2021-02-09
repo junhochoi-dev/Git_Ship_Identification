@@ -25,6 +25,8 @@ export default class RegisterPlus extends Component{
 			longitude: 0,
 			detail: '',
 			base64: '',
+			
+			clicked: '',
 		};
 		this.pickImage = this.pickImage.bind(this);
 		this.pickPhoto = this.pickPhoto.bind(this);
@@ -88,6 +90,22 @@ export default class RegisterPlus extends Component{
 	}
 	
 	render(){
+		switch(this.state.clicked){
+			case 0:{
+				this.pickPhoto();
+				this.setState({clicked: null});
+				break;
+			}
+			case 1:{
+				this.pickImage();
+				this.setState({clicked: null});
+				break;
+			}
+			case 2:{
+				this.setState({clicked: null, img: ''});
+				break;
+			}
+		}
 		return(
 			<base.Root>
 				<base.Container>
@@ -104,36 +122,6 @@ export default class RegisterPlus extends Component{
 					<base.Content padder>
 						<base.Card>
 							<base.Form style={{margin: 10,}}>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박유형선택</base.Text>
-								<base.Item regular style={{width:'100%', height: 40, borderRadius: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-									<base.Picker
-										mode='dropdown'
-										style={{ width: '100%',}}
-										selectedValue={this.state.flag}
-										itemTextStyle={{fontFamily:'Nanum',}}
-										onValueChange={this.onValueChange.bind(this)}
-										>
-										<base.Picker.Item label='일반선박' value='Normal'/>
-										<base.Picker.Item label='유기,폐선박' value='Wasted'/>
-									</base.Picker>
-								</base.Item>
-							</base.Form>
-							<base.Form style={{margin: 10,}}>
-								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10, height: 50}}>
-									<base.Text style={{fontFamily:'Nanum'}}> 관리번호 : {this.props.navigation.getParam('name')} </base.Text>
-								</base.Item>
-							</base.Form>
-							<base.Form style={{margin: 10,}}>
-								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10, height: 50}}>
-									<base.Text style={{fontFamily:'Nanum'}}> 위도 : {this.state.latitude} </base.Text>
-								</base.Item>
-							</base.Form>
-							<base.Form style={{margin: 10,}}>
-								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10, height: 50}}>
-									<base.Text style={{fontFamily:'Nanum'}}> 경도 : {this.state.longitude} </base.Text>
-								</base.Item>
-							</base.Form>
-							<base.Form style={{margin: 10,}}>
 								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박사진등록</base.Text>
 								<base.Item regular style={{width:'100%', height: 350, borderRadius: 10, flexDirection: 'column', marginBottom: 10,}}>
 									<Image source={{uri:this.state.img}} style={{height: 250, width: '100%', flex: 1}}/>
@@ -147,19 +135,37 @@ export default class RegisterPlus extends Component{
 											destructiveButtonIndex: DESTRUCTIVE_INDEX,
 											title: "Testing ActionSheet"
 											},
-											buttonIndex => {
-												{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
-											}
-										)}>
+											buttonIndex => {this.setState({ clicked: buttonIndex });}
+									)}>
 										<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
 									</base.Button>
 								</base.Item>
 							</base.Form>
-							
 							<base.Form style={{margin: 10,}}>
-								<base.Textarea rowSpan={3} bordered placeholder="세부사항등록"
-								onChangeText={(detail) => this.setState({detail})}
-								style={{fontFamily: 'Nanum', marginTop:10, marginBottom: 10, borderRadius: 10,}}/>
+								<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50}}>
+									<base.Text style={{fontFamily:'Nanum'}}> 선박유형 : 일반선박 </base.Text>
+								</base.Item>
+							</base.Form>
+							<base.Form style={{margin: 10,}}>
+								<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50}}>
+									<base.Text style={{fontFamily:'Nanum'}}> 관리번호 : {this.props.navigation.getParam('name')} </base.Text>
+								</base.Item>
+							</base.Form>
+							<base.Form style={{margin: 10,}}>
+								<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50}}>
+									<base.Text style={{fontFamily:'Nanum'}}> 위도 : {this.state.latitude} </base.Text>
+								</base.Item>
+							</base.Form>
+							<base.Form style={{margin: 10,}}>
+								<base.Item regular style={{ width:'100%', borderRadius: 10, height: 50}}>
+									<base.Text style={{fontFamily:'Nanum'}}> 경도 : {this.state.longitude} </base.Text>
+								</base.Item>
+							</base.Form>
+							<base.Form style={{marginLeft: 10, marginRight: 10,}}>
+								<base.Text style={{fontFamily: 'Nanum', color: 'dark', marginTop: 10,}}>세부정보 및 특이사항</base.Text>
+								<base.Textarea rowSpan={5} bordered
+									onChangeText={(detail) => this.setState({detail})}
+									style={{fontFamily: 'Nanum', marginTop:10, marginBottom: 10, borderRadius: 10,}}/>
 							</base.Form>
 							<base.Form style={{margin: 10,}}>
 								<base.Button block style={{backgroundColor: '#006eee'}} onPress={this.registerShipDetail}>

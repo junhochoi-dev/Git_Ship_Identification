@@ -28,6 +28,8 @@ export default class Register extends Component{
 			build_year: '', current_flag: '', home_port: '',
 			
 			title: '', latitude: '0', longitude: '0', detail: '',
+			
+			clicked: '',
 		};
 		this.pickImage = this.pickImage.bind(this);
 		this.pickPhoto = this.pickPhoto.bind(this);
@@ -99,8 +101,6 @@ export default class Register extends Component{
 				<base.Textarea rowSpan={5} bordered
 					onChangeText={(detail) => this.setState({detail})}
 					style={{fontFamily: 'Nanum', marginTop:10, marginBottom: 10, borderRadius: 10,}}/>
-				
-				
 				<base.Form style={{flexDirection: 'row', alignItems: 'center', width: '100%',}}>
 					<base.Form style={{flex: 7, flexDirection: 'column', width: '100%'}}>
 						<base.Item regular style={{
@@ -151,6 +151,22 @@ export default class Register extends Component{
 	}
 	
 	render(){
+		switch(this.state.clicked){
+			case 0:{
+				this.pickPhoto();
+				this.setState({clicked: null});
+				break;
+			}
+			case 1:{
+				this.pickImage();
+				this.setState({clicked: null});
+				break;
+			}
+			case 2:{
+				this.setState({clicked: null, img: ''});
+				break;
+			}
+		}
 		let detailInput
 		if(this.state.flag == 'Normal') {
 			detailInput = this.normalInput()
@@ -194,10 +210,8 @@ export default class Register extends Component{
 											destructiveButtonIndex: DESTRUCTIVE_INDEX,
 											title: "Testing ActionSheet"
 											},
-											buttonIndex => {
-												{buttonIndex == 0 ? this.pickPhoto() : this.pickImage()}
-											}
-										)}>
+											buttonIndex => {this.setState({ clicked: buttonIndex });}
+									)}>
 										<base.Icon name='ios-add-circle' style={{color:'#006eee',fontSize: 40}}/>
 									</base.Button>
 								</base.Item>
