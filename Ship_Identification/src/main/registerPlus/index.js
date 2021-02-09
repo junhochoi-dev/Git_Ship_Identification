@@ -44,7 +44,7 @@ export default class RegisterPlus extends Component{
 		}).then((result) => {
 			ImageManipulator.manipulateAsync(
 				result.uri,
-				[{resize: {width: 100, height: 100}}],
+				[{resize: {width: 400, height: 400}}],
 				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
 			).then((result) => this.setState({img: result.uri, base64: result.base64}))
 		})
@@ -61,7 +61,7 @@ export default class RegisterPlus extends Component{
 			this.setState({img: result.uri})
 			ImageManipulator.manipulateAsync(
 				result.uri,
-				[{resize: {width: 100, height: 100}}],
+				[{resize: {width: 400, height: 400}}],
 				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
 			).then((result) => {
 				console.log(this.state.base64)
@@ -120,7 +120,7 @@ export default class RegisterPlus extends Component{
 							</base.Form>
 							<base.Form style={{margin: 10,}}>
 								<base.Item regular style={{ width:'100%', margin: 10, borderRadius: 10, height: 50}}>
-									<base.Text style={{fontFamily:'Nanum'}}> 선박명 : {this.props.navigation.getParam('name')} </base.Text>
+									<base.Text style={{fontFamily:'Nanum'}}> 관리번호 : {this.props.navigation.getParam('name')} </base.Text>
 								</base.Item>
 							</base.Form>
 							<base.Form style={{margin: 10,}}>

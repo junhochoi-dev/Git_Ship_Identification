@@ -5,7 +5,7 @@ import * as base from 'native-base';
 import { Linking, Image, Alert, Dimensions } from 'react-native';
 import * as Font from 'expo-font';
 
-const FONT_SIZE = Dimensions.get('screen').width * 0.03
+const FONT_SIZE = Dimensions.get('screen').height * 0.017
 
 export default class Home extends Component{
 	render(){
@@ -34,20 +34,20 @@ export default class Home extends Component{
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-search' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>선박통합검색</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>선박통합검색</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchAI')}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-camera' style={{fontSize:35, color: '#006eee',}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>선박AI검색
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>선박AI검색
 								</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('SearchMap')}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-map' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>지도검색</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>지도검색</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>
@@ -63,19 +63,19 @@ export default class Home extends Component{
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='logo-buffer' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>일반선박 목록</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>일반선박 목록</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('ListWastedShip')}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>	
 									<base.Icon name='logo-buffer' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>유기,폐선박 목록</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>유기,폐선박 목록</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>this.props.navigation.navigate('Register')}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-add-circle' style={{fontSize:35, color: '#006eee',}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>선박등록</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>선박등록</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>
@@ -91,7 +91,7 @@ export default class Home extends Component{
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-sunny' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>기상정보</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>기상정보</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>
 									Alert.alert(
@@ -102,13 +102,13 @@ export default class Home extends Component{
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-boat' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5,}}>조업정보알리미</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>조업정보알리미</base.Text>
 							</base.CardItem>
 							<base.CardItem button style={styles.iconBackground} onPress={()=>Linking.openURL('http://m.khoa.go.kr/')}>
 								<base.Form style={{ backgroundColor: '#EDF5FE', width: 65, height: 65, borderRadius: 20, alignItems: 'center', justifyContent: 'center'}}>
 									<base.Icon name='ios-podium' style={{fontSize:35, color: '#006eee'}}/>
 								</base.Form>
-								<base.Text style={{fontFamily:'Nanum', marginTop: 5}}>수치조류도</base.Text>
+								<base.Text style={{fontFamily:'Nanum', marginTop: 5, fontSize: FONT_SIZE}}>수치조류도</base.Text>
 							</base.CardItem>
 						</base.Card>
 					</base.Form>

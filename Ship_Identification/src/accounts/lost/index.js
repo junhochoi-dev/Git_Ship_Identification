@@ -1,8 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { Alert } from 'react-native';
+import { Alert, Dimensions } from 'react-native';
 import * as base from 'native-base'
 import Constants from 'expo-constants';
+
+const SIZE_TITLE = Dimensions.get('screen').height * 0.04
+const SIZE_SUBTITLE = Dimensions.get('screen').height * 0.02
+const SIZE_FONT = Dimensions.get('screen').height * 0.02
+
 export default class Lost extends Component{
 	constructor(props){
 		super(props)
@@ -25,9 +30,9 @@ export default class Lost extends Component{
 					</base.Right>
 				</base.Header>
 				<base.Content padder contentContainerStyle={{alignItems: 'center', flex: 1,}}>
-					<base.Form style={{margin: 5,}}>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 40, color: '#006eee', margin: 5}}>비밀번호를 잊어버리셨나요?</base.Text>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 5}}>비밀번호를 잊어버린 아이디와 이메일을 입력하시면 해당 이메일로 초기화된 비밀번호가 전송됩니다</base.Text>
+					<base.Form>
+						<base.Text style={{fontFamily:'Nanum', fontSize: SIZE_TITLE, color: '#006eee', margin: 5}}>비밀번호를{'\n'}잊어버리셨나요?</base.Text>
+						<base.Text style={{fontFamily:'Nanum', fontSize: SIZE_SUBTITLE, margin: 5}}>비밀번호를 잊어버린 아이디와 이메일을 입력하시면 해당 이메일로 초기화된 비밀번호가 전송됩니다</base.Text>
 					</base.Form>
 					
 					<base.Form style={{width: '100%',}}>
@@ -54,7 +59,7 @@ export default class Lost extends Component{
 						</base.Item>
 					</base.Form>
 					
-					<base.Button block style={{backgroundColor: '#006eee'}} onPress={()=>{
+					<base.Button block style={{backgroundColor: '#006eee', marginTop: 10,}} onPress={()=>{
 							Alert.alert(
 								'선박확인체계 알림',
 								'초기화된 비밀번호가 해당 이메일로 전송되었습니다',

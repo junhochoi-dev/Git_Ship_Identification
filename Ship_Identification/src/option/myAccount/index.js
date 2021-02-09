@@ -58,12 +58,12 @@ export default class MyAccount extends Component{
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title style={{fontFamily:'Nanum'}}>내정보</base.Title>
+						<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20,}}>내정보</base.Title>
 					</base.Right>
 				</base.Header>
 				<base.Content padder>
 					<base.Form style={{alignItems: 'center'}}>
-						<Image source={require('/workspace/Ship_Identification/assets/img/logo.jpg')} resizeMode='contain' style={{width: 200, height: 300,}}/>
+						<Image source={require('/workspace/Ship_Identification/assets/img/logo.jpg')} resizeMode='contain' style={{width: 150, height: 250,}}/>
 					</base.Form>
 						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> 이름 : {this.state.name} </base.Text></base.Item>
 						<base.Item regular style={styles.detail}><base.Text style={{fontFamily: 'Nanum', fontSize: 15}}> ID : {this.state.serviceNum} </base.Text></base.Item>

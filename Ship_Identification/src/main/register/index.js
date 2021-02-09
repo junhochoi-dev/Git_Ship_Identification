@@ -27,7 +27,7 @@ export default class Register extends Component{
 			name: '', IMO: '', Calsign: '', MMSI: '', vessel_type: '',
 			build_year: '', current_flag: '', home_port: '',
 			
-			title: '', latitude: '', longitude: '', detail: '',
+			title: '', latitude: '0', longitude: '0', detail: '',
 		};
 		this.pickImage = this.pickImage.bind(this);
 		this.pickPhoto = this.pickPhoto.bind(this);
@@ -52,7 +52,7 @@ export default class Register extends Component{
 		}).then((result) => {
 			ImageManipulator.manipulateAsync(
 				result.uri,
-				[{resize: {width: 100, height: 100}}],
+				[{resize: {width: 400, height: 400}}],
 				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
 			).then((result) => this.setState({img: result.uri, base64: result.base64}))
 		})
@@ -68,7 +68,7 @@ export default class Register extends Component{
 		}).then((result) => {
 			ImageManipulator.manipulateAsync(
 				result.uri,
-				[{resize: {width: 100, height: 100}}],
+				[{resize: {width: 400, height: 400}}],
 				{base64: true, format: ImageManipulator.SaveFormat.JPEG}
 			).then((result) => this.setState({img: result.uri, base64: result.base64}))
 		})
@@ -85,7 +85,7 @@ export default class Register extends Component{
 				<ValueInput label='제작년도' onChange={(build_year) => this.setState({build_year})}/>
 				<ValueInput label='입항국가' onChange={(current_flag) => this.setState({current_flag})}/>
 				<ValueInput label='정박항구' onChange={(home_port) => this.setState({home_port})}/>
-				<base.Button block onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
+				<base.Button block onPress={this.registerBoat} style={{backgroundColor: '#006eee', marginBottom: 10}}>
 					<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
 				</base.Button>
 			</base.Form>
@@ -94,28 +94,36 @@ export default class Register extends Component{
 	wastedInput = () => {
 		return(
 			<base.Form>
-				<ValueInput label='선박명' onChange={(title) => this.setState({title})}/>
-					<base.Form style={{flexDirection: 'row', marginBottom: 10, alignItems: 'center'}}>
-						<base.Item regular style={{
-							flex: 1,
-							borderRadius: 10,
-							width: '100%',
-							height: 50,
-							margin: 5
-							}}><base.Text style={{fontFamily: 'Nanum', }}>위도 {this.state.latitude}</base.Text></base.Item>
-						<base.Item regular style={{
-							flex: 1,
-							borderRadius: 10,
-							width: '100%',
-							height: 50,
-							margin: 5
-						}}><base.Text style={{fontFamily: 'Nanum'}}>경도 {this.state.longitude}</base.Text></base.Item>
-						<base.Icon onPress={this.getLocation} name='ios-compass' style={{color:'#006eee',fontSize: 40}}/>
-					</base.Form>
-				<base.Textarea rowSpan={3} bordered placeholder="세부사항등록"
+				<ValueInput label='유기선박 및 폐선박 관리번호' onChange={(title) => this.setState({title})}/>
+				<base.Text style={{fontFamily: 'Nanum', color: 'dark', marginTop: 10,}}>세부정보 및 특이사항</base.Text>
+				<base.Textarea rowSpan={5} bordered
 					onChangeText={(detail) => this.setState({detail})}
 					style={{fontFamily: 'Nanum', marginTop:10, marginBottom: 10, borderRadius: 10,}}/>
-				<base.Button block onPress={this.registerBoat} style={{backgroundColor: '#006eee'}}>
+				
+				
+				<base.Form style={{flexDirection: 'row', alignItems: 'center', width: '100%',}}>
+					<base.Form style={{flex: 7, flexDirection: 'column', width: '100%'}}>
+						<base.Item regular style={{
+							flex: 1,
+							borderRadius: 10,
+							width: '100%',
+							height: 50,
+							margin: 10
+							}}><base.Text style={{fontFamily: 'Nanum', }}>  위도 : {this.state.latitude}</base.Text></base.Item>
+						<base.Item regular style={{
+							flex: 1,
+							borderRadius: 10,
+							width: '100%',
+							height: 50,
+							margin: 10
+						}}><base.Text style={{fontFamily: 'Nanum', }}>  경도 : {this.state.longitude}</base.Text></base.Item>
+					</base.Form>
+					<base.Form style={{flex: 2, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+						<base.Icon onPress={this.getLocation} name='ios-compass' style={{color:'#006eee',fontSize: 40}}/>
+						<base.Text style={{fontFamily: 'Nanum'}}>위치정보{'\n'}불러오기</base.Text>
+					</base.Form>
+				</base.Form>
+				<base.Button block onPress={this.registerBoat} style={{backgroundColor: '#006eee', marginBottom: 10}}>
 					<base.Text style={{fontFamily: 'Nanum'}}>선박등록하기</base.Text>
 				</base.Button>
 			</base.Form>
@@ -163,21 +171,16 @@ export default class Register extends Component{
 							<base.Title style={{fontFamily:'Nanum_Title', fontSize: 20}}>선박등록</base.Title>
 						</base.Right>
 					</base.Header>
+					<base.Segment style={{backgroundColor: '#006eee',}}>
+						<base.Button first active={this.state.flag == 'Normal'} style={{width: '40%', justifyContent: 'center'}} onPress={() => this.setState({flag: 'Normal'})}>
+						<base.Text style={{fontFamily:'Nanum', fontSize: 15}}>일반선박 등록</base.Text>
+						</base.Button>
+						<base.Button last active={this.state.flag == 'Wasted'} style={{width: '40%', justifyContent: 'center'}} onPress={() => this.setState({flag: 'Wasted'})}>
+						<base.Text style={{fontFamily:'Nanum', fontSize: 15}}>유기 및 폐선박 등록</base.Text>
+						</base.Button>
+					</base.Segment>
 					<base.Content padder>
 						<base.Card>
-							<base.Form style={{margin: 10,}}>
-								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박유형선택</base.Text>
-								<base.Item regular style={{width:'100%', height: 40, borderRadius: 10, flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-									<base.Picker
-										mode='dropdown'
-										style={{flex: 1, width: '100%', fontFamily: 'Nanum_Title'}}
-										onValueChange={this.onValueChange.bind(this)}
-										>
-										<base.Picker.Item label='일반선박' value='Normal' labelStyle={{color:'red'}}/>
-										<base.Picker.Item label='유기선박 및 폐선박' value='Wasted'/>
-									</base.Picker>
-								</base.Item>
-							</base.Form>
 							<base.Form style={{margin: 10,}}>
 								<base.Text style={{fontFamily:'Nanum', margin: 5}}>선박사진등록</base.Text>
 								<base.Item regular style={{width:'100%', height: 300, borderRadius: 10, flexDirection: 'column'}}>
@@ -199,7 +202,7 @@ export default class Register extends Component{
 									</base.Button>
 								</base.Item>
 							</base.Form>
-							<base.Form style={{margin: 10,}}>
+							<base.Form style={{marginLeft: 10, marginRight: 10,}}>
 								{detailInput}
 							</base.Form>							
 						</base.Card>

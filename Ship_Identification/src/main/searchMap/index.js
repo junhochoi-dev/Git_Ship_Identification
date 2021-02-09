@@ -86,7 +86,8 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 						latitude: parseFloat(ship.latitude),
 						longitude: parseFloat(ship.longitude),
 					}}>
-						<Callout onPress={()=> this.props.navigation.navigate('DetailWastedShip', {id: ship.id})}>
+						<Callout
+							onPress={() => this.props.navigation.navigate('DetailWastedShip', {id: ship.id})}>
 							<View>
 								<Svg width={300} height={200}>
 									<Image
@@ -96,7 +97,6 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 									/>
 								</Svg>
 								<base.Card>
-									<base.Text>{ship.id}</base.Text>
 									<Text style={{fontFamily:'Nanum',}}>IMO : {ship.title}</Text>
 									<Text style={{fontFamily:'Nanum',}}>위도 : {ship.latitude}</Text>
 									<Text style={{fontFamily:'Nanum',}}>경도 : {ship.longitude}</Text>
@@ -131,7 +131,6 @@ export default class SearchMap extends Component{ // only use for Wasted Boat
 								latitudeDelta: 0.05,
 								longitudeDelta: 0.05,
 							}}
-							showsUserLocation={true}
 							mapType={'satellite'}
 							>
 							{ requestMarker(this.state.data) }

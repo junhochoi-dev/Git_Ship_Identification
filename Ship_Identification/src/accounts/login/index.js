@@ -8,7 +8,7 @@ import { requestLogin } from '../../../utils/userInfoRequest/'
 
 const SIZE_ICON = Dimensions.get('screen').width * 0.6
 const SIZE_TITLE = Dimensions.get('screen').width * 0.125
-const SIZE_SUBTITLE = Dimensions.get('screen').width * 0.04
+const SIZE_SUBTITLE = Dimensions.get('screen').width * 0.035
 
 export default class Login extends Component{
 	constructor(props){
@@ -43,7 +43,7 @@ export default class Login extends Component{
 						<base.Form style={styles.container}>
 							<base.Icon name='ios-boat' style={{ color: 'white', fontSize: SIZE_ICON}}/>
 							<base.Text style={{fontSize: SIZE_TITLE, fontFamily:'Nanum_Title', color: 'white'}}>선박확인체계</base.Text>
-							<base.Text style={{fontSize: SIZE_SUBTITLE, fontFamily:'Nanum_Title', color: 'white'}}>BETA VERSION</base.Text>
+							<base.Text style={{fontSize: SIZE_SUBTITLE, fontFamily:'Nanum_Title', color: 'white'}}>BETA TEST VERSION</base.Text>
 						</base.Form>
 						<base.Form style={styles.inputContainer}>
 							<base.Item floatingLabel style={styles.input_layout}>

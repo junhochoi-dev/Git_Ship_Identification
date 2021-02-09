@@ -34,7 +34,7 @@ export default class DetailWastedShip extends Component{
         })
 	}
 	render(){
-		if(this.state.img == '' || this.state.latitude == '' || this.state.longitude == ''){
+		if(this.state.img == ''){
             return(
                 <base.Form style={{alignItems:'center', justifyContent: 'center', flex: 1}}>
 					<base.Text style ={{fontSize: 30}}>데이터 가져오는 중</base.Text>

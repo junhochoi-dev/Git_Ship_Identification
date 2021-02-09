@@ -38,7 +38,7 @@ export default class Search extends Component{
 	wastedInput = () => {
 		return(
 			<base.Form>
-				<ValueInput label='유기,폐선박 관리번호' onChange={(title) => this.setState({title})}/>
+				<ValueInput label='유기선박 및 폐선박 관리번호' onChange={(title) => this.setState({title})}/>
 				<base.Button block onPress={this.searchBoat} style={{backgroundColor: '#006eee'}}>
 					<base.Text>선박검색하기</base.Text>
 				</base.Button>
@@ -91,7 +91,7 @@ export default class Search extends Component{
 					<base.Text style={{fontFamily:'Nanum', fontSize: 15}}>일반선박 검색</base.Text>
 					</base.Button>
 					<base.Button last active={this.state.flag == 'Wasted'} style={{width: '40%', justifyContent: 'center'}} onPress={() => this.setState({flag: 'Wasted'})}>
-					<base.Text style={{fontFamily:'Nanum', fontSize: 15}}>유기,폐선박 검색</base.Text>
+					<base.Text style={{fontFamily:'Nanum', fontSize: 15}}>유기 및 폐선박 검색</base.Text>
 					</base.Button>
 				</base.Segment>
 				<base.Content padder>

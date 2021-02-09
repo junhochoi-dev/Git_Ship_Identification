@@ -6,11 +6,10 @@ import Constants from 'expo-constants';
 
 import { requestSignup } from '../../../utils/userInfoRequest/'
 
-const SIZE_TITLE = Dimensions.get('screen').width * 0.125
-const SIZE_FONT = Dimensions.get('screen').width * 0.04
-const SIZE_WARNING = Dimensions.get('screen').width * 0.0425
-const SIZE_ICON = Dimensions.get('screen').width * 0.6
-const SIZE_MARGIN = Dimensions.get('screen').height * 0.025
+const SIZE_TITLE = Dimensions.get('screen').height * 0.04
+const SIZE_SUBTITLE = Dimensions.get('screen').height * 0.02
+const SIZE_FONT = Dimensions.get('screen').height * 0.02
+
 export default class Signup2 extends Component{
 	constructor(props){
 		super(props)
@@ -60,8 +59,8 @@ export default class Signup2 extends Component{
 				</base.Header>
 				<base.Content padder>
 					<base.Form style={{margin: 5,}}>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 40, color: '#006eee', margin: 5}}>환영합니다</base.Text>
-						<base.Text style={{fontFamily:'Nanum', fontSize: 20, margin: 5}}>아래의 정보를 입력해주세요</base.Text>
+						<base.Text style={{fontFamily:'Nanum', fontSize: SIZE_TITLE, color: '#006eee', margin: 5}}>환영합니다</base.Text>
+						<base.Text style={{fontFamily:'Nanum', fontSize: SIZE_SUBTITLE, margin: 5}}>아래의 정보를 입력해주세요</base.Text>
 					</base.Form>
 					<base.Card>
 						<base.Form style={{ margin:10,}}>
@@ -112,6 +111,7 @@ export default class Signup2 extends Component{
 									onChangeText={(email) => this.setState({email})}
 									style={{fontFamily:'Nanum'}}
 									placeholderStyle={{fontFamily:'Nanum'}}
+									keyboardType='email-address'
 									/>
 							</base.Item>
 							<base.Form style={{alignItems: 'center'}}>

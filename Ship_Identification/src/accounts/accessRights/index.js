@@ -5,7 +5,7 @@ import * as base from 'native-base';
 
 import styles from './styles';
 const SIZE_TITLE = Dimensions.get('screen').width * 0.1
-const SIZE_SUBTITLE = Dimensions.get('screen').width * 0.04
+const SIZE_SUBTITLE = Dimensions.get('screen').width * 0.0375
 const SIZE_ITEMTITLE = Dimensions.get('screen').width * 0.05
 const SIZE_FONT = Dimensions.get('screen').width * 0.04
 const SIZE_ICON = Dimensions.get('screen').width * 0.06
