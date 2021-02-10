@@ -20,10 +20,10 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.ship_identification.ship_identification",
+      "package": "com.Ship_Identification.Ship_Identification",
       "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/applogo.png",
         "backgroundColor": "#FFFFFF"
       },
       "config": {
@@ -36,7 +36,7 @@
       "favicon": "./assets/favicon.png"
     },
     "packagerOpts": {
-      "port": 56979
+      "port": 58763
     }
   }
 }
