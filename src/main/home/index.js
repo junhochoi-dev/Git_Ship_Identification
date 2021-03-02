@@ -16,7 +16,7 @@ export default class Home extends Component{
 						</base.Button>
 					</base.Left>
 					<base.Right>
-						<base.Title style={{fontSize: 20,}}>선박확인체계</base.Title>
+						<base.Title style={{fontSize: 20,}}>선박확인체계TEST</base.Title>
 					</base.Right>
 				</base.Header>
                 <base.Content padder contentContainerStyle={{alignItems: 'center', justifyContent:'center', flex: 1,}}>
